@@ -1,0 +1,6 @@
+-object.by_family(family).paginate(:page => params[:page]).each do |item|
+	%li
+		.grid_1.alpha
+			= image_tag "../uploads/front/grid1_#{item.name}.jpg"
+		.grid_5.rule-two.omega
+			= link_to item.id.to_s + " - "+ item.name, product_path(item)

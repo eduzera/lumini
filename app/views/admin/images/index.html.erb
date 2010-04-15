@@ -1,0 +1,17 @@
+<% title "Admin/Images" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+  </tr>
+  <% for admin/image in @admin/images %>
+    <tr>
+      <td><%=h admin/image.name %></td>
+      <td><%= link_to "Show", admin/image %></td>
+      <td><%= link_to "Edit", edit_admin/image_path(admin/image) %></td>
+      <td><%= link_to "Destroy", admin/image, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Admin/Image", new_admin/image_path %></p>

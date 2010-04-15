@@ -1,0 +1,12 @@
+.navContainer 
+	%ul.with_images
+		%li
+			.grid_4.rule-two.alpha{:style => "padding-bottom: 12px;"}
+				= link_to "criar novo", new_admin_product_path
+				
+		-Product.all_with_filter.each do |product|
+			%li
+				.grid_1.alpha
+					= image_tag "../uploads/front/grid1_#{product.name}.jpg"
+				.grid_3.rule-two.omega
+					= link_to product.name, admin_product_path(product)

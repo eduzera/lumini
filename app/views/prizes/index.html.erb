@@ -1,0 +1,21 @@
+<% title "Prizes" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Description</th>
+    <th>Status</th>
+  </tr>
+  <% for prize in @prizes %>
+    <tr>
+      <td><%=h prize.name %></td>
+      <td><%=h prize.description %></td>
+      <td><%=h prize.status %></td>
+      <td><%= link_to "Show", prize %></td>
+      <td><%= link_to "Edit", edit_prize_path(prize) %></td>
+      <td><%= link_to "Destroy", prize, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Prize", new_prize_path %></p>

@@ -1,0 +1,24 @@
+.actionContainer.grid_15
+	.actionHeader
+		%h2.grid_3.alpha titulo do item
+		%p.messageBoard.grid_9 flash message!!!
+		%p.actionTriggers.grid_3.omega 
+			-#= link_to_remote "cancelar /", :url => admin_path 
+			=link_to "cancelar /", admin_path
+			salvar / excluir
+		
+	%ul.actionMenu
+		%li images
+
+	.actionContent
+		-semantic_form_for @image, :html => {:multipart => true} do |form|
+			.form-container 							
+				.form-content
+					.grid_3 
+						=form.input :img, :as => :file, :label => "nova imagem", :required => false						
+			
+			.form-container 							
+				.form-content
+					.grid_3.alpha + nova imagem
+					.grid_3 
+						=form.commit_button

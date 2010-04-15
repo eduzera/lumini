@@ -1,0 +1,15 @@
+-if object.respond_to?(:each)
+	-object.each do |object| 
+		-object.product.by_category(object.product_category_id, view).each do |item|
+			%li
+				.grid_1.alpha
+					= image_tag "../uploads/front/grid1_#{item.name}.jpg"
+				.grid_5.rule-two.omega
+					= link_to item.id.to_s + " - "+ item.name, product_path(item)
+-else
+	-object.product.by_category(object.product_category_id, view).each do |item|
+		%li
+			.grid_1.alpha
+				= image_tag "../uploads/front/grid1_#{item.name}.jpg"
+			.grid_5.rule-two.omega
+				= link_to item.id.to_s + " - "+ item.name, product_path(item)

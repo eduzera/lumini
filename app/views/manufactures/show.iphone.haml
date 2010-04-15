@@ -1,0 +1,18 @@
+.wrapper
+	.container_6
+		.submenu
+			%p.grid_2
+				=@families.first.product_manufacture
+			%p.grid_2 &nbsp;
+			%p.grid_2 slideshow
+		
+			%p.clear
+			%ul.with_images
+				-@families.each do |family|
+					%li.no_link= family.name
+					-family.product.by_manufacture(family.product_manufacture_id).each do |item|
+						%li
+							.grid_1.alpha
+								= image_tag "../uploads/front/grid1_#{item.name}.jpg"
+							.grid_5.rule-two.omega
+								= link_to item.name, product_path(item)

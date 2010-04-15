@@ -1,0 +1,13 @@
+.wrapper
+	.container_6
+		.submenu
+			%p.grid_2
+				= link_to "por tipo", categories_path, :class => "active"
+			%p.grid_2 &nbsp;
+			%p.grid_2
+				= link_to "por marca", manufactures_path
+	
+		%ul
+			- @categories.each do |category|
+				- category.lang_category.each do |item|
+					%li= link_to item.name, family_path(item)

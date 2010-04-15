@@ -1,0 +1,15 @@
+.wrapper
+	.container_6
+		.submenu
+			%p.grid_2
+				=@category.name
+			%p.grid_2 &nbsp;
+			%p.grid_2 slideshow
+		
+		%p.clear
+		-@families.each do |family|
+			%ul.with_images[family]
+				%li= family.name			
+				= render :partial => "products_family",  :locals => {:object => @products, :family => family.id}
+			%ul 
+				%li= link_to_remote "mais..", :url => {:action => "show", :family => family}, :method => :get, :html => {:href => "families/#{@category.id}", :target => "_replace"}

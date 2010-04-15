@@ -1,0 +1,23 @@
+<% title "Designers" %>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Biography</th>
+    <th>Birthdate</th>
+    <th>Deathdate</th>
+  </tr>
+  <% for designer in @designers %>
+    <tr>
+      <td><%=h designer.name %></td>
+      <td><%=h designer.biography %></td>
+      <td><%=h designer.birthdate %></td>
+      <td><%=h designer.deathdate %></td>
+      <td><%= link_to "Show", designer %></td>
+      <td><%= link_to "Edit", edit_designer_path(designer) %></td>
+      <td><%= link_to "Destroy", designer, :confirm => 'Are you sure?', :method => :delete %></td>
+    </tr>
+  <% end %>
+</table>
+
+<p><%= link_to "New Designer", new_designer_path %></p>

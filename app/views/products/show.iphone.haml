@@ -1,0 +1,27 @@
+.wrapper
+	.container_6
+		.submenu
+			%p.grid_6
+				=@product.category.lang_category.first.name
+				
+	.container_6
+		%p.grid_6.rule-two= @product.lang_product.each.first.name
+		.grid_4{:style => "margin-bottom: 18px"}
+			= image_tag "../uploads/front/grid4_#{@product.lang_product.each.first.name}.jpg"
+		%ul.grid_2
+			%li
+				= link_to "fotografias", categories_path
+			%li
+				= link_to "desenhos", categories_path
+			%li
+				= link_to "o designer", categories_path
+		
+		%p.clear
+		.grid_4
+			%p{:style => "margin-bottom: 24px"}= @product.lang_product.each.first.description
+			%p.rule-two dados técnicos
+			%p= @product.lang_product.each.first.tech_description
+		.grid_2
+			.grid_1.alpha
+				= image_tag "../uploads/prizes/logo-if.png"
+			%p.grid_1.rule-two.arrow.omega &nbsp;

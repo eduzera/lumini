@@ -1,0 +1,2 @@
+#page.alert('This message is from Rails!')
+page.insert_html :bottom, 'family_'+params[:family], :partial => 'products_family', :locals => {:object => @products, :family => params[:family]}

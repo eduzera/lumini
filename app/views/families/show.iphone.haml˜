@@ -1,0 +1,17 @@
+.wrapper
+	.container_6
+		.submenu
+			%p.grid_2
+				=@families.first.product_category
+			%p.grid_2 &nbsp;
+			%p.grid_2 slideshow
+		
+		%p.clear
+		-@families.each do |family|
+			%ul.with_images[family]
+				%li= family.name			
+				= render :partial => "products_family",  :locals => {:object => family, :view => 5}
+				%ul 
+					-#if params[:view].to_i < family.product.by_category(family.product_category_id, params[:view]).count
+						-#%li= link_to "mais..", family_path(:view => (params[:view].to_i + 5)), {:target => "_replace"}
+					%li= link_to_remote "mais..", :url => {:action => "show", :family => family}, :method => :get, :html => {:href => "families/1", :target => "_replace"}

@@ -1,0 +1,15 @@
+%html
+	%head
+		%title lumini | website publisher
+		= stylesheet_link_tag 'reset', 'publisher-grid', 'publisher-text'
+		= formtastic_stylesheet_link_tag
+		= javascript_include_tag :defaults
+
+	%body
+		.container_19{:style => "position: relative;"}
+			.over_grid &nbsp;
+		= render :partial => "layouts/top_menu_publisher"
+		.masterContent.container_19
+			= render :partial => "layouts/left_menu_publisher"
+			= yield 
+
