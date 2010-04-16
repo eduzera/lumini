@@ -1,24 +1,25 @@
 .actionContainer.grid_15
-	.actionHeader
-		%h2.grid_3.alpha titulo do item
-		%p.messageBoard.grid_9 flash message!!!
-		%p.actionTriggers.grid_3.omega 
-			-#= link_to_remote "cancelar /", :url => admin_path 
-			=link_to "cancelar /", admin_path
-			salvar / excluir
-		
-	%ul.actionMenu
-		%li images
+	-semantic_form_for @image, :url => admin_product_images_path , :html => {:multipart => true} do |form|
+		.actionHeader
+			%h2.grid_3.alpha titulo do item
+			%p.messageBoard.grid_9 flash message!!!
+			%p.actionTriggers.grid_3.omega 
+				-#= link_to_remote "cancelar /", :url => admin_path 
+				=link_to "cancelar /", admin_path
+				-#=link_to  "salvar /", admin_product_images_path, :method => :post
+				excluir
 
-	.actionContent
-		-semantic_form_for @image, :html => {:multipart => true} do |form|
+		%ul.actionMenu
+			%li images
+
+		.actionContent
 			.form-container 							
 				.form-content
 					.grid_3 
-						=form.input :img, :as => :file, :label => "nova imagem", :required => false						
-			
+						=form.input :img, :as => :file, :label => "nova imagem"
+						=form.input :product_id, :as => :hidden
+
 			.form-container 							
 				.form-content
-					.grid_3.alpha + nova imagem
 					.grid_3 
 						=form.commit_button

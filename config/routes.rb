@@ -3,32 +3,32 @@ ActionController::Routing::Routes.draw do |map|
   
   map.admin "/admin", :controller => "admin/home", :action => "index"
   
-  #map.more_results "/more_results", :controller => "families", :action => "more_results", :requirements => {:status}
+  map.resources :home,            :only => [:index, :show]
+  map.resources :images,          :only => [:index, :show]
+  map.resources :solutions,       :only => [:index, :show]
+  map.resources :lang_designers,  :only => [:index, :show]
+  map.resources :lang_prizes,     :only => [:index, :show]
+  map.resources :languages,       :only => [:index, :show]
+  map.resources :prizes,          :only => [:index, :show]
+  map.resources :families,        :only => [:index, :show]
+  map.resources :categories,      :only => [:index, :show]
+  map.resources :designers,       :only => [:index, :show]
+  map.resources :manufactures,    :only => [:index, :show]
   
-  map.resources :home
-  map.resources :products
-  map.resources :images
-  map.resources :solutions
-  map.resources :lang_designers
-  map.resources :lang_prizes
-  map.resources :languages
-  map.resources :prizes
-  map.resources :families
-  map.resources :categories
-  map.resources :designers
-  map.resources :manufactures
-  
-  map.namespace(:admin) do |admin|
-    admin.resources :home
-  	admin.resources :products do |products|
-  	  products.resources :images
-	  end
+  map.resources :products, :only => [:index, :show] do |product|
+    product.resources :images, :only => [:index, :show]
   end
   
-  
-  
-  
-  
+  map.namespace(:admin) do |admin|
+    admin.resources :home,      :only => [:index]
+  	admin.resources :products,  :has_many => :images
+  end
+    
+  #map.connect 'images/', :controller => "admin/images", :action => 'create'
+
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
 
   # Sample of regular route:

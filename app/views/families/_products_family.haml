@@ -1,4 +1,4 @@
--object.by_family(family).paginate(:page => params[:page]).each do |item|
+-object.by_family(family).each do |item|
 	%li
 		.grid_1.alpha
 			= image_tag "../uploads/front/grid1_#{item.name}.jpg"

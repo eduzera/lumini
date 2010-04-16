@@ -1,0 +1,59 @@
+-publisher
+	gerenciamento da capa
+		-
+
+	cadastro de produto
+		- info (por idiomas)
+		- imagens (por tipos => {fotografias, desenhos} capa)
+
+
+	crud (store, family, manufactures, categories, prizes, designers) => por idioma
+		- imagem prize, designer, solution
+	
+
+- front	
+	slideshow
+		- primeira img de cada produto na sequencia de uma categoria (grid_?)
+		 - produto
+			- todas as imgs (status => true)
+	
+	share product
+		facebook
+		twitter
+		email
+	
+=========================================================================================================
+
+publisher
+	- cadastro produto (total)
+
+front 
+	- galeria de fotos
+	- prizes
+	- designer
+
+=========================================================================================================
+
+publisher
+	- todas as mensagens de erro!
+	- revisar o css
+	- passar a navegação pro topo (salvar, cancelar, excluir)
+	
+	-product
+		- add new language crud product
+		- add list prizes (modelagem)
+			- N to N (associative model)
+	
+		- imagens 
+			- lista das imagens cadastradas (vide Adobe Ilustrator)
+			- arrumar o path de uploads
+			
+front
+	- rails_jqtouch (estudar)
+		- trocar o rails_iui pelo rails_jqtouch e continuar navegando
+		- galeria
+			- montar 
+			- slideshow
+		
+	- prizers (depende do publisher {não modelado})
+	- listar designer

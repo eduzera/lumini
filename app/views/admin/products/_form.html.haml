@@ -11,7 +11,7 @@
 		%li info
 
 	.actionContent
-		-semantic_form_for @product do |form|
+		-semantic_form_for @product, :url => admin_products_path do |form|
 			.form-container 
 				.form-sub-container.grid_3
 					.form-content
@@ -49,7 +49,7 @@
 				.form-content
 					.grid_3.alpha status
 					.grid_3 
-						=form.input :status, :as => :radio, :label => false, :collection => [["publicado", true], ["rascunho", false]]
+						=form.input :status, :label => false, :as => :radio, :collection => [["publicado", true], ["rascunho", false]]
 					
 		
 			.form-container 
@@ -57,15 +57,15 @@
 				.form-content
 					.grid_3.alpha categoria
 					.grid_3
-						=form.inputs :category, :as => :select, :include_blank => false, :collection => Category.all_with_filter(:order => :name)
+						=form.inputs :category
 				.form-content
 					.grid_3.alpha família
 					.grid_3
-						=form.inputs :family, :as => :select, :include_blank => false, :collection => Family.all_with_filter
+						=form.inputs :family
 				.form-content
 					.grid_3.alpha fabricante
 					.grid_3
-						=form.inputs :manufacture, :as => :select, :include_blank => false, :collection => Manufacture.all
+						=form.inputs :manufacture
 
 			/.form-container 
 			/	/ Agrupamento de campos belongs_to (Não relacionados ao produto em si (Não depende para existir))
@@ -80,7 +80,7 @@
 				.form-content
 					.grid_3.alpha designer
 					.grid_3
-						=form.inputs :designer, :as => :select, :include_blank => false, :collection => Designer.all
+						=form.inputs :designer
 
 			.form-container 
 				.form-content
