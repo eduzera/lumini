@@ -13,7 +13,6 @@ body > *:not(.toolbar) {
     margin: 0;
     padding: 0;
     left: 0;
-    top: 102px;
     width: 100%;
     min-height: 372px;
 }
@@ -44,7 +43,6 @@ body > .toolbar {
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
-    height: 45px;
 }
 
 .toolbar > h1 {

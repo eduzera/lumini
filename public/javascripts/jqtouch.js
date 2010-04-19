@@ -188,7 +188,7 @@
                 $(currentPage).addClass('current');
                 location.hash = $(currentPage).attr('id');
                 addPageToHistory(currentPage);
-                scrollTo(0, 0);
+                scrollTo(0, 50); // Marco
                 dumbLoopStart();
             });
         }

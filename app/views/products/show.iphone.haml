@@ -1,4 +1,5 @@
 .wrapper
+	= render :partial => "layouts/top_menu"
 	.container_6
 		.submenu
 			%p.grid_6
@@ -10,7 +11,7 @@
 			= image_tag "../uploads/front/grid4_#{@product.lang_product.each.first.name}.jpg"
 		%ul.grid_2
 			%li
-				= link_to "fotografias", categories_path
+				= link_to "fotografias", galeries_path
 			%li
 				= link_to "desenhos", categories_path
 			%li
