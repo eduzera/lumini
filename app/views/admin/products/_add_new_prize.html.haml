@@ -1,0 +1,13 @@
+- new_or_existing = product_prize.new_record? ? 'new' : 'existing'
+- prefix = "product[#{new_or_existing}_product_prize_attributes][]"
+
+-semantic_fields_for prefix, product_prize do |prize|
+-prize.inputs
+	.form-content
+
+		.grid_3.alpha prêmio
+		
+		.grid_3
+			= prize.input :prize_id , :collection => Prize.find(:all)
+		.grid_3.omega
+			= prize.input :year, :as => :select, :collection => (10.years.ago.year..Time.now.year).map

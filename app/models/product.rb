@@ -1,12 +1,13 @@
 class Product < ActiveRecord::Base
   belongs_to :designer
   belongs_to :manufacture
-  belongs_to :prize
   belongs_to :category
   belongs_to :family
   
   has_many :image, :dependent => :destroy
   has_many :lang_product
+ 
+  has_many :product_prize
  
   accepts_nested_attributes_for :lang_product
   accepts_nested_attributes_for :image
@@ -14,7 +15,6 @@ class Product < ActiveRecord::Base
   cattr_reader :per_page
   @@per_page = 5
   
-
 
   named_scope :all_with_filter, :select => "products.id 'id', lang_products.name 'name', lang_products.description 'description', 
                                             lang_products.tech_description 'tech_description', lang_categories.name 'category_name', 
@@ -47,4 +47,50 @@ class Product < ActiveRecord::Base
                                     :select => "products.id 'id', lang_products.name 'name'",
                                     :joins => [:lang_product],
                                     :conditions => ["products.manufacture_id = ?", manufacture]}}
+                                    
+  after_update :save_prizes
+  
+   def new_product_prize_attributes=(prize_attributes)
+     prize_attributes.each do |attributes|
+       product_prize.build(attributes)
+     end
+   end
+   
+   def existing_product_prize_attributes=(prize_attributes)
+     product_prize.reject(&:new_record?).each do |prize|
+       attributes = prize_attributes[prize.id.to_s]
+       if attributes
+         prize.attributes = attributes
+       else
+         product_prize.delete(prize)
+       end
+     end
+   end
+   
+   
+   def save_prizes
+     product_prize.each do |prize|
+       prize.save(false)
+     end
+   end
+                                                                 
+                                    
+  def new_lang_product_attributes=(product_attributes)
+    product_attributes.each do |attributes|
+      lang_product.build(attributes)
+    end
+  end
+
+  
+  def existing_lang_product_attributes=(product_attributes)
+    lang_product.reject(&:new_record?).each do |lang|
+      attributes = product_attributes[lang.id.to_s]
+      if attributes
+        lang.attributes = attributes
+      else
+        lang_product.delete(lang)
+      end
+    end
+  end
+  
 end

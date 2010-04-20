@@ -4,6 +4,7 @@ class Admin::ProductsController < ActionController::Base
   def new
     @product = Product.new
     @product.lang_product.build
+    @product.product_prize.build
   end
   
   def show
@@ -33,4 +34,11 @@ class Admin::ProductsController < ActionController::Base
         render edit_admin_product_url(@product)
       end
     end
+    
+    def add_new_language
+      
+      render :partial => "add_new_language", :locals => { :lang_product => LangProduct.new }
+
+    end
+    
 end

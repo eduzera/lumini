@@ -83,7 +83,7 @@ familia = Family.make
                                     :language_id => lingua.id)    
 
 
-/             
+             
 10.times {
   produto = Product.make( :manufacture_id => fabricante.id, 
                           :designer_id => designer.id, 
@@ -142,5 +142,5 @@ familia = Family.make
                                       :product_id => produto.id, 
                                       :language_id => lingua.id)
 }
-/
+
 puts "OK!"
