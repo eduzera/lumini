@@ -16,6 +16,7 @@ class Product < ActiveRecord::Base
   
 
 
+
   named_scope :all_with_filter, :select => "products.id 'id', lang_products.name 'name', lang_products.description 'description', 
                                             lang_products.tech_description 'tech_description', lang_categories.name 'category_name', 
                                             lang_families.name 'family_name'",
