@@ -11,39 +11,24 @@
 		%li info
 
 	.actionContent
-		-semantic_form_for @product, :url => admin_products_path do |form|
-			.form-container 
-				.form-sub-container.grid_3
+		-semantic_form_for @product, :url => @product.new_record?  ? admin_products_path : admin_product_path(@product) do |form|
+			.form-container
+				.form-sub-container.grid_3.alpha
 					.form-content
-						.grid_3.alpha + novo idioma
+						.grid_3.alpha.add_new_language 
+							=link_to "+ novo idioma","#", :onclick => "add_new_language()"
 						
-					.form-content
-						.grid_3.alpha titulo
+							.form-content
+								.grid_3.alpha titulo
 						
-					.form-content
-						.grid_3.alpha descrição
+							.form-content
+								.grid_3.alpha descrição
 					
-					.form-content
-						.grid_3.alpha dados técnicos
-						
-				.form-sub-container.grid_3	
-				-form.inputs :for => :lang_product do |lang_product|
-					/ Agrupamento de campos de product
-					.form-content
-						.grid_3 
-							= lang_product.input :language, :as => :select, :include_blank => false, :collection => Language.all
-
-					.form-content
-						.grid_3
-							=lang_product.input :name, :label => false
-
-					.form-content
-						.grid_3
-							=lang_product.input :description, :as => :text,  :label => false
-
-					.form-content	
-						.grid_3
-							=lang_product.input :tech_description, :label => false
+							.form-content
+								.grid_3.alpha dados técnicos
+				
+				#language_product
+					= render :partial => 'add_new_language', :collection => @product.lang_product , :as => :lang_product
 
 			.form-container 							
 				.form-content
@@ -67,14 +52,10 @@
 					.grid_3
 						=form.inputs :manufacture
 
-			/.form-container 
-			/	/ Agrupamento de campos belongs_to (Não relacionados ao produto em si (Não depende para existir))
-			/	.form-content
-			/		.grid_3.alpha prêmios
-			/		.grid_3
-			/			= form.add_associated_link "+ prize", :prize, :partial => 'prizes'
-			/		.grid_3.omega
-			/			= form.render_associated_form :prize, :partial => 'prizes'
+			#prize_product
+				.form-container
+					= render :partial => 'add_new_prize', :collection => @product.product_prize, :as => :product_prize
+
 
 			.form-container 
 				.form-content

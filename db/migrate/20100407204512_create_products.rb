@@ -4,7 +4,6 @@ class CreateProducts < ActiveRecord::Migration
       t.boolean :status
       t.references :designer
       t.references :manufacture
-      t.references :prize
       t.references :category
       t.references :family
       t.timestamps

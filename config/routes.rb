@@ -19,12 +19,16 @@ ActionController::Routing::Routes.draw do |map|
     product.resources :images,    :only => [:index, :show]
   end
   
+  map.connect 'admin/products/add_new_language', :controller => "admin/products", :action => 'add_new_language'
+  
   map.namespace(:admin) do |admin|
     admin.resources :home,      :only => [:index]
   	admin.resources :products,  :has_many => :images
   end
+  
+
     
-  #map.connect 'images/', :controller => "admin/images", :action => 'create'
+
 
 
 
