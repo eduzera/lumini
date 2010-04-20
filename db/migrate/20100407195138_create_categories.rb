@@ -1,7 +1,7 @@
 class CreateCategories < ActiveRecord::Migration
   def self.up
     create_table :categories do |t|
-      t.boolean :status, :default => true
+      t.boolean :status, :default => false
       t.timestamps
     end
   end

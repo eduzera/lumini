@@ -1,4 +1,5 @@
 .wrapper
+	= render :partial => "layouts/top_menu"
 	.container_6
 		.submenu
 			%p.grid_2
@@ -10,4 +11,4 @@
 		%ul
 			- @categories.each do |category|
 				- category.lang_category.each do |item|
-					%li= link_to item.name, family_path(item)
+					%li= link_to item.name, family_path(item), :class => "slide.in"

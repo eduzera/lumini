@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
     @categories = Category.active
     
     respond_to do |format|
-      format.iphone{ render :layout => false }
+      format.iphone { render :layout => false }
     end
   end
 end

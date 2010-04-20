@@ -7,13 +7,8 @@ class FamiliesController < ApplicationController
     @products = Product.by_category(@category.id)
 
     respond_to do |format|
-      format.iphone{ render :layout => false }
-      format.js
+      format.iphone { render :layout => false }
+      #format.js
     end
-  end
-  
-  
-  def more_results
-    @result = params[:status]
   end
 end
