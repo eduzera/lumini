@@ -4,7 +4,6 @@ ActionController::Routing::Routes.draw do |map|
   map.admin "/admin", :controller => "admin/home", :action => "index"
   
   map.resources :home,            :only => [:index, :show]
-  map.resources :galeries,        :only => [:index, :show]
   map.resources :solutions,       :only => [:index, :show]
   map.resources :lang_designers,  :only => [:index, :show]
   map.resources :lang_prizes,     :only => [:index, :show]
@@ -17,8 +16,10 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :products, :only => [:index, :show] do |product|
     product.resources :images,    :only => [:index, :show]
     product.resources :designers, :only => [:index, :show]
+    product.resources :galeries,  :only => [:index, :show]
   end
   
+  #map.show_image 'product/:product_id/galeries/:image_id', :controller => 'galeries', :action => 'show'
   map.connect 'admin/products/add_new_language', :controller => "admin/products", :action => 'add_new_language'
   map.connect 'admin/products/add_new_prize',    :controller => "admin/products", :action => 'add_new_prize'
   
