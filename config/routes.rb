@@ -26,10 +26,6 @@ ActionController::Routing::Routes.draw do |map|
     admin.resources :home,      :only => [:index]
   	admin.resources :products,  :has_many => :images
   end
-  
-
-    
-
 
 
 

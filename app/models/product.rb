@@ -35,7 +35,7 @@ class Product < ActiveRecord::Base
                                 :select => "products.id 'id', lang_products.name 'name'",
                                 :joins => [:family, :lang_product],
                                 :conditions => ["products.family_id = ?", family], 
-                                :group => "id"}}
+                                :group => "products.id"}}
   
   
   named_scope :by_category, lambda { |category| { 
