@@ -1,13 +1,11 @@
 !!! HTML
 %html
 	%head
-		-#%meta{:name => "viewport", :content => "initial-scale=1.0, width=device-width, height=device-height, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"}
-	
 		%title lumini | 30 anos de soluções em iluminação
 		= stylesheet_link_tag 'reset', 'iphone-grid', 'iphone-text', 'jqtouch', 'nu-iphone'
 		= javascript_include_tag 'jquery', 'jqtouch.transitions', 'jqtouch', 'mobile'
 
 	%body
-		#lumini-home
+		#page
 			= render :partial => "layouts/top_menu"
 			= yield
