@@ -22,7 +22,7 @@ class Admin::ImagesController < ApplicationController
     end
     
     respond_to do |format|
-      format.html { redirect_to admin_path }
+      format.html { redirect_to :back }
       format.js
     end
   end

@@ -3,8 +3,8 @@ class Image < ActiveRecord::Base
 
    has_attached_file :img, :styles => {:grid_1 => "45x45#" ,:grid_3 => "147x144#"},
 
-     :url => "/uploads/:class/products:product_id/:style.:extension",
-     :path => ":rails_root/public/uploads/:class/products/:product_id/:style.:extension"
+     :url => "/uploads/:class/products/:product_id/:id/:style.:extension",
+     :path => ":rails_root/public/uploads/:class/products/:product_id/:id/:style.:extension"
 
   
   
@@ -22,5 +22,4 @@ class Image < ActiveRecord::Base
    def size(url)
       File.size(url)
    end
-   
 end
