@@ -9,9 +9,9 @@
 		
 	%ul.actionMenu
 		%li 
-			= link_to "editar", edit_admin_product_path(@product)
+			= link_to "info", edit_admin_product_path(@product)
 		%li 
-			= link_to "imagens", admin_product_image_path(@product)
+			= link_to "fotografias", admin_product_image_path(@product)
 
 	.actionContent
 		-semantic_form_for @product do |form|

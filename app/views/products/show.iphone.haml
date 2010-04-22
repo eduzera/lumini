@@ -17,7 +17,7 @@
 				= link_to "desenhos",		product_galeries_path(@product), :class => "dissolve"
 			%li
 				= link_to "o designer",		product_designers_path(@product), :class => "dissolve"
-		
+
 		%p.clear
 		.grid_4
 			%p{:style => "margin-bottom: 24px"}= @product.lang_product.each.first.description
