@@ -41,3 +41,13 @@ function add_new_language(){
 			}
 		});
 }
+
+//Adiciona novo campo de premio para um produto. by EZaghi => 20/04/2010
+function add_new_prize(){
+	
+	$.get('/admin/products/add_new_prize',
+		function(result)
+		{
+			$('#product_prize').append(result)
+		});
+}

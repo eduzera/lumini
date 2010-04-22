@@ -11,7 +11,7 @@
 		%li 
 			= link_to "editar", edit_admin_product_path(@product)
 		%li 
-			= link_to "imagens", new_admin_product_image_path(@product)
+			= link_to "imagens", admin_product_image_path(@product)
 
 	.actionContent
 		-semantic_form_for @product do |form|

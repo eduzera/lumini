@@ -54,7 +54,9 @@
 
 			#prize_product
 				.form-container
-					= render :partial => 'add_new_prize', :collection => @product.product_prize, :as => :product_prize
+					#product_prize
+						= render :partial => 'add_new_prize', :collection => @product.product_prize, :as => :product_prize
+					=link_to "+ novo premio", "#" , :onclick => "add_new_prize()"
 
 
 			.form-container 

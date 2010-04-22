@@ -8,6 +8,9 @@ class Admin::ImagesController < ApplicationController
   
   def show
     @images = Image.by_product(params[:id])
+    
+    @image = Image.new
+    @image.product_id = params[:product_id]
   end
   
   def create
