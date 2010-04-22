@@ -6,7 +6,8 @@
 				=@product.category.lang_category.first.name
 				
 	.container_6
-		%p.grid_6.rule-two= @product.lang_product.each.first.name
+		%p.grid_6.rule-two
+			= @product.lang_product.each.first.name
 		.grid_4{:style => "margin-bottom: 18px"}
 			= image_tag "../uploads/front/grid4_#{@product.lang_product.each.first.name}.jpg"
 		%ul.grid_2
