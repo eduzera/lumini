@@ -1,96 +1,39 @@
 .actionContainer.grid_15
-	.actionHeader
-		%h2.grid_3.alpha titulo do item
-		%p.messageBoard.grid_9 flash message!!!
-		%p.actionTriggers.grid_3.omega 
-			-#= link_to_remote "cancelar /", :url => admin_path 
-			=link_to "cancelar /", admin_path
-			salvar / excluir
-		
-	%ul.actionMenu
-		%li info
+	-semantic_form_for @image, :url => admin_product_images_path , :html => {:multipart => true} do |form|
+		.actionHeader
+			%h2.grid_3.alpha titulo do item
+			%p.messageBoard.grid_9 flash message!!!
+			%p.actionTriggers.grid_3.omega 
+				-#= link_to_remote "cancelar /", :url => admin_path 
+				=link_to "cancelar /", admin_path
+				-#=link_to  "salvar /", admin_product_images_path, :method => :post
+				excluir
 
-	.actionContent
-		-semantic_form_for @images do |form|
-			.form-container 
-				.form-sub-container.grid_3
-					.form-content
-						.grid_3.alpha + novo idioma
-						
-					.form-content
-						.grid_3.alpha titulo
-						
-					.form-content
-						.grid_3.alpha descrição
-					
-					.form-content
-						.grid_3.alpha dados técnicos
-						
-				.form-sub-container.grid_3	
-				-form.inputs :for => :lang_product do |lang_product|
-					/ Agrupamento de campos de product
-					.form-content
-						.grid_3 
-							= lang_product.input :language, :as => :select, :include_blank => false, :collection => Language.all
+		%ul.actionMenu
+			%li images
 
-					.form-content
-						.grid_3
-							=lang_product.input :name, :label => false
-
-					.form-content
-						.grid_3
-							=lang_product.input :description, :as => :text,  :label => false
-
-					.form-content	
-						.grid_3
-							=lang_product.input :tech_description, :label => false
+		.actionContent
+			.form-container 							
+				.form-content
+					.grid_3 
+						=form.input :img, :as => :file, :label => "nova imagem"
+						=form.input :product_id, :as => :hidden
 
 			.form-container 							
 				.form-content
-					.grid_3.alpha status
 					.grid_3 
-						=form.input :status, :as => :radio, :label => false, :collection => [["publicado", true], ["rascunho", false]]
-					
-		
-			.form-container 
-				/ Agrupamento de campos belongs_to
-				.form-content
-					.grid_3.alpha categoria
-					.grid_3
-						=form.inputs :category, :as => :select, :include_blank => false, :collection => Category.all_with_filter(:order => :name)
-				.form-content
-					.grid_3.alpha família
-					.grid_3
-						=form.inputs :family, :as => :select, :include_blank => false, :collection => Family.all_with_filter
-				.form-content
-					.grid_3.alpha fabricante
-					.grid_3
-						=form.inputs :manufacture, :as => :select, :include_blank => false, :collection => Manufacture.all
-
-			/.form-container 
-			/	/ Agrupamento de campos belongs_to (Não relacionados ao produto em si (Não depende para existir))
-			/	.form-content
-			/		.grid_3.alpha prêmios
-			/		.grid_3
-			/			= form.add_associated_link "+ prize", :prize, :partial => 'prizes'
-			/		.grid_3.omega
-			/			= form.render_associated_form :prize, :partial => 'prizes'
-
-			.form-container 
-				.form-content
-					.grid_3.alpha designer
-					.grid_3
-						=form.inputs :designer, :as => :select, :include_blank => false, :collection => Designer.all
-
-			.form-container 
-				.form-content
-					.grid_3.alpha
 						=form.commit_button
-					
-					
-					
-					
-					
-					
-					
-					
+
+.actionContainer.grid_15
+	.grid_3.alpha imagens
+	.grid_11 adicionar nova
+	.grid_1.omega upload
+	
+	%ul.actionMenu
+	-@images.each do |image|
+		%li
+			=image_tag image.img.url(:grid_1)
+
+			=image.dimension(image.img.path(:grid_1))
+			
+			=number_to_human_size image.size(image.img.path(:grid_1))

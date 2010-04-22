@@ -41,4 +41,10 @@ class Admin::ProductsController < ActionController::Base
 
     end
     
+    def add_new_prize
+      
+      render :partial => "add_new_prize", :locals => { :product_prize => ProductPrize.new}
+      
+    end
+    
 end
