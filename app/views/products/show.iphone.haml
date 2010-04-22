@@ -16,12 +16,7 @@
 			%li
 				= link_to "desenhos", galeries_path, :class => "dissolve"
 			%li
-<<<<<<< HEAD:app/views/products/show.iphone.haml
-				= link_to "o designer", product_designers_path(@product), :class => "dissolve"
-=======
-				= link_to "o designer", designer_path(@product.designer_id)
->>>>>>> 38aae42229efcc5fd8893773183eb724edd2fa85:app/views/products/show.iphone.haml
-		
+				= link_to "o designer", product_designers_path(@product), :class => "dissolve"		
 		%p.clear
 		.grid_4
 			%p{:style => "margin-bottom: 24px"}= @product.lang_product.each.first.description

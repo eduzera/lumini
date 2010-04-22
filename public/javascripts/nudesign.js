@@ -16,6 +16,12 @@ $(document).ready(function()
 		}
 	}
 
+
+	// add by brancher => 22/04/2010
+	$('.categories_browser > li').click( function(){
+		$( this ).toggleClass( 'open' );
+		$( this ).find( 'ul.with_images').slideToggle( 500 );
+	});
  });
 
 
