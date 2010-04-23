@@ -10,7 +10,12 @@
 				excluir
 
 		%ul.actionMenu
-			%li images
+			%li 
+				= link_to "info", :back
+			%li 
+				= link_to "fotografias", 	show_images_path(@image.product_id, 'fotografia')
+			%li 
+				= link_to "desenhos", 		show_images_path(@image.product_id, 'desenho' )
 
 		.actionContent
 			.form-container 							
@@ -18,8 +23,7 @@
 					.grid_3 
 						=form.input :img, :as => :file, :label => "nova imagem"
 						=form.input :product_id, :as => :hidden
-						=form.input :image_type,:collection => ImageType.all, :as => :select 
-
+						=form.input :image_type, :as => :select, :include_blank => false, :collection => ImageType.find_by_name("#{request.request_uri.reverse[0, (request.request_uri.reverse.index'/')].reverse}").to_a	
 			.form-container 							
 				.form-content
 					.grid_3 
@@ -33,8 +37,6 @@
 	%ul.actionMenu
 	-@images.each do |image|
 		%li	
-			=image_tag image.img.url(:grid_1)
-
+			=image_tag image.img.url(:grid_1)	
 			=image.dimension(image.img.path(:grid_1))
-			
 			=number_to_human_size image.size(image.img.path(:grid_1))

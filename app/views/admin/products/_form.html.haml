@@ -9,7 +9,12 @@
 			=link_to "/ excluir", admin_product_path(@product), :confirm => 'Tem certeza que deseja Excluir o Produto?', :method => :delete unless @product.new_record?
 		
 	%ul.actionMenu
-		%li info
+		%li 
+			= link_to "info", edit_admin_product_path(@product)
+		%li 
+			= link_to "fotografias", show_images_path(@product, 'fotografia')
+		%li 
+			= link_to "desenhos", show_images_path(@product, 'desenho')
 
 	.actionContent
 		-semantic_form_for @product, :url => @product.new_record?  ? admin_products_path : admin_product_path(@product) do |form|

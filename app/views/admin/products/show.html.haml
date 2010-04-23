@@ -8,7 +8,9 @@
 		%li 
 			= link_to "info", edit_admin_product_path(@product)
 		%li 
-			= link_to "fotografias", admin_product_image_path(@product)
+			= link_to "fotografias", show_images_path(@product, 'fotografia')
+		%li 
+			= link_to "desenhos", show_images_path(@product, 'desenho')
 
 	.actionContent
 

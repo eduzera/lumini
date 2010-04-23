@@ -1,5 +1,10 @@
 require 'machinist/active_record'
 
+ImageType.blueprint do
+  name
+  model_name
+end
+
 Language.blueprint do
   name  "Portugues Brasil"
   abbr  "ptBR"

@@ -1,5 +1,8 @@
 class ImageType < ActiveRecord::Base
+  has_many :image
   
-  belongs_to :imageable, :polymorphic => true 
-  
+  named_scope :all_with_filter, 
+          lambda { |mymodel| {  
+            :conditions => ["model_name = ?", mymodel]
+          }}
 end

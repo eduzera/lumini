@@ -1,6 +1,11 @@
 require File.expand_path(File.dirname(__FILE__) + "/../../config/environment")
 require File.expand_path(File.dirname(__FILE__) + "/../fixtures/blueprints")
 
+ImageType.make(:name => "fotografia", :model_name => "Product")
+ImageType.make(:name => "desenho",    :model_name => "Product")
+ImageType.make(:name => "premio",     :model_name => "Prize")
+ImageType.make(:name => "designer",   :model_name => "Designer")
+
 lingua = Language.make
 fabricante = Manufacture.make
 
@@ -83,7 +88,7 @@ familia = Family.make
                                     :language_id => lingua.id)    
 
 
-             
+/             
 10.times {
   produto = Product.make( :manufacture_id => fabricante.id, 
                           :designer_id => designer.id, 
@@ -142,5 +147,5 @@ familia = Family.make
                                       :product_id => produto.id, 
                                       :language_id => lingua.id)
 }
-
+/
 puts "OK!"
