@@ -23,7 +23,6 @@ $(document).ready(function()
 		$( this ).find( 'ul.with_images').slideToggle( 500 );
 	});
 	
-	
 	//add token for rails/form => 23/04/2010
 	$(document).ajaxSend(function(event, request, settings) {
 	  if (typeof(AUTH_TOKEN) == "undefined") return;
@@ -37,8 +36,6 @@ $(document).ready(function()
 	});
 	
  });
-
-
 
 //Adiciona novo campo de Linga para um produto. by EZaghi => 19/04/2010
 function add_new_language(){

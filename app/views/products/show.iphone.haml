@@ -12,11 +12,11 @@
 			= image_tag "../uploads/front/grid4_#{@product.lang_product.each.first.name}.jpg"
 		%ul.grid_2
 			%li
-				= link_to "fotografias", galeries_path, :class => "dissolve"
+				= link_to "fotografias",	product_galeries_path(@product), :class => "dissolve"
 			%li
-				= link_to "desenhos", galeries_path, :class => "dissolve"
+				= link_to "desenhos",		product_galeries_path(@product), :class => "dissolve"
 			%li
-				= link_to "o designer", product_designers_path(@product), :class => "dissolve"		
+				= link_to "o designer",		product_designers_path(@product), :class => "dissolve"
 
 		%p.clear
 		.grid_4

@@ -3,7 +3,8 @@ class Image < ActiveRecord::Base
   
   has_many :image_type, :as => :imageable 
 
-   has_attached_file :img, :styles => {:grid_1 => "45x45#" ,:grid_3 => "147x144#"},
+   has_attached_file :img, :styles => {:grid_1 => "45x45#" ,:grid_3 => "147x144#", :grid_6 => "320x480#"},
+
      :url => "/uploads/:class/products/:product_id/:id/:style.:extension",
      :path => ":rails_root/public/uploads/:class/products/:product_id/:id/:style.:extension"
 

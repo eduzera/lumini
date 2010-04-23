@@ -3,31 +3,7 @@
 	%p.clear
 	
 	.container_6		
-	
-		%p.clear			
-		.grid_2.product
-			= link_to image_tag ("../uploads/front/grid2_lift.jpg"), galery_path(1)
-
-		.grid_2.product
-			= link_to image_tag ("../uploads/front/grid2_lift.jpg"), galery_path(1)
-
-		.grid_2.product
-			= link_to image_tag ("../uploads/front/grid2_lift.jpg"), galery_path(1)
-					
-		.grid_2.product
-			= link_to image_tag ("../uploads/front/grid2_lift.jpg"), galery_path(1)
-
-		.grid_2.product
-			= link_to image_tag ("../uploads/front/grid2_lift.jpg"), galery_path(1)
-
-		.grid_2.product
-			= link_to image_tag ("../uploads/front/grid2_lift.jpg"), galery_path(1)
-			
-		.grid_2.product
-			= link_to image_tag ("../uploads/front/grid2_lift.jpg"), galery_path(1)
-
-		.grid_2.product
-			= link_to image_tag ("../uploads/front/grid2_lift.jpg"), galery_path(1)
-
-		.grid_2.product
-			= link_to image_tag ("../uploads/front/grid2_lift.jpg"), galery_path(1)
+		%p.clear
+		-@galeries.each do |pic|
+			.grid_2.product 
+				=link_to image_tag(pic.img.url(:grid_3)), product_galery_path(pic.product.id, pic.id)
