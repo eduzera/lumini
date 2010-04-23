@@ -12,11 +12,11 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :prizes,          :only => [:index, :show]
   map.resources :families,        :only => [:index, :show]
   map.resources :categories,      :only => [:index, :show]
-  map.resources :designers,       :only => [:index, :show]
   map.resources :manufactures,    :only => [:index, :show]
   
   map.resources :products, :only => [:index, :show] do |product|
     product.resources :images,    :only => [:index, :show]
+    product.resources :designers, :only => [:index, :show]
   end
   
   map.connect 'admin/products/add_new_language', :controller => "admin/products", :action => 'add_new_language'

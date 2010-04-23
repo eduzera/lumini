@@ -35,7 +35,7 @@ p , div { margin: 0; padding: 0; }
 .rule-two { border-top: 1px solid #969696; padding-top: 9px; margin-bottom: 8px; }
 .rule-three { color: #FFF; margin-top: 18px; margin-bottom: 6px; }
 
-.arrow , .go_forward , li a { background: url('../images/listArrow.png') right top no-repeat; }
+.arrow , .go_forward , li a { background: url('../images/ico-arrow-right.png') right top no-repeat; }
 
 ul { padding: 0; margin: 0 3px 0 3px; }
 ul li { border-top: 1px solid #969696; padding-top: 3px; margin-bottom: 8px; }
@@ -50,3 +50,5 @@ ul.with_images li { border-top: none; overflow: hidden; padding-top: 2px; margin
 ul.with_images li .rule-two { margin-top: 0px; margin-bottom: 0px; padding: 3px 0px 3px 0px; overflow: hidden; }
 ul.with_images li img { margin-bottom: 1px; }
 ul.with_images li.no_link { border-top: 1px solid #969696; margin-top: 2px; padding-top: 9px; padding-bottom: 8px; margin-bottom: 10px; overflow: hidden; }
+ul.with_images li.more_link { border-top: 1px solid #969696; margin-top: 2px; padding-top: 3px; padding-bottom: 6px; }
+ul.with_images li.more_link a { background: url('../images/ico-plus.png') right top no-repeat; }

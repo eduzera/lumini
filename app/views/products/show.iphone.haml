@@ -6,17 +6,18 @@
 				=@product.category.lang_category.first.name
 				
 	.container_6
-		%p.grid_6.rule-two= @product.lang_product.each.first.name
+		%p.grid_6.rule-two
+			= @product.lang_product.each.first.name
 		.grid_4{:style => "margin-bottom: 18px"}
 			= image_tag "../uploads/front/grid4_#{@product.lang_product.each.first.name}.jpg"
 		%ul.grid_2
 			%li
-				= link_to "fotografias", galeries_path
+				= link_to "fotografias", galeries_path, :class => "dissolve"
 			%li
-				= link_to "desenhos", galeries_path
+				= link_to "desenhos", galeries_path, :class => "dissolve"
 			%li
-				= link_to "o designer", designer_path(@product.designer_id)
-		
+				= link_to "o designer", product_designers_path(@product), :class => "dissolve"		
+
 		%p.clear
 		.grid_4
 			%p{:style => "margin-bottom: 24px"}= @product.lang_product.each.first.description
@@ -24,5 +25,5 @@
 			%p= @product.lang_product.each.first.tech_description
 		.grid_2
 			.grid_1.alpha
-				= link_to image_tag ("../uploads/prizes/logo-if.png"), prizes_path
+				= link_to image_tag ("../uploads/prizes/logo-if.png"), prizes_path, :class => "dissolve"
 			%p.grid_1.rule-two.arrow.omega &nbsp;

@@ -2,7 +2,7 @@ html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abb
 
 body { font-family: Helvetica, Arial, Verdana, Sans-Serif; font-size: 12px; line-height: 16px; color: #A8A8A8; background: #414141; /*background: #414141 url( '../img/publisher_grid.png' ) repeat-y center top;*/ }
 
-.masterHeader { border-bottom: 1px solid #FFF; overflow: hidden; padding: 0; margin-bottom: 11px; }
+.masterHeader { border-bottom: 1px solid #FFF; overflow: hidden; padding: 0; }
 .masterHeader ul.menu { float: left; padding: 6px 0px 6px 0px; margin: 11px 0px 2px 0px; }
 	.masterHeader ul.menu li { float: left; width: 96px; color: #FFF; padding: 6px 0px 0px 0px; margin: 0px 3px 0px 3px; }
 	.masterHeader ul.menu li.active { font-weight: bold; }
@@ -10,11 +10,8 @@ body { font-family: Helvetica, Arial, Verdana, Sans-Serif; font-size: 12px; line
 	
 .navContainer { margin: 0px 6px 0px 0px; width: 198px; float: left; }
 	
-.actionHeader { padding: 0px 0px 8px 0px; margin: 0px; overflow: hidden; color: #FFF; }
+.actionHeader { padding: 11px 0px 16px 0px; margin: 0px; overflow: hidden; color: #FFF; }
 
-ul.actionMenu { border-top: 1px solid #969696; color: #FFF; border-bottom: 1px solid #969696; overflow: hidden; margin: 0px; padding: 11px 0px 0px 0px; }
-	ul.actionMenu li { padding: 0px 0px 8px 0px; float: left; width: 96px; }
-	ul.actionMenu li.active { font-weight: bold; }
 
 .form-container { border-bottom: 1px solid #969696; overflow: hidden; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px; }
 	.form-container input[type="text"] { border: 0; background: #969696; font-family: Helvetica, Arial, Verdana, Sans-Serif; font-size: 11px; line-height: 16px; margin: 0; padding: 2px 0px 2px 0px; vertical-align: top; }
@@ -24,13 +21,26 @@ textarea { border: 0; background: #969696; font-family: Helvetica, Arial, Verdan
 .grid_3 input[type="text"] { width: 147px; }
 .grid_3 textarea { width: 147px; height: 120px; }
 
+ul.categories_browser { margin: 0; padding: 0; }
+ul.categories_browser > li { border-bottom: 1px solid #969696; overflow: hidden;  padding: 6px 0px 3px 0px; margin-bottom: 0px; }
+ul.categories_browser > li > a { color: #FFF; background: url('../images/ico-arrow-right-white.png') left top no-repeat; display: block; padding-left: 18px; padding-top: 6px; padding-bottom: 12px; }
+	ul.categories_browser > li.open > a { background: url('../images/ico-arrow-down-white.png') left top no-repeat; }
+ul.categories_browser > li > ul { display: none; }
 
-/*fix marco*/
+
 ul.with_images { }
 ul.with_images li { border-top: none; overflow: hidden; padding-top: 2px; margin-bottom: 0px; }
 ul.with_images li .rule-two { margin-top: 0px; margin-bottom: 0px; padding: 3px 0px 3px 0px; overflow: hidden; }
 ul.with_images li img { margin-bottom: 1px; }
+ul.with_images li a { background: url('../images/ico-arrow-right.png') right top no-repeat; display: block; padding-top: 6px; padding-bottom: 12px; }
+
 ul.with_images li.no_link { border-top: 1px solid #969696; margin-top: 2px; padding-top: 9px; padding-bottom: 8px; margin-bottom: 10px; overflow: hidden; }
+ul.with_images li.more_link { border-top: 1px solid #969696; margin-top: 2px; padding-top: 3px; padding-bottom: 6px; }
+ul.with_images li.more_link a { background: url('../images/ico-plus.png') right top no-repeat; display: block; padding-top: 6px; padding-bottom: 12px; }
+
+ul.actionMenu { border-top: 1px solid #969696; color: #FFF; border-bottom: 1px solid #969696; overflow: hidden; margin: 0px; padding: 11px 0px 8px 0px; }
+	ul.actionMenu li { padding: 0px 0px 8px 0px; float: left; width: 96px; }
+	ul.actionMenu li.active { font-weight: bold; }
 
 a:link { color: inherit; text-decoration: none; }
 a:visited { color: inherit; text-decoration: none; }
@@ -43,5 +53,4 @@ a.active:hover { font-weight: bold; color: #FFF; text-decoration: none; }
 a.active:active { font-weight: bold; color: #FFF; text-decoration: none; }
 
 .rule-two { border-top: 1px solid #969696; padding-top: 9px; margin-bottom: 8px; }
-ul li a { display: block; padding-top: 12px; background: url(/images/listArrow.png) no-repeat right center; }
 
