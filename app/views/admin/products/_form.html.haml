@@ -1,15 +1,16 @@
 .actionContainer.grid_15
 	.actionHeader
-		%h2.grid_3.alpha titulo do item
-		%p.messageBoard.grid_9 flash message!!!
+		%h2.grid_3.alpha 
+			= @product.new_record? ? "criar novo" : @product.lang_product.first.name
+		%p.messageBoard.grid_9 &nbsp;
 		%p.actionTriggers.grid_3.omega 
 			
-			=link_to "cancelar /", admin_path
-			=link_to "salvar","#" ,:class => "product_save_admin"
+			=link_to "cancelar /",  @product.new_record? ? admin_path : admin_product_path(@product)
+			=link_to "salvar","javascript://" ,:class => "product_save_admin"
 			=link_to "/ excluir", admin_product_path(@product), :confirm => 'Tem certeza que deseja Excluir o Produto?', :method => :delete unless @product.new_record?
 		
 	%ul.actionMenu
-		%li info
+		%li <strong>info</strong>
 
 	.actionContent
 		-semantic_form_for @product, :url => @product.new_record?  ? admin_products_path : admin_product_path(@product) do |form|
@@ -20,38 +21,38 @@
 							=link_to "+ novo idioma","#", :onclick => "add_new_language()"
 						
 							.form-content
-								.grid_3.alpha titulo
+								.grid_3.alpha <strong>título</strong>
 						
 							.form-content
-								.grid_3.alpha descrição
+								.grid_3.alpha <strong>descrição</strong>
 					
 							.form-content
-								.grid_3.alpha dados técnicos
+								.grid_3.alpha <strong>dados técnicos</strong>
 				
 				#language_product
 					= render :partial => 'add_new_language', :collection => @product.lang_product , :as => :lang_product
 
 			.form-container 							
 				.form-content
-					.grid_3.alpha status
-					.grid_3 
+					.grid_3.alpha <strong>status</strong>
+					.grid_6 
 						=form.input :status, :label => false, :as => :radio, :collection => [["publicado", true], ["rascunho", false]]
 					
 		
 			.form-container 
 				/ Agrupamento de campos belongs_to
 				.form-content
-					.grid_3.alpha categoria
+					.grid_3.alpha <strong>fabricante</strong>
+					.grid_3
+						=form.inputs :manufacture
+				.form-content
+					.grid_3.alpha <strong>categoria</strong>
 					.grid_3
 						=form.inputs :category
 				.form-content
-					.grid_3.alpha família
+					.grid_3.alpha <strong>família</strong>
 					.grid_3
 						=form.inputs :family
-				.form-content
-					.grid_3.alpha fabricante
-					.grid_3
-						=form.inputs :manufacture
 
 			#prize_product
 				.form-container
@@ -62,7 +63,7 @@
 
 			.form-container 
 				.form-content
-					.grid_3.alpha designer
+					.grid_3.alpha <strong>designer</strong>
 					.grid_3
 						=form.inputs :designer
 
