@@ -18,6 +18,7 @@
 					.grid_3 
 						=form.input :img, :as => :file, :label => "nova imagem"
 						=form.input :product_id, :as => :hidden
+						=form.input :image_type,:collection => ImageType.all, :as => :select 
 
 			.form-container 							
 				.form-content
@@ -31,7 +32,7 @@
 	
 	%ul.actionMenu
 	-@images.each do |image|
-		%li
+		%li	
 			=image_tag image.img.url(:grid_1)
 
 			=image.dimension(image.img.path(:grid_1))
