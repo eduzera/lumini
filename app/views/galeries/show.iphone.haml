@@ -1,3 +1,3 @@
 .wrapper
-	.container_6#swipeme
-		=link_to image_tag(@image.img.url(:grid_6)), product_galery_path, :class => "touch swipe_trigger"
+	.container_6
+		=image_tag @image.img.url(:grid_6), :class => "touch"

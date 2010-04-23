@@ -23,9 +23,6 @@ $(document).ready(function()
 		$( this ).find( 'ul.with_images').slideToggle( 500 );
 	});
 	
-	$('.swipe_trigger').swipe( function(info) {
-		alert(info.direction);
-	});
  });
 
 //Adiciona novo campo de Linga para um produto. by EZaghi => 19/04/2010
