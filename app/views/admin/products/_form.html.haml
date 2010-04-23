@@ -3,9 +3,10 @@
 		%h2.grid_3.alpha titulo do item
 		%p.messageBoard.grid_9 flash message!!!
 		%p.actionTriggers.grid_3.omega 
-			-#= link_to_remote "cancelar /", :url => admin_path 
+			
 			=link_to "cancelar /", admin_path
-			salvar / excluir
+			=link_to "salvar","#" ,:class => "product_save_admin"
+			=link_to "/ excluir", admin_product_path(@product), :confirm => 'Tem certeza que deseja Excluir o Produto?', :method => :delete unless @product.new_record?
 		
 	%ul.actionMenu
 		%li info
@@ -65,10 +66,6 @@
 					.grid_3
 						=form.inputs :designer
 
-			.form-container 
-				.form-content
-					.grid_3.alpha
-						=form.commit_button
 					
 					
 					

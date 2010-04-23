@@ -21,7 +21,7 @@ class Admin::ProductsController < ActionController::Base
       flash[:notice] = "Successfully created contact."
       redirect_to admin_path
     else
-      render new_admin_products_path
+      redirect_to :back
     end
   end
   
@@ -45,6 +45,14 @@ class Admin::ProductsController < ActionController::Base
       
       render :partial => "add_new_prize", :locals => { :product_prize => ProductPrize.new}
       
+    end
+    
+    def destroy
+      
+      @product = Product.find(params[:id])
+      @product.destroy
+      
+      redirect_to admin_path
     end
     
 end

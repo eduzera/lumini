@@ -22,6 +22,20 @@ $(document).ready(function()
 		$( this ).toggleClass( 'open' );
 		$( this ).find( 'ul.with_images').slideToggle( 500 );
 	});
+	
+	
+	//add token for rails/form => 23/04/2010
+	$(document).ajaxSend(function(event, request, settings) {
+	  if (typeof(AUTH_TOKEN) == "undefined") return;
+	  // settings.data is a serialized string like "foo=bar&baz=boink" (or null)
+	  settings.data = settings.data || "";
+	  settings.data += (settings.data ? "&" : "") + "authenticity_token=" + encodeURIComponent(AUTH_TOKEN);
+	}); 
+	
+	$('.product_save_admin').click( function(){
+		$('form').submit();
+	});
+	
  });
 
 
