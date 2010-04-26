@@ -12,11 +12,11 @@
 	%ul.actionMenu
 		%li
 			%strong
-				= link_to "info", edit_admin_product_path(@product)
+			= link_to "info", @product.new_record? ? new_admin_product_path : edit_admin_product_path(@product)
 		%li 
-			= link_to "fotografias", show_images_path(@product, 'fotografia')
+			= link_to "fotografias", show_images_path(@product, 'fotografia') unless @product.new_record? 
 		%li 
-			= link_to "desenhos", show_images_path(@product, 'desenho')
+			= link_to "desenhos", show_images_path(@product, 'desenho') unless @product.new_record? 
 
 	.actionContent
 		-semantic_form_for @product, :url => @product.new_record?  ? admin_products_path : admin_product_path(@product) do |form|

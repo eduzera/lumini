@@ -17,7 +17,24 @@ class Admin::ImagesController < ApplicationController
     @image = Image.new(params[:image])
     #@image.image_type = ImageType.find_by_name(params[:imagetype])
     
-    if @image.save!
+    if @image.save
+      flash[:notice] = "Successfully created contact."
+    else
+      flash[:notice] = "ERRO."
+    end
+    
+    respond_to do |format|
+      format.html { redirect_to :back }
+      format.js
+    end
+  end
+  
+  
+  def destroy
+    @image = Image.find(params[:id])
+    #@image.image_type = ImageType.find_by_name(params[:imagetype])
+    
+    if @image.destroy
       flash[:notice] = "Successfully created contact."
     else
       flash[:notice] = "ERRO."
