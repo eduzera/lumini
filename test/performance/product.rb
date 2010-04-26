@@ -9,6 +9,16 @@ ImageType.make(:name => "designer",   :model_name => "Designer")
 lingua = Language.make
 fabricante = Manufacture.make
 
+premio = Prize.make
+  lang_premio = LangPrize.make(:name => 'if', :description => 'if design awards', :prize_id => premio.id, :language_id => lingua.id)
+
+premio = Prize.make
+  lang_premio = LangPrize.make(:name => 'if gold', :description => 'if gold design awards', :prize_id => premio.id, :language_id => lingua.id)
+
+premio = Prize.make
+  lang_premio = LangPrize.make(:name => 'idea', :description => 'idea', :prize_id => premio.id, :language_id => lingua.id)
+
+
 designer = Designer.make
   lang_designer = LangDesigner.make(:designer_id => designer.id, 
                                     :language_id => lingua.id)
@@ -64,7 +74,7 @@ familia = Family.make
 # ------------------------------------------------------------------------------------------------------------------
 
 
-
+/
 
   produto = Product.make( :manufacture_id => fabricante.id, 
                           :designer_id => designer.id, 
@@ -88,7 +98,7 @@ familia = Family.make
                                     :language_id => lingua.id)    
 
 
-/             
+            
 10.times {
   produto = Product.make( :manufacture_id => fabricante.id, 
                           :designer_id => designer.id, 
