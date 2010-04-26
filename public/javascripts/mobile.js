@@ -1,12 +1,3 @@
-$.jQTouch({	
-	statusBar: 'black-translucent',
-				addGlossToIcon: false,
-				slideSelector: 'a',
-				statusBar: 'black',
-				icon: 'appicon.png'
-
-});
-
 $(document).ready(function() 
 {
 	$('.swipe_trigger').live('swipe', function(event, info) {
