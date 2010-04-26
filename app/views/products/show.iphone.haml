@@ -18,7 +18,7 @@
 			%li
 				= link_to "o designer",		product_designers_path(@product), :class => "dissolve"
 			%li
-				%a{:name=>"fb_share", :type=>"box_count", :share_url=> product_url(@product)} facebook share
+				%a{:name=>"fb_share", :type=>"button", :share_url=> product_url(@product)} facebook share
 		%p.clear
 		.grid_4
 			%p{:style => "margin-bottom: 24px"}= @product.lang_product.first.description
