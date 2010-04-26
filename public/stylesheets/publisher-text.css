@@ -31,7 +31,7 @@ ul.categories_browser > li > ul { display: none; }
 ul.with_images { }
 ul.with_images li { border-top: none; overflow: hidden; padding-top: 2px; margin-bottom: 0px; }
 ul.with_images li .rule-two { margin-top: 0px; margin-bottom: 0px; padding: 3px 0px 3px 0px; overflow: hidden; }
-ul.with_images li img { margin-bottom: 1px; }
+ul.with_images li img { margin-bottom: 3px; }
 ul.with_images li a { background: url('../images/ico-arrow-right.png') right top no-repeat; display: block; padding-top: 6px; padding-bottom: 12px; }
 
 ul.with_images li.no_link { border-top: 1px solid #969696; margin-top: 2px; padding-top: 9px; padding-bottom: 8px; margin-bottom: 10px; overflow: hidden; }

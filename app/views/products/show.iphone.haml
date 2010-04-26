@@ -7,9 +7,9 @@
 				
 	.container_6
 		%p.grid_6.rule-two
-			= @product.lang_product.each.first.name
+			= @product.lang_product.first.name
 		.grid_4{:style => "margin-bottom: 18px"}
-			= image_tag "../uploads/front/grid4_#{@product.lang_product.each.first.name}.jpg"
+			= image_tag "../uploads/front/grid4_#{@product.lang_product.first.name}.jpg"
 		%ul.grid_2
 			%li
 				= link_to "fotografias",	product_galeries_path(@product, :name => 'fotografia'), :class => "dissolve"
@@ -21,9 +21,9 @@
 				%a{:name=>"fb_share", :type=>"box_count", :share_url=> product_url(@product)} facebook share
 		%p.clear
 		.grid_4
-			%p{:style => "margin-bottom: 24px"}= @product.lang_product.each.first.description
+			%p{:style => "margin-bottom: 24px"}= @product.lang_product.first.description
 			%p.rule-two dados técnicos
-			%p= @product.lang_product.each.first.tech_description
+			%p= @product.lang_product.first.tech_description
 		.grid_2
 			.grid_1.alpha
 				= link_to image_tag("../uploads/prizes/logo-if.png"), prizes_path, :class => "dissolve"
