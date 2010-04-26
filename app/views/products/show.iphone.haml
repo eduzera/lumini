@@ -17,7 +17,8 @@
 				= link_to "desenhos",		product_galeries_path(@product, :name => 'desenho'), :class => "dissolve"
 			%li
 				= link_to "o designer",		product_designers_path(@product), :class => "dissolve"
-
+			%li
+				%a{:name=>"fb_share", :type=>"box_count", :share_url=> product_url(@product)} facebook share
 		%p.clear
 		.grid_4
 			%p{:style => "margin-bottom: 24px"}= @product.lang_product.each.first.description
@@ -25,5 +26,5 @@
 			%p= @product.lang_product.each.first.tech_description
 		.grid_2
 			.grid_1.alpha
-				= link_to image_tag ("../uploads/prizes/logo-if.png"), prizes_path, :class => "dissolve"
+				= link_to image_tag("../uploads/prizes/logo-if.png"), prizes_path, :class => "dissolve"
 			%p.grid_1.rule-two.arrow.omega &nbsp;
