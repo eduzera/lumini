@@ -11,15 +11,13 @@
 		.grid_4{:style => "margin-bottom: 18px"}
 			= image_tag "../uploads/front/grid4_#{@product.lang_product.first.name}.jpg"
 		%ul.grid_2
-			%li
-				= link_to "fotografias",	product_galeries_path(@product, :name => 'fotografia'), :class => "dissolve"
-			%li
-				= link_to "desenhos",		product_galeries_path(@product, :name => 'desenho'), :class => "dissolve"
+			-@images.each do |img|		
+				%li
+					= link_to img.name,	product_galeries_path(@product, :name => img.name), :class => "dissolve" 
 			%li
 				= link_to "o designer",		product_designers_path(@product), :class => "dissolve"
 			%li
 				%a{:name=>"fb_share", :type=>"button", :share_url=> product_url(@product)} facebook share
-				
 		%p.clear
 		.grid_4
 			%p{:style => "margin-bottom: 24px"}= @product.lang_product.first.description

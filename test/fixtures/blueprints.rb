@@ -1,5 +1,16 @@
 require 'machinist/active_record'
 
+Prize.blueprint do
+  status 'true' 
+end
+
+LangPrize.blueprint do 
+  name
+  description
+  prize_id
+  language_id
+end
+
 ImageType.blueprint do
   name
   model_name

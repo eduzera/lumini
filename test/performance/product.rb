@@ -9,6 +9,20 @@ ImageType.make(:name => "designer",   :model_name => "Designer")
 lingua = Language.make
 fabricante = Manufacture.make
 
+
+premio  = Prize.make
+  lang_prize = LangPrize.make(:name => 'if',:description => 'if design awards', :prize_id => premio.id ,:language_id => lingua.id)
+
+
+premio  = Prize.make
+  lang_prize = LangPrize.make(:name => 'if gold',:description => 'if gold design awards', :prize_id => premio.id ,:language_id => lingua.id)
+
+
+premio  = Prize.make
+  lang_prize = LangPrize.make(:name => 'idea',:description => 'idea', :prize_id => premio.id ,:language_id => lingua.id)
+
+
+
 designer = Designer.make
   lang_designer = LangDesigner.make(:designer_id => designer.id, 
                                     :language_id => lingua.id)

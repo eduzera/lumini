@@ -17,6 +17,11 @@ class Image < ActiveRecord::Base
                                      :joins => [:product, :image_type],
                                      :conditions => ["images.product_id = ? AND image_types.name = ?", product, name], 
                                      :order => 'image_types.name'}}
+                                          
+                                     
+  named_scope :name_by_product, lambda { |product| { :select => "image_types.name 'name'", :joins => [:image_type], :conditions => ['images.product_id = ?', product], 
+    :group => 'image_types.id'  }}
+    
                                      
    def dimension(url)
      Paperclip::Geometry.from_file(url)
