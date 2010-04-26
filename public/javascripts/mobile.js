@@ -1,18 +1,14 @@
+$.jQTouch({	
+	statusBar: 'black-translucent',
+				addGlossToIcon: false,
+				slideSelector: 'a',
+				statusBar: 'black',
+				icon: 'appicon.png'
+
+});
 
 $(document).ready(function() 
 {
-	
-	$.jQTouch({	
-		statusBar: 'black-translucent',
-					addGlossToIcon: false,
-					slideSelector: 'a',
-					statusBar: 'black',
-					icon: 'appicon.png'
-
-	});
-	
-	
-	
 	$('.swipe_trigger').live('swipe', function(event, info) {
 		alert(info.direction);
 	});
