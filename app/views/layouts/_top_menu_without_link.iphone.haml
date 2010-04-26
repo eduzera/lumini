@@ -1,9 +1,10 @@
 .toolbar
 	.container_6
 		.header
-			.without_link
-				.grid_2 
-					= link_to image_tag("ico-close-white.png"), session[:back_to_parent], :class => "dissolve"
-				.grid_2 &nbsp
-				.grid_2
-					= image_tag "lumini_logo.png", :class => "down" 
+			.grid_6.search 
+				%input{:type => "text", :value => "busca"}
+			.grid_2
+				= link_to image_tag("ico-close-white.png"), session[:back_to_parent], :class => "dissolve"
+			.grid_2 &nbsp
+			.grid_2
+				= image_tag "lumini_logo.png"
