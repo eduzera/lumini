@@ -17,7 +17,8 @@
 			%li
 				= link_to "o designer",		product_designers_path(@product), :class => "dissolve"
 			%li
-				%a{:name=>"fb_share", :type=>"button", :share_url=> product_url(@product)} facebook share
+				<a name="fb_share"></a>
+				<script src="http://static.ak.fbcdn.net/connect.php/js/FB.Share" type="text/javascript"></script>
 		%p.clear
 		.grid_4
 			%p{:style => "margin-bottom: 24px"}= @product.lang_product.first.description
