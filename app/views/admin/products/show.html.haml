@@ -1,28 +1,31 @@
 .actionContainer.grid_15
 	.actionHeader
-		%h2.grid_3.alpha titulo do item
-		%p.messageBoard.grid_9 flash message!!!
+		%h2.grid_3.alpha 
+			= @product.lang_product.first.name
+		%p.messageBoard.grid_9 &nbsp;
 
 		
 	%ul.actionMenu
 		%li 
 			= link_to "info", edit_admin_product_path(@product)
 		%li 
-			= link_to "fotografias", admin_product_image_path(@product)
+			= link_to "fotografias", show_images_path(@product, 'fotografia')
+		%li 
+			= link_to "desenhos", show_images_path(@product, 'desenho')
 
 	.actionContent
 
 		.form-container 
-			.form-sub-container.grid_3
+			.form-sub-container.grid_3.alpha
 					
 				.form-content
-					.grid_3.alpha titulo
+					.grid_3.alpha <strong>titulo</strong>
 					
 				.form-content
-					.grid_3.alpha descrição
+					.grid_3.alpha <strong>descrição</strong>
 				
 				.form-content
-					.grid_3.alpha dados técnicos
+					.grid_3.alpha <strong>dados técnicos</strong>
 					
 				.form-content
 					.grid_3.alpha &nbsp
@@ -48,7 +51,7 @@
 			
 		.form-container 							
 			.form-content
-				.grid_3.alpha status
+				.grid_3.alpha <strong>status</strong>
 				.grid_3
 					= @product.status == true ? "Publicado" : "Rascunho"
 		
@@ -56,19 +59,19 @@
 		.form-container 
 			/ Agrupamento de campos belongs_to
 			.form-content
-				.grid_3.alpha categoria
+				.grid_3.alpha <strong>fabricante</strong>
+				.grid_3
+					=@product.manufacture.name
+					
+			.form-content
+				.grid_3.alpha <strong>categoria</strong>
 				.grid_3
 					=@product.category.lang_category.first.name
 
 			.form-content
-				.grid_3.alpha família
+				.grid_3.alpha <strong>família</strong>
 				.grid_3
 					=@product.family.lang_family.first.name
-
-			.form-content
-				.grid_3.alpha fabricante
-				.grid_3
-					=@product.manufacture.name
 
 		/.form-container 
 		/	/ Agrupamento de campos belongs_to (Não relacionados ao produto em si (Não depende para existir))
@@ -81,7 +84,7 @@
 
 		.form-container 
 			.form-content
-				.grid_3.alpha designer
+				.grid_3.alpha <strong>designer</strong>
 				.grid_3
 					=@product.designer.name
 

@@ -4,17 +4,12 @@ class Product < ActiveRecord::Base
   belongs_to :category
   belongs_to :family
   
-  has_many :image, :dependent => :destroy
+  has_many :image,  :dependent => :destroy
   has_many :lang_product
- 
   has_many :product_prize
  
   accepts_nested_attributes_for :lang_product
   accepts_nested_attributes_for :image
- 
-  cattr_reader :per_page
-  @@per_page = 5
-  
 
   named_scope :all_with_filter, :select => "products.id 'id', lang_products.name 'name', lang_products.description 'description', 
                                             lang_products.tech_description 'tech_description', lang_categories.name 'category_name', 

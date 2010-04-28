@@ -1,0 +1,42 @@
+.actionContainer.grid_15
+	.actionHeader
+		%h2.grid_3.alpha 
+			= @prize.lang_prize.first.name
+		%p.messageBoard.grid_9 &nbsp;
+
+		
+	%ul.actionMenu
+		%li 
+			= link_to "info", edit_admin_prize_path(@prize)
+
+	.actionContent
+
+		.form-container 
+			.form-sub-container.grid_3.alpha
+					
+				.form-content
+					.grid_3.alpha <strong>idioma</strong>
+					
+				.form-content
+					.grid_3.alpha <strong>nome</strong>
+				
+				.form-content
+					.grid_3.alpha <strong>descricao</strong>
+					
+				.form-content
+					.grid_3.alpha &nbsp
+					
+			-@prize.lang_prize.each do |lang_prize|
+				.form-sub-container.grid_3
+		
+					.form-content
+						.grid_3 
+							= lang_prize.language.name
+					
+					.form-content
+						.grid_3
+							= lang_prize.name
+					
+					.form-content
+						.grid_3
+							= lang_prize.description

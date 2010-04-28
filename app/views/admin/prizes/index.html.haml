@@ -1,0 +1,17 @@
+.actionContainer.grid_15
+	.actionHeader
+		%h2.grid_3.alpha Premios Cadastrados
+		%p.messageBoard.grid_9 &nbsp;
+		%p.grid_3.omega 
+			= link_to "+ Criar Novo", new_admin_prize_path()
+
+	.grid_6.alpha
+		- @prizes.each do |prize|
+	
+			.grid_2 
+				=prize.lang_prize.first.name
+			
+			.grid_3
+				= link_to "Editar |", edit_admin_prize_path(prize) 
+				= link_to "Mostrar |", admin_prize_path(prize) 
+				= link_to "Excluir", admin_prize_path(prize), :confirm => 'Tem certeza que deseja Excluir o Premio?', :method => :delete

@@ -15,4 +15,16 @@
 		%li
 			= link_to "categorias", new_admin_product_path
 		%li
-			= link_to "prêmios", new_admin_product_path
+			= link_to "prêmios", "javascript://"
+			%ul.with_images
+				%li.more_link
+					= link_to "criar novo", new_admin_prize_path
+					
+				-Prize.all.each do |prize|
+					%li
+						.grid_1.alpha
+							= image_tag "/images/noimg_grid1.png"
+						.grid_3.rule-two.omega
+							= link_to prize.lang_prize.first.name, admin_prize_path(prize)
+						
+

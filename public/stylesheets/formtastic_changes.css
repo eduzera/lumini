@@ -12,4 +12,8 @@ The following style may be *conditionally* included for improved support on olde
 form.formtastic fieldset ol li fieldset legend { margin-left: -6px;}
 */
 
-form.formtastic fieldset > ol > li label { display: block; }
+form.formtastic .grid_3 li label { display: none; }
+form.formtastic strong { font-weight: bold; }
+#product_status_input > fieldset > ol > li { width: 300px; padding: 0; margin: 0; }
+#product_status_input > fieldset > ol > li input[type="radio"] { margin-right: 3px; }
+ul.with_images li .grid_8 select , ul.with_images li .grid_8 label { display: none; }

@@ -1,40 +1,62 @@
 .actionContainer.grid_15
+	.actionHeader
+		%h2.grid_3.alpha
+			=@image.product.lang_product.first.name
+		%p.messageBoard.grid_9 &nbsp;
+
+	%ul.actionMenu
+		%li 
+			= link_to "info", edit_admin_product_path(@image.product)
+		%li 
+			= link_to "fotografias", 	show_images_path(@image.product_id, 'fotografia')
+		%li 
+			= link_to "desenhos", 		show_images_path(@image.product_id, 'desenho' )
+
+
 	-semantic_form_for @image, :url => admin_product_images_path , :html => {:multipart => true} do |form|
-		.actionHeader
-			%h2.grid_3.alpha titulo do item
-			%p.messageBoard.grid_9 flash message!!!
-			%p.actionTriggers.grid_3.omega 
-				-#= link_to_remote "cancelar /", :url => admin_path 
-				=link_to "cancelar /", admin_path
-				-#=link_to  "salvar /", admin_product_images_path, :method => :post
-				excluir
-
-		%ul.actionMenu
-			%li images
-
 		.actionContent
 			.form-container 							
 				.form-content
-					.grid_3 
-						=form.input :img, :as => :file, :label => "nova imagem"
-						=form.input :product_id, :as => :hidden
-						=form.input :image_type,:collection => ImageType.all, :as => :select 
-
-			.form-container 							
-				.form-content
-					.grid_3 
-						=form.commit_button
-
-.actionContainer.grid_15
-	.grid_3.alpha imagens
-	.grid_11 adicionar nova
-	.grid_1.omega upload
-	
-	%ul.actionMenu
-	-@images.each do |image|
-		%li	
-			=image_tag image.img.url(:grid_1)
-
-			=image.dimension(image.img.path(:grid_1))
-			
-			=number_to_human_size image.size(image.img.path(:grid_1))
+					.grid_3.alpha 
+						%strong
+							= request.request_uri.reverse[0, (request.request_uri.reverse.index'/')].reverse
+					.grid_12.omega
+						%ul.with_images
+							%li
+								.grid_1.alpha
+									=image_tag "noimg_grid1.png"
+								.grid_11.omega
+									.grid_8.alpha
+										=form.input :img, :as => :file, :label => ""
+										=form.input :product_id, :as => :hidden
+										=form.input :image_type, :as => :select, :include_blank => false, :collection => ImageType.find_by_name("#{request.request_uri.reverse[0, (request.request_uri.reverse.index'/')].reverse}").to_a
+									.grid_3.omega
+										=form.commit_button
+										
+						-@images.each do |image|		
+							%li
+								.grid_1.alpha
+									=image_tag image.img.url(:grid_1)
+								.grid_11.rule-two.omega
+									.grid_2.alpha
+										= image.dimension(image.img.path(:grid_1))
+										%br
+										= number_to_human_size image.size(image.img.path(:grid_1))
+									.grid_2
+										= image.dimension(image.img.path(:grid_2))
+										%br
+										= number_to_human_size image.size(image.img.path(:grid_2))
+									.grid_2
+										= image.dimension(image.img.path(:grid_3))
+										%br
+										= number_to_human_size image.size(image.img.path(:grid_3))
+									.grid_2
+										= image.dimension(image.img.path(:grid_6))
+										%br
+										= number_to_human_size image.size(image.img.path(:grid_6))
+									.grid_2
+										= image.dimension(image.img.path(:original))
+										%br
+										= number_to_human_size image.size(image.img.path(:original))
+									.grid_1.omega
+										= link_to "[X]", admin_product_image_path(image.product_id, image), :confirm => 'Deseja remover esta imagem?', :method => :delete

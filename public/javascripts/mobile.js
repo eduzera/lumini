@@ -1,13 +1,21 @@
-$.jQTouch({	
-	slideSelector: 'a',
-	icon: 'jqtouch.png',
-    statusBar: 'black-translucent'
-});
-
 $(document).ready(function() 
 {
-	$('.touch').live('swipe', function(event, info) {
+	$('.swipe_trigger').live('swipe', function(event, info) {
 		alert(info.direction);
 	});
+
 	
+		$('.swipe_trigger').live('click', function(){
+			$( '.top-bar' ).stop();
+			$( '.bottom-bar' ).stop();
+			$( '.top-bar' ).slideToggle(300);
+			$( '.bottom-bar' ).slideToggle(300);
+			setTimeout( 'hide_bars()' , 3000 );
+		});
 });
+
+function hide_bars()
+		{
+			$( '.top-bar' ).slideUp(300);
+			$( '.bottom-bar' ).slideUp(300);
+		}

@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   helper :all # include all helpers, all the time
   protect_from_forgery # See ActionController::RequestForgeryProtection for details
 
-  acts_as_iphone_controller
+  #acts_as_iphone_controller
   #:inherit_resources
   
    before_filter :fix_refere_url

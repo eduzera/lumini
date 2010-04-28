@@ -20,12 +20,16 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   #map.show_image 'product/:product_id/galeries/:image_id', :controller => 'galeries', :action => 'show'
+  map.connect 'admin/prizes/add_new_language',   :controller => "admin/prizes",   :action => 'add_new_language'
   map.connect 'admin/products/add_new_language', :controller => "admin/products", :action => 'add_new_language'
   map.connect 'admin/products/add_new_prize',    :controller => "admin/products", :action => 'add_new_prize'
+  map.show_images '/show_image/:product_id/image/:imagetype', :controller => 'admin/images', :action => 'show'   
   
   map.namespace(:admin) do |admin|
     admin.resources :home,      :only => [:index]
   	admin.resources :products,  :has_many => :images
+  	admin.resources :prizes
+  	admin.resources :designers
   end
   
 

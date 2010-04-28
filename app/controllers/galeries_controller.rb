@@ -1,6 +1,6 @@
 class GaleriesController < ApplicationController
   def index
-    @galeries = Image.by_product(params[:product_id])
+    @galeries = Image.by_product(params[:product_id], params[:name])
     
     respond_to do |format|
       format.iphone { render :layout => false }

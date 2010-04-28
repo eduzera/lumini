@@ -1,0 +1,39 @@
+.actionContainer.grid_15
+	.actionHeader
+		%h2.grid_3.alpha 
+			= @prize.new_record? ? "criar novo" : @prize.lang_prize.first.name
+		%p.messageBoard.grid_9 &nbsp;
+		%p.actionTriggers.grid_3.omega
+			=link_to "cancelar /",  @prize.new_record? ? admin_path : admin_prize_path(@prize)
+			=link_to "salvar","javascript://" ,:class => "prize_save_admin"
+			=link_to "/ excluir", admin_prize_path(@prize), :confirm => 'Tem certeza que deseja Excluir o Premio?', :method => :delete unless @prize.new_record?
+			
+	.actionContent
+		-semantic_form_for @prize, :url => @prize.new_record?  ? admin_prizes_path : admin_prize_path(@prize) , :html => {:multipart => true} do |form|
+			.form-container
+				.form-sub-container.grid_3.alpha
+					.form-content
+						.grid_3.alpha.add_new_language_prize
+							=link_to "+ novo idioma","#", :onclick => "add_new_language_prize()"
+
+							.form-content
+								.grid_3.alpha <strong>nome</strong>
+
+							.form-content
+								.grid_3.alpha <strong>descrição</strong>
+								
+								
+				#language_prize
+					= render :partial => 'add_new_language', :collection => @prize.lang_prize , :as => :lang_prize
+					
+			.form-content
+				.grid3.alpha
+					Imagem
+				.grid9
+					= form.input :img , :label => false
+					
+			.edu
+				= form.error_messages
+					
+
+	
