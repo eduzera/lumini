@@ -15,8 +15,7 @@ class Image < ActiveRecord::Base
 
    named_scope :by_product, lambda { |product, name| { 
                                      :joins => [:product, :image_type],
-                                     :conditions => ["images.product_id = ? AND image_types.name = ?", product, name], 
-                                     :order => 'image_types.name'}}
+                                     :conditions => ["images.product_id = ? AND image_types.name = ?", product, name]}}
                                      
                                      
                                      

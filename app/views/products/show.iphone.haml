@@ -1,5 +1,7 @@
 .wrapper
 	= render :partial => "layouts/top_menu"
+	%script{:type => "text/javascript", :charset => "utf-8", :src => 'http://static.ak.fbcdn.net/connect.php/js/FB.Share'}
+	
 	.container_6
 		.submenu
 			%p.grid_6
@@ -13,11 +15,11 @@
 		%ul.grid_2
 			-@images.each do |img|		
 				%li
-					= link_to img.name,	product_galeries_path(@product, :name => img.name), :class => "dissolve" 
+					= link_to img.name, product_galery_path(@product, @product.image.first), :class => "dissolve" 
 			%li
-				= link_to "o designer",		product_designers_path(@product), :class => "dissolve"
+				= link_to "o designer",	product_designers_path(@product), :class => "dissolve"
 			%li
-				%a{:name=>"fb_share", :type=>"button", :share_url=> product_url(@product)} facebook share
+				%a{:name=>"fb_share", :type=>"button", :share_url=> product_url(@product)} facebook
 		%p.clear
 		.grid_4
 			%p{:style => "margin-bottom: 24px"}= @product.lang_product.first.description
