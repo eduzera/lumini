@@ -1,0 +1,42 @@
+.actionContainer.grid_15
+	.actionHeader
+		%h2.grid_3.alpha 
+			= @designer.name
+		%p.messageBoard.grid_9 &nbsp;
+
+		
+	%ul.actionMenu
+		%li 
+			= link_to "info", edit_admin_designer_path(@designer)
+
+	.actionContent
+
+		.form-container 
+			.form-sub-container.grid_3.alpha
+					
+				.form-content
+					.grid_3.alpha <strong>nome</strong>
+					
+				.form-content
+					.grid_3.alpha <strong>nascimento</strong>
+				
+				.form-content
+					.grid_3.alpha <strong>obito</strong>
+					
+				.form-content
+					.grid_3.alpha &nbsp
+					
+
+			.form-sub-container.grid_3
+	
+				.form-content
+					.grid_3 
+						=  @designer.name
+				
+				.form-content
+					.grid_3
+						=  @designer.birthdate.strftime("%d/%m/%y")
+				
+				.form-content
+					.grid_3
+						=  @designer.deathdate.strftime("%d/%m/%y")

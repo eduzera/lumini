@@ -15,6 +15,20 @@ $(document).ready(function()
 			$(link[0]).replaceWith('&nbsp;');
 		}
 	}
+	
+	//Metodo para arrumar layout no Edit de Premio nos campos de language. by EZaghi => 27/04/2010
+	if ($("#language_prize").size() != 0)
+	{
+		totalBox = $('#language_prize').find('.form-sub-container');
+		
+		if (totalBox.size() == 4)
+		{
+			$(totalBox[3]).addClass('omega');
+			
+			link = $('.add_new_language_prize').find('a')
+			$(link[0]).replaceWith('&nbsp;');
+		}
+	}
 
 
 	// add by brancher => 22/04/2010
@@ -35,6 +49,17 @@ $(document).ready(function()
 		$('form').submit();
 	});
 	
+	$('.prize_save_admin').click( function(){
+		$('form').submit();
+	});
+	
+	$('.designer_save_admin').click( function(){
+		$('form').submit();
+	});	
+	
+	$("#designer_birthdate").datepicker();
+	$("#designer_deathdate").datepicker();
+	
  });
 
 //Adiciona novo campo de Linga para um produto. by EZaghi => 19/04/2010
@@ -54,6 +79,28 @@ function add_new_language(){
 				
 				//Oculta link para add mais linguas. Limite eh 4
 				link = $('.add_new_language').find('a');
+				$(link[0]).replaceWith('&nbsp;');
+			}
+		});
+}
+
+//Adiciona novo campo de Linga para um produto. by EZaghi => 19/04/2010
+function add_new_language_prize(){
+
+	$.get('/admin/prizes/add_new_language',
+		function(result)
+		{	
+			$('#language_prize').append(result);
+			
+			totalBox = $('#language_prize').find('.form-sub-container');
+			
+			if(totalBox.size()%4 == 0)
+			{
+				//Define ultimo elemento como omega
+				$(totalBox[totalBox.size() - 1]).addClass('omega');
+				
+				//Oculta link para add mais linguas. Limite eh 4
+				link = $('.add_new_language_prize').find('a');
 				$(link[0]).replaceWith('&nbsp;');
 			}
 		});

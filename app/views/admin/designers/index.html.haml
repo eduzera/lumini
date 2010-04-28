@@ -1,0 +1,17 @@
+.actionContainer.grid_15
+	.actionHeader
+		%h2.grid_3.alpha Designers Cadastrados
+		%p.messageBoard.grid_9 &nbsp;
+		%p.grid_3.omega 
+			= link_to "+ Criar Novo", new_admin_designer_path()
+
+	.grid_6.alpha
+		- @designers.each do |designer|
+	
+			.grid_2 
+				=designer.name
+			
+			.grid_3
+				= link_to "Editar |", edit_admin_designer_path(designer) 
+				= link_to "Mostrar |", admin_designer_path(designer) 
+				= link_to "Excluir", admin_designer_path(designer), :confirm => 'Tem certeza que deseja Excluir o Designer?', :method => :delete

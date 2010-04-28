@@ -1,7 +1,9 @@
 .masterHeader.container_19
 	%ul.menu
 		%li produtos
-		%li designers
-		%li prêmios
+		%li 
+			= link_to "designers", admin_designers_path
+		%li 
+			= link_to "prêmios", admin_prizes_path
 		%li lojas
 	= image_tag "lumini-logo_publisher.png"
