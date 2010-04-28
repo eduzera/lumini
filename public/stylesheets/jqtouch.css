@@ -370,3 +370,10 @@ body > .current {
         opacity: 0;
     }
 }
+
+/*MARCO*/
+
+.slideback.in           { -webkit-animation-name: slideinfromleft; }
+.slideback.out          { -webkit-animation-name: slideouttoright; }
+.slideback.in.reverse   { -webkit-animation-name: slideouttoright; }
+.slideback.out.reverse  { -webkit-animation-name: slideinfromleft; }
