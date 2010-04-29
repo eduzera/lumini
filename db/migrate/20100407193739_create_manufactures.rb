@@ -1,7 +1,6 @@
 class CreateManufactures < ActiveRecord::Migration
   def self.up
     create_table :manufactures do |t|
-      t.string :name
       t.string :website
       t.boolean :status, :default => false
       t.timestamps

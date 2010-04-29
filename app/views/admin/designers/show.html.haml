@@ -23,9 +23,6 @@
 				.form-content
 					.grid_3.alpha <strong>obito</strong>
 					
-				.form-content
-					.grid_3.alpha &nbsp
-					
 
 			.form-sub-container.grid_3
 	
@@ -35,8 +32,42 @@
 				
 				.form-content
 					.grid_3
-						=  @designer.birthdate.strftime("%d/%m/%y")
+						=  @designer.birthdate.strftime("%d/%m/%y") unless @designer.birthdate == nil
 				
 				.form-content
 					.grid_3
-						=  @designer.deathdate.strftime("%d/%m/%y")
+						=  @designer.deathdate.strftime("%d/%m/%y") unless @designer.deathdate == nil
+
+						
+		.form-container 
+			.form-sub-container.grid_3.alpha
+
+				.form-content
+					.grid_3.alpha <strong>Descricao</strong>
+					
+				.form-content
+					.grid_3.alpha <strong>Nacionalidade</strong>
+					
+					
+			-@designer.lang_designer.each do |lang|
+			
+				.form-sub-container.grid_3.alpha
+
+					.form-content
+						.grid_3.alpha 
+							= lang.biography
+							
+					.form-content
+						.grid_3.alpha 
+							= lang.nacionality 
+							
+		.form-container
+			.form-sub-container.grid_3.alpha
+				.form-content
+					.grid_3
+						<strong>Imagem</strong>
+				
+			.form-sub-container.grid_3.alpha
+				.form-content
+					.grid_3
+						=  image_tag @designer.img.url(:grid_1)

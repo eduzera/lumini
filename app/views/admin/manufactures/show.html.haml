@@ -1,0 +1,41 @@
+.actionContainer.grid_15
+	.actionHeader
+		%h2.grid_3.alpha 
+			= @manufacture.lang_manufacture.first.name
+		%p.messageBoard.grid_9 &nbsp;
+
+		
+	%ul.actionMenu
+		%li 
+			= link_to "info", edit_admin_manufacture_path(@manufacture)
+
+	.actionContent
+
+		.form-container 
+			.form-sub-container.grid_3.alpha
+
+				.form-content
+					.grid_3.alpha <strong>idioma</strong>
+					
+				.form-content
+					.grid_3.alpha <strong>titulo</strong>
+
+					
+			-@manufacture.lang_manufacture.each do |lang|
+				.form-sub-container.grid_3.alpha
+
+					.form-content
+						.grid_3.alpha 
+							= lang.language.name
+
+					.form-content
+						.grid_3.alpha 
+							= lang.name
+							
+		.form-container
+			.grid_12.alpha				
+				.form-content
+					.grid_3.alpha <strong>website</strong>
+					
+					.grid_3.alpha
+						= @manufacture.website

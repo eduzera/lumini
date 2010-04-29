@@ -24,7 +24,11 @@
 					.grid_3.alpha <strong>descricao</strong>
 					
 				.form-content
-					.grid_3.alpha &nbsp
+
+					.grid_3.alpha 
+						= image_tag @prize.img.url(:grid_1)
+
+
 					
 			-@prize.lang_prize.each do |lang_prize|
 				.form-sub-container.grid_3
@@ -40,3 +44,4 @@
 					.form-content
 						.grid_3
 							= lang_prize.description
+					

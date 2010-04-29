@@ -25,19 +25,6 @@ class Admin::ProductsController < ActionController::Base
     end
   end
   
-  def create_image
-    @product = Product.find(params[:id])
-    @product.images.create(params[:image])
-    
-    if @product.save
-      flash[:notice] = "Successfully created contact."
-      redirect_to admin_product_url(@product)
-    else
-      redirect_to :back
-    end
-  end
-  
-  
   def update
     @product = Product.find(params[:id])
     if @product.update_attributes(params[:product])

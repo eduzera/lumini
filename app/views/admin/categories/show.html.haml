@@ -1,0 +1,40 @@
+.actionContainer.grid_15
+	.actionHeader
+		%h2.grid_3.alpha 
+			= @category.lang_category.first.name
+		%p.messageBoard.grid_9 &nbsp;
+
+		
+	%ul.actionMenu
+		%li 
+			= link_to "info", edit_admin_category_path(@category)
+
+	.actionContent
+
+		.form-container 
+			.form-sub-container.grid_3.alpha
+					
+				.form-content
+					.grid_3.alpha <strong>idioma</strong>
+
+				.form-content
+					.grid_3.alpha <strong>nome</strong>
+					
+				.form-content
+					.grid_3.alpha <strong>descricao</strong>
+					
+					
+			-@category.lang_category.each do |lang|
+				.form-sub-container.grid_3.alpha
+
+					.form-content
+						.grid_3.alpha 
+							= lang.language.name
+
+					.form-content
+						.grid_3.alpha 
+							= lang.name
+
+					.form-content
+						.grid_3.alpha 
+							= lang.description

@@ -1,0 +1,13 @@
+- new_or_existing = lang_manufacture.new_record? ? 'new' : 'existing'
+- prefix = "manufacture[#{new_or_existing}_lang_manufacture_attributes][]"
+
+	.form-sub-container.grid_3
+		-semantic_fields_for prefix, lang_manufacture do |lang|
+		-lang.inputs
+		.form-content
+			.grid_3 
+				= lang.input :language, :as => :select, :include_blank => false, :collection => Language.all
+
+		.form-content
+			.grid_3
+				=lang.input :name, :label => false

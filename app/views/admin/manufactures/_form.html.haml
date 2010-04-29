@@ -1,0 +1,34 @@
+.actionContainer.grid_15
+	.actionHeader
+		%h2.grid_3.alpha 
+			= @manufacture.new_record? ? "criar nova marca" : @manufacture.lang_manufacture.first.name
+		%p.messageBoard.grid_9 &nbsp;
+		%p.actionTriggers.grid_3.omega 
+			
+			=link_to "cancelar /",  @manufacture.new_record? ? admin_path : admin_manufacture_path(@manufacture)
+			=link_to "salvar","javascript://" ,:class => "manufacture_save_admin"
+			=link_to "/ excluir", admin_manufacture_path(@manufacture), :confirm => 'Tem certeza que deseja Excluir a Marca?', :method => :delete unless @manufacture.new_record?
+
+	.actionContent
+		-semantic_form_for @manufacture, :url => @manufacture.new_record?  ? admin_manufactures_path : admin_manufacture_path(@manufacture) do |form|
+			.form-container
+				.form-sub-container.grid_3.alpha
+					.form-content
+						.grid_3.alpha.add_new_language_manufacture 
+							=link_to "+ novo idioma","javascript://", :onclick => "add_new_language_manufacture()"
+						
+							.form-content
+								.grid_3.alpha <strong>título</strong>
+
+							.form-content
+								.grid_3.alpha <strong>website</strong>
+								
+								
+				#language_manufacture
+					= render :partial => 'add_new_language', :collection => @manufacture.lang_manufacture , :as => :lang_manufacture
+				
+				.form-sub-container.grid_12.alpha	
+					
+					.form-content
+						.grid_3
+							=form.input :website, :label => false

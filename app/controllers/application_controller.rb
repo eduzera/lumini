@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   #acts_as_iphone_controller
   #:inherit_resources
   
-   before_filter :fix_refere_url
+   before_filter :fix_refere_url  
 
    def fix_refere_url
      if request.request_uri.count('/') > 2

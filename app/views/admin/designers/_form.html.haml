@@ -34,3 +34,40 @@
 					.form-content
 						.grid_3.alpha
 							= form.input :deathdate, :as => :string
+
+														
+			.form-container
+				.form-sub-container.grid_3.alpha
+					
+					.form-content
+						.grid_3.alpha.add_new_language_designer
+							=link_to "+ novo idioma","javascript://", :onclick => "add_new_language_designer()"
+					
+					.form-content
+						.grid_3.alpha <strong>Descricao</strong>
+					.form-content
+						.grid_3.alpha <strong>Nacionalidade</strong>
+						
+				#language_designer
+					= render :partial => 'add_new_language', :collection => @designer.lang_designer , :as => :lang_designer
+
+						
+			.form-container
+				.form-sub-container.grid_3.alpha
+					.form-content
+						.grid_3.alpha <strong>Imagem</strong>
+						
+				.form-sub-container.grid_3.alpha		
+					.form-content
+						.grid_3.alpha 
+							= form.input :img , :label => false
+							
+				.form-sub-container.grid_1.alpha		
+					.form-content
+
+				.form-sub-container.grid_3.alpha		
+					.form-content
+						.grid_3.alpha.image_designer
+							= image_tag @designer.img.url(:grid_1)
+							
+										

@@ -23,4 +23,31 @@ class Category < ActiveRecord::Base
   def to_label
     "#{lang_category.first.name}"
   end
+  
+  after_update :save_languages
+  
+  def new_lang_category_attributes=(category_attributes)   
+    category_attributes.each do |attributes|
+      lang_category.build(attributes)
+    end
+  end
+  
+  def existing_lang_category_attributes=(category_attributes)
+    lang_category.reject(&:new_record?).each do |lang|
+      attributes = category_attributes[lang.id.to_s]
+      if attributes
+        lang.attributes = attributes
+      else
+        lang_category.delete(lang)
+      end
+    end
+  end
+  
+  def save_languages
+    lang_category.each do |lang|
+      lang.save(false)
+    end
+  end
+  
+  
 end

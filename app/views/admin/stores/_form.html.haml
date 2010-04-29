@@ -1,0 +1,69 @@
+.actionContainer.grid_15
+	.actionHeader
+		%h2.grid_3.alpha 
+			= @store.new_record? ? "criar nova loja" : @store.lang_store.first.title
+		%p.messageBoard.grid_9 &nbsp;
+		%p.actionTriggers.grid_3.omega 
+			
+			=link_to "cancelar /",  @store.new_record? ? admin_path : admin_store_path(@store)
+			=link_to "salvar","javascript://" ,:class => "store_save_admin"
+			=link_to "/ excluir", admin_store_path(@store), :confirm => 'Tem certeza que deseja Excluir a Loja?', :method => :delete unless @store.new_record?
+
+	.actionContent
+		-semantic_form_for @store, :url => @store.new_record?  ? admin_stores_path : admin_store_path(@store) do |form|
+			.form-container
+				.form-sub-container.grid_3.alpha
+					.form-content
+						.grid_3.alpha.add_new_language_store 
+							=link_to "+ novo idioma","javascript://", :onclick => "add_new_language_store()"
+						
+							.form-content
+								.grid_3.alpha <strong>título</strong>
+						
+							.form-content
+								.grid_3.alpha <strong>cidade</strong>
+								
+							.form-content
+								.grid_3.alpha <strong>estado</strong>
+					
+							.form-content
+								.grid_3.alpha <strong>endereco</strong>
+								
+							.form-content
+								.grid_3.alpha <strong>bairro</strong>
+
+							.form-content
+								.grid_3.alpha <strong>cep</strong>
+								
+				#language_store
+					= render :partial => 'add_new_language', :collection => @store.lang_store , :as => :lang_store
+					
+		
+			.form-container
+				.form-sub-container.grid_3.alpha
+					.form-content
+						.grid_3.alpha <strong>e-mail</strong>
+				.form-sub-container.grid_3.alpha
+					.form-content
+						.grid_3.alpha 
+							=form.input :email, :label => false
+				
+			.form-container
+				.form-sub-container.grid_3.alpha
+					.form-content
+						.grid_3.alpha <strong>telefone</strong>
+						
+				.form-sub-container.grid_3.alpha
+					.form-content
+						.grid_3.alpha 
+							=form.input :telephone, :label => false
+									
+			.form-container
+				.form-sub-container.grid_3.alpha
+					.form-content
+						.grid_3.alpha <strong>funcionamento</strong>
+						
+				.form-sub-container.grid_3.alpha
+					.form-content
+						.grid_3.alpha 
+							=form.input :operation, :label => false

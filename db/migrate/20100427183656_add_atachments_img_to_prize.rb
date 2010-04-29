@@ -7,9 +7,9 @@ class AddAtachmentsImgToPrize < ActiveRecord::Migration
   end
 
   def self.down    
-    add_column :prizes, :img_file_name
-    add_column :prizes, :img_content_type
-    add_column :prizes, :img_file_size   
-    add_column :prizes, :img_updated_at  
+    remove_column :prizes, :img_file_name
+    remove_column :prizes, :img_content_type
+    remove_column :prizes, :img_file_size   
+    remove_column :prizes, :img_updated_at  
   end
 end
