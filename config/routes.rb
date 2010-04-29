@@ -29,10 +29,12 @@ ActionController::Routing::Routes.draw do |map|
   map.admin_images "/admin/images/:imageable_type/:id/:type", :controller => "admin/images", :action => 'show'
   map.admin_image '/admin/images/', :controller => "admin/images", :action => 'create'
   map.delete_admin_image '/admin/images/', :controller => "admin/images", :action => 'destroy'
-  map.change_image '/change_image/:imageable_id/galeries/:id', :controller => 'galeries', :action => 'changeimage'
-  map.galery "/galery/:imageable_id/:id", :controller => "galeries", :action => 'show'
-  map.galeries "/galeries/:imageable_id/:id", :controller => "galeries", :action => 'index'
-  map.show_images '/show_image/:product_id/image/:imagetype', :controller => 'admin/images', :action => 'show'   
+  
+  map.show_images '/show_image/:product_id/image/:imagetype', :controller => 'admin/images', :action => 'show'
+  map.change_image '/change_image/:imageable_type/galeries/:id', :controller => 'galeries', :action => 'changeimage'
+
+  map.galery "/galery/:imageable_type/:name", :controller => "galeries", :action => 'show'
+  map.galeries "/galeries/:imageable_type/:id", :controller => "galeries", :action => 'index'
   
   map.namespace(:admin) do |admin|
     admin.resources :home,      :only => [:index]

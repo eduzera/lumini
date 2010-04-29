@@ -13,5 +13,4 @@
 				%li.no_link
 					= family.name			
 				= render :partial => "products_family",  :locals => {:object => @products, :family => family.id}
-				%li.more_link
-					= link_to_remote "mais..", :url => {:action => "show", :family => family}, :method => :get, :html => {:href => "families/#{@category.id}", :target => "_replace"}
+				

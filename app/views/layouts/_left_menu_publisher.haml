@@ -9,7 +9,7 @@
 				-Product.all_with_filter.each do |product|
 					%li
 						.grid_1.alpha
-							= image_tag "../uploads/front/grid1_#{product.name}.jpg"
+							= image_tag (product.images.second.nil? ? product.images.first.img.url(:grid_1) : product.images.second.img.url(:grid_1))
 						.grid_3.rule-two.omega
 							= link_to product.name, admin_product_path(product)
 		%li
@@ -20,9 +20,7 @@
 
 				-Category.all.each do |category|
 					%li
-						.grid_1.alpha
-							= image_tag "/images/noimg_grid1.png"
-						.grid_3.rule-two.omega
+						.grid_4.rule-two.alpha
 							= link_to category.lang_category.first.name, admin_category_path(category)
 		%li
 			= link_to "prêmios", "javascript://"
@@ -33,7 +31,7 @@
 				-Prize.all.each do |prize|
 					%li
 						.grid_1.alpha
-							= image_tag prize.img.url(:grid_1)
+							= image_tag (prize.images.second.nil? ? prize.images.first.img.url(:grid_1) : prize.images.second.img.url(:grid_1)) 
 						.grid_3.rule-two.omega
 							= link_to prize.lang_prize.first.name, admin_prize_path(prize)
 																												
@@ -46,7 +44,7 @@
 				-Designer.all.each do |designer|
 					%li
 						.grid_1.alpha
-							= image_tag designer.img.url(:grid_1)
+							= image_tag ( designer.images.second.nil? ? designer.images.first.img.url(:grid_1) :  designer.images.second.img.url(:grid_1))
 						.grid_3.rule-two.omega
 							= link_to designer.name, admin_designer_path(designer)
 							
@@ -71,9 +69,7 @@
 
 				-Manufacture.all.each do |manufacture|
 					%li
-						.grid_1.alpha
-							= image_tag "/images/noimg_grid1.png"
-						.grid_3.rule-two.omega
+						.grid_4.rule-two.alpha
 							= link_to manufacture.lang_manufacture.first.name, admin_manufacture_path(manufacture)
 						
 

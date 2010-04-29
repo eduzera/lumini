@@ -5,6 +5,7 @@ class Admin::ProductsController < ActionController::Base
     @product = Product.new
     @product.lang_product.build
     @product.product_prize.build
+    @product.images.build
   end
   
   def show

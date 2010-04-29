@@ -3,11 +3,13 @@ require File.expand_path(File.dirname(__FILE__) + "/../fixtures/blueprints")
 
 ImageType.make(:name => "fotografia", :model_name => "Product")
 ImageType.make(:name => "desenho",    :model_name => "Product")
-ImageType.make(:name => "premio",     :model_name => "Prize")
+ImageType.make(:name => "prize",     :model_name => "Prize")
 ImageType.make(:name => "designer",   :model_name => "Designer")
 
 lingua = Language.make
-fabricante = Manufacture.make
+
+fabricante = Manufacture.make(:website => "http://www.lumini.com.br")
+  lang_fabricante = LangManufacture.make(:name => 'lumini', :manufacture_id => fabricante.id, :language_id => lingua.id)
 
 premio = Prize.make
   lang_premio = LangPrize.make(:name => 'if', :description => 'if design awards', :prize_id => premio.id, :language_id => lingua.id)
@@ -74,7 +76,7 @@ familia = Family.make
 # ------------------------------------------------------------------------------------------------------------------
 
 
-/
+
 
   produto = Product.make( :manufacture_id => fabricante.id, 
                           :designer_id => designer.id, 
@@ -97,65 +99,4 @@ familia = Family.make
                                     :product_id => produto.id, 
                                     :language_id => lingua.id)    
 
-
-            
-10.times {
-  produto = Product.make( :manufacture_id => fabricante.id, 
-                          :designer_id => designer.id, 
-                          :category_id => piso.category_id, 
-                          :family_id => luz_forma.family_id)
-                          
-    lang_product = LangProduct.make(:name => "bauhaus", 
-                                    :description => "luminária de piso com sistema de regulagem de altura luminária de piso com sistema de regulagem de altura", 
-                                    :tech_description => "lâmpada leitosa", 
-                                    :product_id => produto.id, 
-                                    :language_id => lingua.id)
-
-  produto = Product.make( :manufacture_id => fabricante.id, 
-                          :designer_id => designer.id, 
-                          :category_id => piso.category_id, 
-                          :family_id => luz_forma.family_id)
-
-      lang_product = LangProduct.make(:name => "kube", 
-                                      :description => "luminária linda cara", 
-                                      :tech_description => "lâmpada pastosa", 
-                                      :product_id => produto.id, 
-                                      :language_id => lingua.id)                               
-    
-  produto = Product.make( :manufacture_id => fabricante.id, 
-                          :designer_id => designer.id, 
-                          :category_id => piso.category_id, 
-                          :family_id => luz_arq.family_id)
-
-      lang_product = LangProduct.make(:name => "bossa", 
-                                      :description => "luminária de pista de dança", 
-                                      :tech_description => "lâmpada de soja", 
-                                      :product_id => produto.id, 
-                                      :language_id => lingua.id)    
-  
-# ------------------------------------------------------------------------------------------------------------------  
-  
-  produto = Product.make( :manufacture_id => fabricante.id, 
-                          :designer_id => designer.id, 
-                          :category_id => balizadores.category_id, 
-                          :family_id => luz_forma.family_id)
-
-      lang_product = LangProduct.make(:name => "piccoloR", 
-                                      :description => "luminária de pista de dança", 
-                                      :tech_description => "âmpada de soja", 
-                                      :product_id => produto.id, 
-                                      :language_id => lingua.id)
-                                      
-  produto = Product.make( :manufacture_id => fabricante.id, 
-                          :designer_id => designer.id, 
-                          :category_id => balizadores.category_id, 
-                          :family_id => luz_arq.family_id)
-
-      lang_product = LangProduct.make(:name => "lift", 
-                                      :description => "luminária lift ué", 
-                                      :tech_description => "lâmpada argilosa", 
-                                      :product_id => produto.id, 
-                                      :language_id => lingua.id)
-}
-/
 puts "OK!"

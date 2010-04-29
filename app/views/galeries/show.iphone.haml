@@ -11,8 +11,8 @@
 
 		.bottom-bar
 			.grid_1.alpha
-				= link_to 'anterior', change_image_path(@image.imageable_id, @image, :name => @image.image_type.name, :direction => 'previous'), :class => 'prev slideback'
+				= link_to 'anterior', change_image_path(@image.imageable_type, @image, :name => @image.image_type.name, :direction => 'previous'), :class => 'prev slideback'
 			.grid_4{:style=>"text-align: center"}
-				= link_to '[- - -]', galeries_path(@image.imageable_id, :name => @image.image_type.name), :class => "dissolve" 
+				= link_to '[- - -]', galeries_path(@image.imageable_type, :name => @image.image_type.name), :class => "dissolve" 
 			.grid_1.omega
-				= link_to 'proxima', change_image_path(@image.imageable_id, @image, :name => @image.image_type.name, :direction => 'next'), :class => 'next'		
+				= link_to 'proxima', change_image_path(@image.imageable_type, @image, :name => @image.image_type.name, :direction => 'next'), :class => 'next'		
