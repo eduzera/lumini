@@ -1,5 +1,18 @@
 .wrapper
-	<script src="/javascripts/jqtouch.min.js" type="text/javascript"></script>
-	<script src="http://localhost:3000/javascripts/mobile.js" type="text/javascript"></script>
+	%script{:type => "text/javascript", :charset => "utf-8"}
+		gallery_start();
+		
 	.container_6
-		=image_tag @image.img.url(:grid_6), :class => "swipe_trigger touch"
+		.top-bar
+			%p top
+	
+		.swipe_trigger
+			= image_tag @image.img.url(:grid_6), :class => "touch"
+
+		.bottom-bar
+			.grid_1.alpha
+				= link_to 'anterior', change_image_path(@image.product_id, @image, :name => @image.image_type.name, :direction => 'previous'), :class => 'prev slideback'
+			.grid_4{:style=>"text-align: center"}
+				= link_to '[- - -]', product_galeries_path(@image.product_id, :name => @image.image_type.name), :class => "dissolve" 
+			.grid_1.omega
+				= link_to 'proxima', change_image_path(@image.product_id, @image, :name => @image.image_type.name, :direction => 'next'), :class => 'next'		

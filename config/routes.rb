@@ -28,6 +28,8 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'admin/products/add_new_language',        :controller => "admin/products",     :action => 'add_new_language'
   map.connect 'admin/products/add_new_prize',           :controller => "admin/products",     :action => 'add_new_prize'
   map.show_images '/show_image/:product_id/image/:imagetype', :controller => 'admin/images', :action => 'show'   
+  map.change_image '/change_image/products/:product_id/galeries/:id', :controller => 'galeries', :action => 'changeimage'
+  
   
   map.namespace(:admin) do |admin|
     admin.resources :home,      :only => [:index]
