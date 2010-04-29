@@ -1,19 +1,19 @@
 .actionContainer.grid_15
 	.actionHeader
 		%h2.grid_3.alpha
-			=@image.product.lang_product.first.name
+			-#=@image.product.lang_product.first.name
 		%p.messageBoard.grid_9 &nbsp;
 
 	%ul.actionMenu
 		%li 
-			= link_to "info", edit_admin_product_path(@image.product)
+			= link_to "info", polymorphic_path(:admin)
 		%li 
-			= link_to "fotografias", 	show_images_path(@image.product_id, 'fotografia')
+			= link_to "fotografias", admin_images_path(@klass, @image.imageable_id, 'fotografia')
 		%li 
-			= link_to "desenhos", 		show_images_path(@image.product_id, 'desenho' )
+			= link_to "desenhos", admin_images_path(@klass, @image.imageable_id, 'desenho')
 
 
-	-semantic_form_for @image, :url => admin_product_images_path , :html => {:multipart => true} do |form|
+	-semantic_form_for @image, :url => admin_image_path , :html => {:multipart => true} do |form|
 		.actionContent
 			.form-container 							
 				.form-content
@@ -28,7 +28,8 @@
 								.grid_11.omega
 									.grid_8.alpha
 										=form.input :img, :as => :file, :label => ""
-										=form.input :product_id, :as => :hidden
+										=form.input :imageable_id, :as => :hidden
+										=form.input :imageable_type, :as => :hidden
 										=form.input :image_type, :as => :select, :include_blank => false, :collection => ImageType.find_by_name("#{request.request_uri.reverse[0, (request.request_uri.reverse.index'/')].reverse}").to_a
 									.grid_3.omega
 										=form.commit_button
@@ -59,4 +60,4 @@
 										%br
 										= number_to_human_size image.size(image.img.path(:original))
 									.grid_1.omega
-										= link_to "[X]", admin_product_image_path(image.product_id, image), :confirm => 'Deseja remover esta imagem?', :method => :delete
+										-#= link_to "[X]", delete_admin_image_path(image)

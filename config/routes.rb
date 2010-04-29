@@ -12,24 +12,31 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :families,        :only => [:index, :show]
   map.resources :categories,      :only => [:index, :show]
   map.resources :manufactures,    :only => [:index, :show]
+  map.resources :images,    :only => [:index, :show]
+  #map.resources :galeries,  :only => [:index, :show]
   
   map.resources :products, :only => [:index, :show] do |product|
-    product.resources :images,    :only => [:index, :show]
     product.resources :designers, :only => [:index, :show]
-    product.resources :galeries,  :only => [:index, :show]
   end
   
   #map.show_image 'product/:product_id/galeries/:image_id', :controller => 'galeries', :action => 'show'
   map.connect 'admin/prizes/add_new_language',   :controller => "admin/prizes",   :action => 'add_new_language'
   map.connect 'admin/products/add_new_language', :controller => "admin/products", :action => 'add_new_language'
   map.connect 'admin/products/add_new_prize',    :controller => "admin/products", :action => 'add_new_prize'
-  map.show_images '/show_image/:product_id/image/:imagetype', :controller => 'admin/images', :action => 'show'   
-  map.change_image '/change_image/products/:product_id/galeries/:id', :controller => 'galeries', :action => 'changeimage'
+  #map.show_images "/show_images/:model/:id/images/:imagetype", :controller => 'admin/images', :action => 'show'   
+  map.change_image '/change_image/:imageable_id/galeries/:id', :controller => 'galeries', :action => 'changeimage'
   
+  map.admin_images "/admin/images/:imageable_type/:id/:type", :controller => "admin/images", :action => 'show'
+  map.admin_image '/admin/images/', :controller => "admin/images", :action => 'create'
+  map.delete_admin_image '/admin/images/', :controller => "admin/images", :action => 'destroy'
+  map.galery "/galery/:imageable_id/:id", :controller => "galeries", :action => 'show'
+  map.galeries "/galeries/:imageable_id/:id", :controller => "galeries", :action => 'index'
+
   
   map.namespace(:admin) do |admin|
     admin.resources :home,      :only => [:index]
-  	admin.resources :products,  :has_many => :images
+  	admin.resources :products
+  	admin.resources :images
   	admin.resources :prizes
   	admin.resources :designers
   end

@@ -25,34 +25,41 @@ class Admin::ProductsController < ActionController::Base
     end
   end
   
+  def create_image
+    @product = Product.find(params[:id])
+    @product.images.create(params[:image])
+    
+    if @product.save
+      flash[:notice] = "Successfully created contact."
+      redirect_to admin_product_url(@product)
+    else
+      redirect_to :back
+    end
+  end
+  
+  
   def update
-      @product = Product.find(params[:id])
-      if @product.update_attributes(params[:product])
-        flash[:notice] = "Successfully updated contact."
-        redirect_to admin_products_url
-      else
-        render edit_admin_product_url(@product)
-      end
+    @product = Product.find(params[:id])
+    if @product.update_attributes(params[:product])
+      flash[:notice] = "Successfully updated contact."
+      redirect_to admin_product_url(@product)
+    else
+      render edit_admin_product_url(@product)
     end
+  end
+  
+  def destroy
+    @product = Product.find(params[:id])
+    @product.destroy
     
-    def add_new_language
-      
-      render :partial => "add_new_language", :locals => { :lang_product => LangProduct.new }
-
-    end
-    
-    def add_new_prize
-      
-      render :partial => "add_new_prize", :locals => { :product_prize => ProductPrize.new}
-      
-    end
-    
-    def destroy
-      
-      @product = Product.find(params[:id])
-      @product.destroy
-      
-      redirect_to admin_path
-    end
-    
+    redirect_to admin_path
+  end
+  
+  def add_new_language
+    render :partial => "add_new_language", :locals => { :lang_product => LangProduct.new }
+  end
+  
+  def add_new_prize
+    render :partial => "add_new_prize", :locals => { :product_prize => ProductPrize.new}
+  end
 end

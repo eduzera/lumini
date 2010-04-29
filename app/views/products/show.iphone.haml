@@ -11,11 +11,11 @@
 		%p.grid_6.rule-two
 			= @product.lang_product.first.name
 		.grid_4{:style => "margin-bottom: 18px"}
-			= image_tag "../uploads/front/grid4_#{@product.lang_product.first.name}.jpg"
+			= image_tag @product.images.first.img(:grid_3)
 		%ul.grid_2
 			-@images.each do |img|		
 				%li
-					= link_to img.name, product_galery_path(@product, @product.image.first), :class => "dissolve" 
+					= link_to img.name, galery_path(@product.id), :class => "dissolve" 
 			%li
 				= link_to "o designer",	product_designers_path(@product), :class => "dissolve"
 			%li

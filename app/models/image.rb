@@ -1,5 +1,5 @@
 class Image < ActiveRecord::Base
-  belongs_to :product
+  #belongs_to :product
   belongs_to :imageable, :polymorphic => true
   belongs_to :image_type
 
@@ -13,14 +13,21 @@ class Image < ActiveRecord::Base
    validates_attachment_content_type :img, :content_type => ['image/jpeg', 'image/png', 'image/jpg', 'image/gif']
 
 
-   named_scope :by_product, lambda { |product, name| { 
-                                     :joins => [:product, :image_type],
-                                     :conditions => ["images.product_id = ? AND image_types.name = ?", product, name], 
-                                     :order => 'image_types.name'}}
+  # named_scope :by_product, lambda { |product, name| { 
+  #                                   :joins => [:product, :image_type],
+  #                                   :conditions => ["images.product_id = ? AND image_types.name = ?", product, name], 
+  #                                   :order => 'image_types.name'}}
                                           
-                                     
-  named_scope :name_by_product, lambda { |product| { :select => "image_types.name 'name'", :joins => [:image_type], :conditions => ['images.product_id = ?', product], 
+  named_scope :by_imageable_id, lambda {|id|{:conditions => ['imageable_id = ?', id]}}
+                     
+  named_scope :by_imageable_type, lambda { |type| { :select => "images.id 'id', image_types.name 'name'", :joins => [:image_type], :conditions => ['imageable_type = ?', type.capitalize], 
     :group => 'image_types.id'  }}
+
+  named_scope :by_image_type, lambda { |type| { :joins => [:image_type], :conditions => ['image_types.name = ?', type]}}
+
+
+  named_scope :all_with_filter, lambda {|imageable_type, type| {  :include => [:image_type], :conditions => ["imageable_type = ? AND image_types.name = ?", imageable_type, type]
+  }}
 
                                      
    def dimension(url)
