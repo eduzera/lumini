@@ -1,12 +1,17 @@
 .actionContainer.grid_15
 	.actionHeader
 		%h2.grid_3.alpha 
-			= @prize.new_record? ? "criar novo" : @prize.lang_prize.first.name
+			= @prize.new_record? ? "criar novo premio" : @prize.lang_prize.first.name
 		%p.messageBoard.grid_9 &nbsp;
 		%p.actionTriggers.grid_3.omega
 			=link_to "cancelar /",  @prize.new_record? ? admin_path : admin_prize_path(@prize)
 			=link_to "salvar","javascript://" ,:class => "prize_save_admin"
 			=link_to "/ excluir", admin_prize_path(@prize), :confirm => 'Tem certeza que deseja Excluir o Premio?', :method => :delete unless @prize.new_record?
+			
+	%ul.actionMenu
+		%li
+			%strong
+				info
 			
 	.actionContent
 		-semantic_form_for @prize, :url => @prize.new_record?  ? admin_prizes_path : admin_prize_path(@prize) , :html => {:multipart => true} do |form|

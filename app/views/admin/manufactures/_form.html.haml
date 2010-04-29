@@ -8,6 +8,11 @@
 			=link_to "cancelar /",  @manufacture.new_record? ? admin_path : admin_manufacture_path(@manufacture)
 			=link_to "salvar","javascript://" ,:class => "manufacture_save_admin"
 			=link_to "/ excluir", admin_manufacture_path(@manufacture), :confirm => 'Tem certeza que deseja Excluir a Marca?', :method => :delete unless @manufacture.new_record?
+			
+	%ul.actionMenu
+		%li
+			%strong
+				info
 
 	.actionContent
 		-semantic_form_for @manufacture, :url => @manufacture.new_record?  ? admin_manufactures_path : admin_manufacture_path(@manufacture) do |form|

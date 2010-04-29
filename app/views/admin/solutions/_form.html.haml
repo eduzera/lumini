@@ -1,0 +1,35 @@
+.actionContainer.grid_15
+	.actionHeader
+		%h2.grid_3.alpha 
+			= @solution.new_record? ? "criar nova solucao" : @solution.lang_solution.first.name
+		%p.messageBoard.grid_9 &nbsp;
+		%p.actionTriggers.grid_3.omega 
+			
+			=link_to "cancelar /",  @solution.new_record? ? admin_path : admin_solution_path(@solution)
+			=link_to "salvar","javascript://" ,:class => "solution_save_admin"
+			=link_to "/ excluir", admin_solution_path(@solution), :confirm => 'Tem certeza que deseja Excluir a Solucao?', :method => :delete unless @solution.new_record?
+			
+						
+	%ul.actionMenu
+		%li
+			%strong
+				info
+
+	.actionContent
+		-semantic_form_for @solution, :url => @solution.new_record?  ? admin_solutions_path : admin_solution_path(@solution) do |form|
+			.form-container
+				.form-sub-container.grid_3.alpha
+					.form-content
+						.grid_3.alpha.add_new_language_solution 
+							=link_to "+ novo idioma","javascript://", :onclick => "add_new_language_solution()"
+
+							.form-content
+								.grid_3.alpha <strong>titulo</strong>
+
+							.form-content
+								.grid_3.alpha <strong>descricao</strong>
+								
+								
+				#language_solution
+					= render :partial => 'add_new_language', :collection => @solution.lang_solution , :as => :lang_solution
+			

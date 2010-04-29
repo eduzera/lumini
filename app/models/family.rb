@@ -47,6 +47,31 @@ class Family < ActiveRecord::Base
                    :joins => [:lang_family, {:product => [:manufacture]}],
                    :conditions => ["products.manufacture_id = ?", manufacture], 
                    :group => "id"}}
+                   
+   after_update :save_languages
+
+   def new_lang_family_attributes=(family_attributes)   
+     family_attributes.each do |attributes|
+       lang_family.build(attributes)
+     end
+   end
+
+   def existing_lang_family_attributes=(family_attributes)
+     lang_family.reject(&:new_record?).each do |lang|
+       attributes = family_attributes[lang.id.to_s]
+       if attributes
+         lang.attributes = attributes
+       else
+         lang_family.delete(lang)
+       end
+     end
+   end
+
+   def save_languages
+     lang_family.each do |lang|
+       lang.save(false)
+     end
+   end
   
 end
 

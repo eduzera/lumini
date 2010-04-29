@@ -75,5 +75,18 @@
 							= image_tag "/images/noimg_grid1.png"
 						.grid_3.rule-two.omega
 							= link_to manufacture.lang_manufacture.first.name, admin_manufacture_path(manufacture)
+							
+		%li
+			= link_to "familias", "javascript://"
+			%ul.with_images
+				%li.more_link
+					= link_to "criar novo", new_admin_family_path
+
+				-Family.all.each do |family|
+					%li
+						.grid_1.alpha
+							= image_tag "/images/noimg_grid1.png"
+						.grid_3.rule-two.omega
+							= link_to family.lang_family.first.name, admin_family_path(family)
 						
 

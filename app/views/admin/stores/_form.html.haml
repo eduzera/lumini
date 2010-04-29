@@ -8,6 +8,11 @@
 			=link_to "cancelar /",  @store.new_record? ? admin_path : admin_store_path(@store)
 			=link_to "salvar","javascript://" ,:class => "store_save_admin"
 			=link_to "/ excluir", admin_store_path(@store), :confirm => 'Tem certeza que deseja Excluir a Loja?', :method => :delete unless @store.new_record?
+			
+	%ul.actionMenu
+		%li
+			%strong
+				info
 
 	.actionContent
 		-semantic_form_for @store, :url => @store.new_record?  ? admin_stores_path : admin_store_path(@store) do |form|

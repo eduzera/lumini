@@ -1,0 +1,17 @@
+- new_or_existing = lang_solution.new_record? ? 'new' : 'existing'
+- prefix = "solution[#{new_or_existing}_lang_solution_attributes][]"
+
+	.form-sub-container.grid_3
+		-semantic_fields_for prefix, lang_solution do |lang|
+		-lang.inputs
+		.form-content
+			.grid_3 
+				= lang.input :language, :as => :select, :include_blank => false, :collection => Language.all
+
+		.form-content
+			.grid_3
+				=lang.input :name, :label => false
+
+		.form-content
+			.grid_3
+				=lang.input :description, :as => :text, :label => false

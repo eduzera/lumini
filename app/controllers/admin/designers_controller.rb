@@ -1,6 +1,6 @@
 class Admin::DesignersController < ApplicationController
   
-  layout "admin"
+  layout "publisher_designers"
   
   def index
     @designers = Designer.all

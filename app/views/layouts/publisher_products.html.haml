@@ -1,0 +1,58 @@
+
+-inside_layout 'admin' do
+	.navContainer 
+		%ul.categories_browser
+			%li
+				= link_to "produtos", "javascript://"
+				%ul.with_images
+					%li.more_link
+						= link_to "criar novo", new_admin_product_path
+
+					-Product.all_with_filter.each do |product|
+						%li
+							.grid_1.alpha
+								= image_tag "../uploads/front/grid1_#{product.name}.jpg"
+							.grid_3.rule-two.omega
+								= link_to product.name, admin_product_path(product)
+			%li
+				= link_to "categorias", "javascript://"
+				%ul.with_images
+					%li.more_link
+						= link_to "criar novo", new_admin_category_path
+
+					-Category.all.each do |category|
+						%li
+							.grid_1.alpha
+								= image_tag "/images/noimg_grid1.png"
+							.grid_3.rule-two.omega
+								= link_to category.lang_category.first.name, admin_category_path(category)
+								
+			%li
+				= link_to "marcas", "javascript://"
+				%ul.with_images
+					%li.more_link
+						= link_to "criar novo", new_admin_manufacture_path
+
+					-Manufacture.all.each do |manufacture|
+						%li
+							.grid_1.alpha
+								= image_tag "/images/noimg_grid1.png"
+							.grid_3.rule-two.omega
+								= link_to manufacture.lang_manufacture.first.name, admin_manufacture_path(manufacture)
+								
+			%li
+				= link_to "familias", "javascript://"
+				%ul.with_images
+					%li.more_link
+						= link_to "criar novo", new_admin_family_path
+
+					-Family.all.each do |family|
+						%li
+							.grid_1.alpha
+								= image_tag "/images/noimg_grid1.png"
+							.grid_3.rule-two.omega
+								= link_to family.lang_family.first.name, admin_family_path(family)
+								
+								
+	=yield
+			

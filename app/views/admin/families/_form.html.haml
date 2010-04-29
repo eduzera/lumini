@@ -1,0 +1,33 @@
+.actionContainer.grid_15
+	.actionHeader
+		%h2.grid_3.alpha 
+			= @family.new_record? ? "criar nova familia" : @family.lang_family.first.name
+		%p.messageBoard.grid_9 &nbsp;
+		%p.actionTriggers.grid_3.omega 
+			
+			=link_to "cancelar /",  @family.new_record? ? admin_path : admin_family_path(@family)
+			=link_to "salvar","javascript://" ,:class => "family_save_admin"
+			=link_to "/ excluir", admin_family_path(@family), :confirm => 'Tem certeza que deseja Excluir a Familia?', :method => :delete unless @family.new_record?
+			
+	%ul.actionMenu
+		%li
+			%strong
+				info
+			
+	.actionContent
+		-semantic_form_for @family, :url => @family.new_record?  ? admin_families_path : admin_family_path(@family) do |form|
+			.form-container
+				.form-sub-container.grid_3.alpha
+					.form-content
+						.grid_3.alpha.add_new_language_family 
+							=link_to "+ novo idioma","javascript://", :onclick => "add_new_language_family()"
+
+							.form-content
+								.grid_3.alpha <strong>titulo</strong>
+
+							.form-content
+								.grid_3.alpha <strong>descricao</strong>
+								
+								
+				#language_family
+					= render :partial => 'add_new_language', :collection => @family.lang_family , :as => :lang_family

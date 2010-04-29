@@ -1,12 +1,17 @@
 .actionContainer.grid_15
 	.actionHeader
 		%h2.grid_3.alpha 
-			= @designer.new_record? ? "criar novo" : @designer.name
+			= @designer.new_record? ? "criar novo designer" : @designer.name
 		%p.messageBoard.grid_9 &nbsp;
 		%p.actionTriggers.grid_3.omega
 			=link_to "cancelar /",  @designer.new_record? ? admin_path : admin_designers_path
 			=link_to "salvar","javascript://" ,:class => "designer_save_admin"
-			=link_to "/ excluir", admin_designer_path(@designer), :confirm => 'Tem certeza que deseja Excluir o Premio?', :method => :delete unless @designer.new_record?
+			=link_to "/ excluir", admin_designer_path(@designer), :confirm => 'Tem certeza que deseja Excluir o Designer?', :method => :delete unless @designer.new_record?
+			
+	%ul.actionMenu
+		%li
+			%strong
+				info
 			
 	.actionContent
 		-semantic_form_for @designer, :url => @designer.new_record?  ? admin_designers_path : admin_designer_path(@designer) , :html => {:multipart => true} do |form|

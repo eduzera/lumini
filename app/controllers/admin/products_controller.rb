@@ -1,5 +1,5 @@
 class Admin::ProductsController < ActionController::Base
-  layout "admin"
+  layout "publisher_products"
   
   def new
     @product = Product.new
@@ -52,7 +52,7 @@ class Admin::ProductsController < ActionController::Base
       @product = Product.find(params[:id])
       @product.destroy
       
-      redirect_to admin_path
+      redirect_to admin_products_path
     end
     
 end

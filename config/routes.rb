@@ -20,7 +20,9 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   #map.show_image 'product/:product_id/galeries/:image_id', :controller => 'galeries', :action => 'show'
-  map.connect 'admin/designers/add_new_language',       :controller => "admin/designers",   :action => 'add_new_language'
+  map.connect 'admin/solutions/add_new_language',       :controller => "admin/solutions",    :action => 'add_new_language'
+  map.connect 'admin/families/add_new_language',        :controller => "admin/families",     :action => 'add_new_language'
+  map.connect 'admin/designers/add_new_language',       :controller => "admin/designers",    :action => 'add_new_language'
   map.connect 'admin/manufactures/add_new_language',    :controller => "admin/manufactures", :action => 'add_new_language'
   map.connect 'admin/categories/add_new_language',      :controller => "admin/categories",   :action => 'add_new_language'
   map.connect 'admin/stores/add_new_language',          :controller => "admin/stores",       :action => 'add_new_language'
@@ -39,6 +41,8 @@ ActionController::Routing::Routes.draw do |map|
   	admin.resources :stores
   	admin.resources :categories
   	admin.resources :manufactures
+  	admin.resources :families
+  	admin.resources :solutions
   end
   
 
