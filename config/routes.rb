@@ -20,9 +20,13 @@ ActionController::Routing::Routes.draw do |map|
   end
   
   #map.show_image 'product/:product_id/galeries/:image_id', :controller => 'galeries', :action => 'show'
-  map.connect 'admin/prizes/add_new_language',   :controller => "admin/prizes",   :action => 'add_new_language'
-  map.connect 'admin/products/add_new_language', :controller => "admin/products", :action => 'add_new_language'
-  map.connect 'admin/products/add_new_prize',    :controller => "admin/products", :action => 'add_new_prize'
+  map.connect 'admin/designers/add_new_language',       :controller => "admin/designers",   :action => 'add_new_language'
+  map.connect 'admin/manufactures/add_new_language',    :controller => "admin/manufactures", :action => 'add_new_language'
+  map.connect 'admin/categories/add_new_language',      :controller => "admin/categories",   :action => 'add_new_language'
+  map.connect 'admin/stores/add_new_language',          :controller => "admin/stores",       :action => 'add_new_language'
+  map.connect 'admin/prizes/add_new_language',          :controller => "admin/prizes",       :action => 'add_new_language'
+  map.connect 'admin/products/add_new_language',        :controller => "admin/products",     :action => 'add_new_language'
+  map.connect 'admin/products/add_new_prize',           :controller => "admin/products",     :action => 'add_new_prize'
   map.show_images '/show_image/:product_id/image/:imagetype', :controller => 'admin/images', :action => 'show'   
   
   map.namespace(:admin) do |admin|
@@ -30,6 +34,9 @@ ActionController::Routing::Routes.draw do |map|
   	admin.resources :products,  :has_many => :images
   	admin.resources :prizes
   	admin.resources :designers
+  	admin.resources :stores
+  	admin.resources :categories
+  	admin.resources :manufactures
   end
   
 

@@ -1,0 +1,22 @@
+- new_or_existing = lang_designer.new_record? ? 'new' : 'existing'
+- prefix = "designer[#{new_or_existing}_lang_designer_attributes][]"
+
+	.form-sub-container.grid_3
+		-semantic_fields_for prefix, lang_designer do |lang|
+		-lang.inputs
+		.form-content
+			.grid_3 
+				= lang.input :language, :as => :select, :include_blank => false, :collection => Language.all
+				
+		.form-content
+			.grid_3
+				=lang.input :biography, :as => :text, :label => false
+		
+		.form-content
+			.grid_3
+				=lang.input :nacionality, :label => false
+
+				
+				
+				
+				

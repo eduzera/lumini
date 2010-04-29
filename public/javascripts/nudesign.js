@@ -57,6 +57,18 @@ $(document).ready(function()
 		$('form').submit();
 	});	
 	
+	$('.store_save_admin').click( function(){
+		$('form').submit();
+	});
+	
+	$('.category_save_admin').click( function(){
+		$('form').submit();
+	});
+	
+	$('.manufacture_save_admin').click( function(){
+		$('form').submit();
+	});
+	
 	$("#designer_birthdate").datepicker();
 	$("#designer_deathdate").datepicker();
 	
@@ -101,6 +113,94 @@ function add_new_language_prize(){
 				
 				//Oculta link para add mais linguas. Limite eh 4
 				link = $('.add_new_language_prize').find('a');
+				$(link[0]).replaceWith('&nbsp;');
+			}
+		});
+}
+
+//Adiciona novo campo de Linga para um Loja. by EZaghi => 28/04/2010
+function add_new_language_store(){
+
+	$.get('/admin/stores/add_new_language',
+		function(result)
+		{	
+			$('#language_store').append(result);
+			
+			totalBox = $('#language_store').find('.form-sub-container');
+			
+			if(totalBox.size()%4 == 0)
+			{
+				//Define ultimo elemento como omega
+				$(totalBox[totalBox.size() - 1]).addClass('omega');
+				
+				//Oculta link para add mais linguas. Limite eh 4
+				link = $('.add_new_language_store').find('a');
+				$(link[0]).replaceWith('&nbsp;');
+			}
+		});
+}
+
+//Adiciona novo campo de Linga para um Categoria. by EZaghi => 28/04/2010
+function add_new_language_category(){
+
+	$.get('/admin/categories/add_new_language',
+		function(result)
+		{	
+			$('#language_category').append(result);
+			
+			totalBox = $('#language_category').find('.form-sub-container');
+			
+			if(totalBox.size()%4 == 0)
+			{
+				//Define ultimo elemento como omega
+				$(totalBox[totalBox.size() - 1]).addClass('omega');
+				
+				//Oculta link para add mais linguas. Limite eh 4
+				link = $('.add_new_language_category').find('a');
+				$(link[0]).replaceWith('&nbsp;');
+			}
+		});
+}
+
+//Adiciona novo campo de Lingua para uma Marca. by EZaghi => 29/04/2010
+function add_new_language_manufacture(){
+
+	$.get('/admin/manufactures/add_new_language',
+		function(result)
+		{	
+			$('#language_manufacture').append(result);
+			
+			totalBox = $('#language_manufacture').find('.form-sub-container');
+			
+			if(totalBox.size()%4 == 0)
+			{
+				//Define ultimo elemento como omega
+				$(totalBox[totalBox.size() - 1]).addClass('omega');
+				
+				//Oculta link para add mais linguas. Limite eh 4
+				link = $('.add_new_language_manufacture').find('a');
+				$(link[0]).replaceWith('&nbsp;');
+			}
+		});
+}
+
+//Adiciona novo campo de Lingua para uma Designer. by EZaghi => 29/04/2010
+function add_new_language_designer(){
+
+	$.get('/admin/designers/add_new_language',
+		function(result)
+		{	
+			$('#language_designer').append(result);
+			
+			totalBox = $('#language_designer').find('.form-sub-container');
+			
+			if(totalBox.size()%4 == 0)
+			{
+				//Define ultimo elemento como omega
+				$(totalBox[totalBox.size() - 1]).addClass('omega');
+				
+				//Oculta link para add mais linguas. Limite eh 4
+				link = $('.add_new_language_designer').find('a');
 				$(link[0]).replaceWith('&nbsp;');
 			}
 		});

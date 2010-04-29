@@ -15,7 +15,7 @@ class Admin::PrizesController < ApplicationController
     @prize = Prize.new(params[:prize])
     if @prize.save
       flash[:notice] = "Successfully created contact."
-      redirect_to admin_prizes_url(@prize)
+      redirect_to admin_prize_url(@prize)
     else
       redirect_to :back
     end

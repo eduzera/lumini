@@ -8,6 +8,7 @@ class Admin::DesignersController < ApplicationController
   
   def new
     @designer = Designer.new
+    @designer.lang_designer.build
   end
   
   def create
@@ -43,6 +44,12 @@ class Admin::DesignersController < ApplicationController
     @designer.destroy
     
     redirect_to admin_designers_path
+  end
+  
+  def add_new_language
+    respond_to do |format|
+      format.js {render :partial => "add_new_language", :locals => { :lang_designer => LangDesigner.new }}
+    end
   end
   
 end

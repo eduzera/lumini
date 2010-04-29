@@ -11,11 +11,11 @@ class Prize < ActiveRecord::Base
   end
   
   
-  has_attached_file :img, :styles => {:grid_1 => "45x45#", :grid_2 => "96x96#" ,:grid_3 => "147x144#",
+  has_attached_file :img, :styles => {:grid_1 => "45x45#", :grid_2 => "96x96#" ,:grid_3 => "147x144#"},
 
-    :url => "/uploads/:class/:prize_id/:id/:style.:extension",
-    :path => ":rails_root/public/uploads/:class/:prize_id/:id/:style.:extension",
-    :default_url => "/images/noimg_grid1.png"}
+    :url => "/uploads/:class/:id/:style.:extension",
+    :path => ":rails_root/public/uploads/:class/:id/:style.:extension",
+    :default_url => "/images/noimg_grid1.png"
 
   validates_attachment_content_type :img, :content_type => ['image/jpeg', 'image/png', 'image/jpg', 'image/gif']
   

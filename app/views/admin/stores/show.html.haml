@@ -1,0 +1,97 @@
+.actionContainer.grid_15
+	.actionHeader
+		%h2.grid_3.alpha 
+			= @store.lang_store.first.title
+		%p.messageBoard.grid_9 &nbsp;
+
+		
+	%ul.actionMenu
+		%li 
+			= link_to "info", edit_admin_store_path(@store)
+
+	.actionContent
+
+		.form-container 
+			.form-sub-container.grid_3.alpha
+
+				.form-content
+					.grid_3.alpha <strong>idioma</strong>
+					
+				.form-content
+					.grid_3.alpha <strong>titulo</strong>
+					
+				.form-content
+					.grid_3.alpha <strong>cidade</strong>
+					
+				.form-content
+					.grid_3.alpha <strong>estado</strong>
+				
+				.form-content
+					.grid_3.alpha <strong>endereco</strong>
+					
+				.form-content
+					.grid_3.alpha <strong>cep</strong>
+					
+			-@store.lang_store.each do |lang|
+				.form-sub-container.grid_3.alpha
+
+					.form-content
+						.grid_3.alpha 
+							= lang.language.name
+
+					.form-content
+						.grid_3.alpha 
+							= lang.title
+
+					.form-content
+						.grid_3.alpha 
+							= lang.city
+							
+					.form-content
+						.grid_3.alpha 
+							= lang.state
+
+					.form-content
+						.grid_3.alpha 
+							= lang.street
+
+					.form-content
+						.grid_3.alpha
+							= lang.postal_code
+			
+		.form-container 
+			.form-sub-container.grid_3.alpha
+
+				.form-content
+					.grid_3.alpha <strong>e-mail</strong>
+					
+			.form-sub-container.grid_3.alpha
+
+				.form-content
+					.grid_3.alpha 
+						=@store.email
+					
+		.form-container 
+			.form-sub-container.grid_3.alpha
+
+				.form-content
+					.grid_3.alpha <strong>telefone</strong>
+					
+			.form-sub-container.grid_3.alpha
+
+				.form-content
+					.grid_3.alpha 
+						=@store.telephone
+					
+		.form-container 
+			.form-sub-container.grid_3.alpha
+
+				.form-content
+					.grid_3.alpha <strong>Funcionamento</strong>
+					
+			.form-sub-container.grid_3.alpha
+
+				.form-content
+					.grid_3.alpha 
+						=@store.operation
+					

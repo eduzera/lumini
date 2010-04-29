@@ -13,7 +13,17 @@
 						.grid_3.rule-two.omega
 							= link_to product.name, admin_product_path(product)
 		%li
-			= link_to "categorias", new_admin_product_path
+			= link_to "categorias", "javascript://"
+			%ul.with_images
+				%li.more_link
+					= link_to "criar novo", new_admin_category_path
+
+				-Category.all.each do |category|
+					%li
+						.grid_1.alpha
+							= image_tag "/images/noimg_grid1.png"
+						.grid_3.rule-two.omega
+							= link_to category.lang_category.first.name, admin_category_path(category)
 		%li
 			= link_to "prêmios", "javascript://"
 			%ul.with_images
@@ -23,8 +33,47 @@
 				-Prize.all.each do |prize|
 					%li
 						.grid_1.alpha
-							= image_tag "/images/noimg_grid1.png"
+							= image_tag prize.img.url(:grid_1)
 						.grid_3.rule-two.omega
 							= link_to prize.lang_prize.first.name, admin_prize_path(prize)
+																												
+		%li
+			= link_to "designers", "javascript://"
+			%ul.with_images
+				%li.more_link
+					= link_to "criar novo", new_admin_designer_path
+
+				-Designer.all.each do |designer|
+					%li
+						.grid_1.alpha
+							= image_tag designer.img.url(:grid_1)
+						.grid_3.rule-two.omega
+							= link_to designer.name, admin_designer_path(designer)
+							
+		%li
+			= link_to "lojas", "javascript://"
+			%ul.with_images
+				%li.more_link
+					= link_to "criar novo", new_admin_store_path
+
+				-Store.all.each do |store|
+					%li
+						.grid_1.alpha
+							= image_tag "/images/noimg_grid1.png"
+						.grid_3.rule-two.omega
+							= link_to "#{store.lang_store.first.state} #{store.lang_store.first.title}", admin_store_path(store)
+							
+		%li
+			= link_to "marcas", "javascript://"
+			%ul.with_images
+				%li.more_link
+					= link_to "criar novo", new_admin_manufacture_path
+
+				-Manufacture.all.each do |manufacture|
+					%li
+						.grid_1.alpha
+							= image_tag "/images/noimg_grid1.png"
+						.grid_3.rule-two.omega
+							= link_to manufacture.lang_manufacture.first.name, admin_manufacture_path(manufacture)
 						
 

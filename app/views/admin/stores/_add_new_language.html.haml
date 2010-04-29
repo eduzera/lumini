@@ -1,0 +1,34 @@
+- new_or_existing = lang_store.new_record? ? 'new' : 'existing'
+- prefix = "store[#{new_or_existing}_lang_store_attributes][]"
+
+	.form-sub-container.grid_3
+		-semantic_fields_for prefix, lang_store do |lang|
+		-lang.inputs
+		.form-content
+			.grid_3 
+				= lang.input :language, :as => :select, :include_blank => false, :collection => Language.all
+
+		.form-content
+			.grid_3
+				=lang.input :title, :label => false
+
+		.form-content
+			.grid_3
+				=lang.input :city, :label => false
+				
+		.form-content
+			.grid_3
+				=lang.input :state, :label => false
+
+		.form-content	
+			.grid_3
+				=lang.input :street, :label => false
+				
+		.form-content	
+			.grid_3
+				=lang.input :neighborhood, :label => false
+				
+		.form-content	
+			.grid_3
+				=lang.input :postal_code, :label => false
+				

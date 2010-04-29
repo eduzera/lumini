@@ -1,0 +1,27 @@
+.actionContainer.grid_15
+	.actionHeader
+		%h2.grid_3.alpha 
+			= @category.new_record? ? "criar nova loja" : @category.lang_category.first.name
+		%p.messageBoard.grid_9 &nbsp;
+		%p.actionTriggers.grid_3.omega 
+			
+			=link_to "cancelar /",  @category.new_record? ? admin_path : admin_category_path(@category)
+			=link_to "salvar","javascript://" ,:class => "category_save_admin"
+			=link_to "/ excluir", admin_category_path(@category), :confirm => 'Tem certeza que deseja Excluir a Categoria?', :method => :delete unless @category.new_record?
+
+	.actionContent
+		-semantic_form_for @category, :url => @category.new_record?  ? admin_categories_path : admin_category_path(@category) do |form|
+			.form-container
+				.form-sub-container.grid_3.alpha
+					.form-content
+						.grid_3.alpha.add_new_language_category 
+							=link_to "+ novo idioma","javascript://", :onclick => "add_new_language_category()"
+						
+							.form-content
+								.grid_3.alpha <strong>titulo</strong>
+						
+							.form-content
+								.grid_3.alpha <strong>descricao</strong>
+								
+				#language_category
+					= render :partial => 'add_new_language', :collection => @category.lang_category , :as => :lang_category
