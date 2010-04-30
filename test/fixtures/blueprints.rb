@@ -40,13 +40,13 @@ LangManufacture.blueprint do
 end
 
 Designer.blueprint do
-  name      "Marco Singer"
+  name      "Ricardo"
   birthdate "08/09/1986"
   images.build {Image.make}
 end
 
 LangDesigner.blueprint do
-  biography "Esse cara é demais!"
+  biography "Descrição"
   designer_id
   language_id
 end
