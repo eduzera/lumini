@@ -11,11 +11,11 @@
 		%p.grid_6.rule-two
 			= @product.lang_product.first.name
 		.grid_4{:style => "margin-bottom: 18px"}
-			= image_tag @product.images.first.img(:grid_3)
+			= image_tag ( @product.images.second.img.nil? ?  @product.images.first.img.url(:grid_4) :  @product.images.second.img.url(:grid_4) )
 		%ul.grid_2
 			-@images.each do |img|		
 				%li
-					= link_to img.name, galery_path(@product.id), :class => "dissolve" 
+					= link_to img.name, galery_path(@product.class.name.downcase, img.name), :class => "dissolve" 
 			%li
 				= link_to "o designer",	product_designers_path(@product), :class => "dissolve"
 			%li
@@ -27,6 +27,8 @@
 			%p.rule-two dados técnicos
 			%p= @product.lang_product.first.tech_description
 		.grid_2
-			.grid_1.alpha
-				= link_to image_tag("../uploads/prizes/logo-if.png"), prizes_path, :class => "dissolve"
-			%p.grid_1.rule-two.arrow.omega &nbsp;
+			
+			-@product.product_prize.each do |product_prize|
+				.grid_1.alpha
+					= link_to image_tag (product_prize.prize.images.second.nil? ? product_prize.prize.images.first.img.url(:grid_1) : product_prize.prize.images.second.img.url(:grid_1)), prize_path(product_prize), :class => "dissolve"
+				%p.grid_1.rule-two.arrow.omega &nbsp;

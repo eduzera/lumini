@@ -1,9 +1,15 @@
 .masterHeader.container_19
 	%ul.menu
-		%li produtos
 		%li 
-			= link_to "designers", "javascript://"
+			= link_to "produtos", admin_products_path
 		%li 
-			= link_to "prêmios", "javascript://"
-		%li lojas
+			= link_to "designers", admin_designers_path
+		%li 
+			= link_to "prêmios", admin_prizes_path
+		%li 
+			= link_to "lojas", admin_stores_path
+		%li 
+			= link_to "solucoes", admin_solutions_path
+		%li
+			outros
 	= image_tag "lumini-logo_publisher.png"

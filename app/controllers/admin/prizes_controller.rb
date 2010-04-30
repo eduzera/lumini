@@ -1,6 +1,6 @@
 class Admin::PrizesController < ApplicationController
   
-  layout "admin"
+  layout "publisher_prizes"
   
   def index
     @prizes = Prize.all

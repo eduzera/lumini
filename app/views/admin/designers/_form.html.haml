@@ -1,12 +1,21 @@
 .actionContainer.grid_15
 	.actionHeader
 		%h2.grid_3.alpha 
-			= @designer.new_record? ? "criar novo" : @designer.name
+			= @designer.new_record? ? "criar novo designer" : @designer.name
 		%p.messageBoard.grid_9 &nbsp;
 		%p.actionTriggers.grid_3.omega
 			=link_to "cancelar /",  @designer.new_record? ? admin_path : admin_designers_path
 			=link_to "salvar","javascript://" ,:class => "designer_save_admin"
-			=link_to "/ excluir", admin_designer_path(@designer), :confirm => 'Tem certeza que deseja Excluir o Premio?', :method => :delete unless @designer.new_record?
+			=link_to "/ excluir", admin_designer_path(@designer), :confirm => 'Tem certeza que deseja Excluir o Designer?', :method => :delete unless @designer.new_record?
+			
+	
+	%ul.actionMenu
+		%li
+			%strong
+			= link_to "info", @designer.new_record? ? new_admin_designer_path : edit_admin_designer_path(@designer)
+		%li 
+			= link_to "images", admin_images_path(:designer, @designer, 'designer') unless @designer.new_record?
+			
 			
 	.actionContent
 		-semantic_form_for @designer, :url => @designer.new_record?  ? admin_designers_path : admin_designer_path(@designer) , :html => {:multipart => true} do |form|
@@ -52,22 +61,6 @@
 					= render :partial => 'add_new_language', :collection => @designer.lang_designer , :as => :lang_designer
 
 						
-			.form-container
-				.form-sub-container.grid_3.alpha
-					.form-content
-						.grid_3.alpha <strong>Imagem</strong>
-						
-				.form-sub-container.grid_3.alpha		
-					.form-content
-						.grid_3.alpha 
-							= form.input :img , :label => false
-							
-				.form-sub-container.grid_1.alpha		
-					.form-content
 
-				.form-sub-container.grid_3.alpha		
-					.form-content
-						.grid_3.alpha.image_designer
-							= image_tag @designer.img.url(:grid_1)
 							
 										

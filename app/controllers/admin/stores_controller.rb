@@ -1,6 +1,6 @@
 class Admin::StoresController < ApplicationController
   
-  layout "admin"
+  layout "publisher_stores"
   
   def index
     @store = Store.all
@@ -43,7 +43,7 @@ class Admin::StoresController < ApplicationController
     @store = Store.find(params[:id])
     @store.destroy
     
-    redirect_to admin_path
+    redirect_to admin_stores_path
   end
   
   def add_new_language     

@@ -1,6 +1,6 @@
 class Admin::CategoriesController < ApplicationController
   
-  layout "admin"
+  layout "publisher_products"
   
   def index
     @categories = Category.all
@@ -43,7 +43,7 @@ class Admin::CategoriesController < ApplicationController
     @category = Category.find(params[:id])
     @category.destroy
     
-    redirect_to admin_path
+    redirect_to admin_categories_path
   end
   
   def add_new_language

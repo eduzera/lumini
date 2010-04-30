@@ -1,7 +1,15 @@
 require 'machinist/active_record'
 
+Image.blueprint do
+  img_file_name     nil
+  img_content_type  nil
+  img_file_size     nil
+  img_updated_at    nil
+end  
+
 Prize.blueprint do
   status 'true' 
+  images.build {Image.make}
 end
 
 LangPrize.blueprint do 
@@ -18,17 +26,23 @@ end
 
 Language.blueprint do
   name  "Portugues Brasil"
-  abbr  "ptBR"
+  abbr  "pt_BR"
 end
 
 Manufacture.blueprint do
-  name    "lumini"
-  website "http://www.lumini.com.br"
+  website
+end
+
+LangManufacture.blueprint do 
+  name
+  manufacture_id
+  language_id
 end
 
 Designer.blueprint do
   name      "Marco Singer"
   birthdate "08/09/1986"
+  images.build {Image.make}
 end
 
 LangDesigner.blueprint do
@@ -66,6 +80,7 @@ Product.blueprint do
   designer_id
   category_id
   family_id
+  images.build {Image.make}
 end
 
 LangProduct.blueprint do
