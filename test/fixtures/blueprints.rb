@@ -26,7 +26,7 @@ end
 
 Language.blueprint do
   name  "Portugues Brasil"
-  abbr  "ptBR"
+  abbr  "pt_BR"
 end
 
 Manufacture.blueprint do

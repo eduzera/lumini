@@ -15,7 +15,11 @@ class Prize < ActiveRecord::Base
   # :path => ":rails_root/public/uploads/:class/:prize_id/:id/:style.:extension",
   # :default_url => "/images/noimg_grid1.png"}
 
-  # named_scope :by_product, lambda {|product|{ :include => [:product], :conditions => [''] }}
+   named_scope :by_product, lambda {|product| { :joins => {:product_prize => [:product]}, :conditions => ['products.id = ?', product] }}
+
+   named_scope :by_language, lambda { |language| {
+                                 :include => {:lang_prize => [:language]},
+                                 :conditions => ["languages.abbr = ?", language]}}
 
 
   def new_lang_prize_attributes=(prize_attributes)   
