@@ -24,6 +24,8 @@ class Admin::ProductsController < ActionController::Base
   
   def create
     @product = Product.new(params[:product])
+    @product.images.build if Image.find_by_imageable_type('Product').nil? # colocar nos outros
+    
     if @product.save
       flash[:notice] = "Successfully created contact."
       redirect_to admin_product_url(@product)

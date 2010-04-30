@@ -8,6 +8,12 @@ class Manufacture < ActiveRecord::Base
                         
   after_update :save_languages
 
+
+  def to_label
+  "#{ lang_manufacture.first.name }"
+  end
+
+
   def new_lang_manufacture_attributes=(manufacture_attributes)   
     manufacture_attributes.each do |attributes|
       lang_manufacture.build(attributes)
