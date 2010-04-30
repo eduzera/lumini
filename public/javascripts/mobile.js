@@ -42,7 +42,6 @@ function remove_swipe(id){
 	$('#page-'+id+' .swipe_trigger').unbind('swipe');
 }
 
-/*
 
 $('.swipe_trigger').live('click', function(){
 	$( '.top-bar' ).stop();
@@ -57,4 +56,4 @@ function hide_bars()
 	$( '.top-bar' ).slideUp(300);
 	$( '.bottom-bar' ).slideUp(300);
 
-*/
+}

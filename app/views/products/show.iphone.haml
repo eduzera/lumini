@@ -11,7 +11,7 @@
 		%p.grid_6.rule-two
 			= @product.lang_product.first.name
 		.grid_4{:style => "margin-bottom: 18px"}
-			= image_tag ( @product.images.second.img.nil? ?  @product.images.first.img.url(:grid_4) :  @product.images.second.img.url(:grid_4) )
+			= image_tag ( @product.images.second.nil? ?  @product.images.first.img.url(:grid_4) :  @product.images.second.img.url(:grid_4) )
 		%ul.grid_2
 			-@images.each do |img|		
 				%li
