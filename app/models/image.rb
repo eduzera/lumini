@@ -20,11 +20,11 @@ class Image < ActiveRecord::Base
                                           
   named_scope :by_imageable_id, lambda {|id|{:conditions => ['imageable_id = ?', id]}}
                      
-  named_scope :by_imageable_type, lambda { |type| { :select => "images.id 'id', image_types.name 'name', images.*", :joins => [:image_type], :conditions => ['imageable_type = ?', type.capitalize], 
-    :group => 'image_types.id'  }}
+  named_scope :by_imageable_type, lambda { |type| { :select => "images.id 'id', image_types.name 'name', images.*", :joins => [:image_type], :conditions => ['imageable_type = ?', type.capitalize]}}
 
   named_scope :by_image_type, lambda { |type| { :joins => [:image_type], :conditions => ['image_types.name = ?', type]}}
-
+  
+  named_scope :group_image_type, :group => 'image_types.id'
 
   named_scope :all_with_filter, lambda {|imageable_type, type| {  :include => [:image_type], :conditions => ["imageable_type = ? AND image_types.name = ?", imageable_type, type]
   }}

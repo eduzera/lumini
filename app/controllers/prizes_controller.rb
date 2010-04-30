@@ -1,5 +1,7 @@
 class PrizesController < ApplicationController
-  def index
+  def show
+    @prize = Prize.find(params[:id])
+    
     respond_to do |format|
       format.iphone { render :layout => false }
     end

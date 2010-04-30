@@ -30,5 +30,5 @@
 			
 			-@product.product_prize.each do |product_prize|
 				.grid_1.alpha
-					= link_to image_tag (product_prize.prize.images.second.nil? ? product_prize.prize.images.first.img.url(:grid_1) : product_prize.prize.images.second.img.url(:grid_1)), prizes_path, :class => "dissolve"
+					= link_to image_tag (product_prize.prize.images.second.nil? ? product_prize.prize.images.first.img.url(:grid_1) : product_prize.prize.images.second.img.url(:grid_1)), prize_path(product_prize), :class => "dissolve"
 				%p.grid_1.rule-two.arrow.omega &nbsp;
