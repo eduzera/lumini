@@ -19,14 +19,16 @@
 			.form-container
 				.form-sub-container.grid_3.alpha
 					.form-content
-						.grid_3.alpha.add_new_language_family 
+						.grid_3.alpha.add_new_language_family.title
 							=link_to "+ novo idioma","javascript://", :onclick => "add_new_language_family()"
 
 							.form-content
-								.grid_3.alpha <strong>titulo</strong>
+								.grid_3.alpha.title
+									%strong título
 
 							.form-content
-								.grid_3.alpha <strong>descricao</strong>
+								.grid_3.alpha.description
+									%strong descrição
 								
 								
 				#language_family

@@ -5,13 +5,13 @@
 		-semantic_fields_for prefix, lang_prize do |lang|
 		-lang.inputs
 		.form-content
-			.grid_3 
+			.grid_3.alpha.title
 				= lang.input :language, :as => :select, :include_blank => false, :collection => Language.all
 
 		.form-content
-			.grid_3
+			.grid_3.alpha.title
 				=lang.input :name, :label => false
 
 		.form-content
-			.grid_3
+			.grid_3.alpha.description
 				=lang.input :description, :as => :text,  :label => false

@@ -6,7 +6,7 @@
 		%p.actionTriggers.grid_3.omega
 			=link_to "cancelar /",  @designer.new_record? ? admin_path : admin_designers_path
 			=link_to "salvar","javascript://" ,:class => "designer_save_admin"
-			=link_to "/ excluir", admin_designer_path(@designer), :confirm => 'Tem certeza que deseja Excluir o Designer?', :method => :delete unless @designer.new_record?
+			=link_to "/ excluir", admin_designer_path(@designer), :confirm => 'Tem certeza que deseja EXLCUIR o designer?', :method => :delete unless @designer.new_record?
 			
 	
 	%ul.actionMenu
@@ -23,25 +23,28 @@
 				.form-sub-container.grid_3.alpha
 					.form-content
 						.form-content
-							.grid_3.alpha <strong>nome</strong>
+							.grid_3.alpha.title
+								%strong nome
 
 						.form-content
-							.grid_3.alpha <strong>nascimento</strong>
+							.grid_3.alpha.title
+								%strong nascimento
 							
 						.form-content
-							.grid_3.alpha <strong>obito</strong>
+							.grid_3.alpha.title
+								%strong óbito
 							
 				.form-content
 					.form-content
-						.grid_3.alpha 
+						.grid_3.alpha.title
 							= form.input :name
 
 					.form-content
-						.grid_3.alpha 
+						.grid_3.alpha.title 
 							= form.input :birthdate, :as => :string
 
 					.form-content
-						.grid_3.alpha
+						.grid_3.alpha.title
 							= form.input :deathdate, :as => :string
 
 														
@@ -49,13 +52,15 @@
 				.form-sub-container.grid_3.alpha
 					
 					.form-content
-						.grid_3.alpha.add_new_language_designer
+						.grid_3.alpha.add_new_language_designer.title
 							=link_to "+ novo idioma","javascript://", :onclick => "add_new_language_designer()"
 					
 					.form-content
-						.grid_3.alpha <strong>Descricao</strong>
+						.grid_3.alpha.description
+							%strong biografia
 					.form-content
-						.grid_3.alpha <strong>Nacionalidade</strong>
+						.grid_3.alpha.title
+							%strong país de origem
 						
 				#language_designer
 					= render :partial => 'add_new_language', :collection => @designer.lang_designer , :as => :lang_designer

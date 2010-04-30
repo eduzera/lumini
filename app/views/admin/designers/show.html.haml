@@ -19,27 +19,30 @@
 			.form-sub-container.grid_3.alpha
 					
 				.form-content
-					.grid_3.alpha <strong>nome</strong>
+					.grid_3.alpha.title
+						%strong nome
 					
 				.form-content
-					.grid_3.alpha <strong>nascimento</strong>
+					.grid_3.alpha.title
+						%strong data nascimento
 				
 				.form-content
-					.grid_3.alpha <strong>obito</strong>
+					.grid_3.alpha.title
+						%strong data óbito
 					
 
 			.form-sub-container.grid_3
 	
 				.form-content
-					.grid_3 
+					.grid_3.alpha.title
 						=  @designer.name
 				
 				.form-content
-					.grid_3
+					.grid_3.alpha.title
 						=  @designer.birthdate.strftime("%d/%m/%y") unless @designer.birthdate == nil
 				
 				.form-content
-					.grid_3
+					.grid_3.alpha.title
 						=  @designer.deathdate.strftime("%d/%m/%y") unless @designer.deathdate == nil
 
 						
@@ -47,10 +50,12 @@
 			.form-sub-container.grid_3.alpha
 
 				.form-content
-					.grid_3.alpha <strong>Descricao</strong>
+					.grid_3.alpha.description
+						%strong biografia
 					
 				.form-content
-					.grid_3.alpha <strong>Nacionalidade</strong>
+					.grid_3.alpha.title
+						%strong país de origem
 					
 					
 			-@designer.lang_designer.each do |lang|
@@ -58,10 +63,10 @@
 				.form-sub-container.grid_3.alpha
 
 					.form-content
-						.grid_3.alpha 
+						.grid_3.alpha.description
 							= lang.biography
 							
 					.form-content
-						.grid_3.alpha 
+						.grid_3.alpha.title
 							= lang.nacionality 
 
