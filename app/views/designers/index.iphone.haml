@@ -10,4 +10,4 @@
 				= @designer.bio
 
 			%p.grid_2.subtitle.photo 
-				= image_tag "../uploads/designers/mussum.jpg"
+				= image_tag (@designer.images.second.nil? ? @designer.images.first.img.url(:grid_2) : @designer.images.second.img.url(:grid_2))

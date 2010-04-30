@@ -7,7 +7,10 @@ class Family < ActiveRecord::Base
   end
   
   named_scope :all_with_filter, :select => "families.id 'id', lang_families.name 'name'",
-                            :joins => [:lang_family]
+                            :joins => [:lang_family, :product],
+                            :conditions => ["products.family_id = families.id"] 
+  
+  
   
  # named_scope :product_by_family_and_category, 
  #              lambda { |category| {
@@ -43,10 +46,10 @@ class Family < ActiveRecord::Base
    named_scope :product_by_family_and_manufacture, 
                  lambda { |manufacture| {
                    :select => "lang_families.id 'id', lang_families.name 'name', 
-                               manufactures.id 'product_manufacture_id', manufactures.name 'product_manufacture'",
-                   :joins => [:lang_family, {:product => [:manufacture]}],
+                               products.id 'product_id', manufactures.id 'product_manufacture_id', lang_manufactures.name 'product_manufacture'",
+                   :joins => [:lang_family, {:product => {:manufacture => [:lang_manufacture]}}],
                    :conditions => ["products.manufacture_id = ?", manufacture], 
-                   :group => "id"}}
+                   :group => "products.id"}}
                    
    after_update :save_languages
 
