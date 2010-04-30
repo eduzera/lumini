@@ -62,18 +62,7 @@
 							= link_to "#{store.lang_store.first.state} #{store.lang_store.first.title}", admin_store_path(store)
 							
 		%li
-			= link_to "marcas", "javascript://"
-			%ul.with_images
-				%li.more_link
-					= link_to "criar novo", new_admin_manufacture_path
-
-				-Manufacture.all.each do |manufacture|
-					%li
-						.grid_4.rule-two.alpha
-							= link_to manufacture.lang_manufacture.first.name, admin_manufacture_path(manufacture)
-							
-		%li
-			= link_to "familias", "javascript://"
+			= link_to "famílias", "javascript://"
 			%ul.with_images
 				%li.more_link
 					= link_to "criar novo", new_admin_family_path
@@ -86,3 +75,13 @@
 							= link_to family.lang_family.first.name, admin_family_path(family)
 						
 
+		%li
+			= link_to "marcas", "javascript://"
+			%ul.with_images
+				%li.more_link
+					= link_to "criar novo", new_admin_manufacture_path
+
+				-Manufacture.all.each do |manufacture|
+					%li
+						.grid_4.rule-two.alpha
+							= link_to manufacture.lang_manufacture.first.name, admin_manufacture_path(manufacture)
