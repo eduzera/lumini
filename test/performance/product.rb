@@ -29,31 +29,31 @@ designer = Designer.make
 # ------------------------------------------------------------------------------------------------------------------
 categoria = Category.make
   balizadores = LangCategory.make( :name => "balizadores", 
-                                      :description => "que faz baliza", 
+                                      :description => "", 
                                       :category_id => categoria.id, 
                                       :language_id => lingua.id)
 
 categoria = Category.make
   piso = LangCategory.make( :name => "piso", 
-                                      :description => "pra colocar no chão", 
+                                      :description => "", 
                                       :category_id => categoria.id, 
                                       :language_id => lingua.id)
 
 categoria = Category.make
   arandelas = LangCategory.make( :name => "arandelas", 
-                                      :description => "na varanda fica legal", 
+                                      :description => "", 
                                       :category_id => categoria.id, 
                                       :language_id => lingua.id)
 
 categoria = Category.make
   sistemas = LangCategory.make( :name => "sistemas",
-                                      :description => "sistemas de luz ué", 
+                                      :description => "", 
                                       :category_id => categoria.id, 
                                       :language_id => lingua.id)
 
 categoria = Category.make
   mesa = LangCategory.make( :name => "mesa", 
-                                      :description => "para iluminar um jantar romântico", 
+                                      :description => "", 
                                       :category_id => categoria.id, 
                                       :language_id => lingua.id)
 # ------------------------------------------------------------------------------------------------------------------
@@ -78,26 +78,5 @@ familia = Family.make
 
 
 
-
-  produto = Product.make( :manufacture_id => fabricante.id, 
-                          :designer_id => designer.id, 
-                          :category_id => piso.category_id, 
-                          :family_id => luz_forma.family_id)
-
-    lang_product = LangProduct.make(:name => "bauhaus", 
-                                    :description => "luminária de piso com sistema de regulagem de altura luminária de piso com sistema de regulagem de altura", 
-                                    :tech_description => "lâmpada leitosa", 
-                                    :product_id => produto.id, 
-                                    :language_id => lingua.id)    
-                                     
-                                    
-
-  
-
-    lang_product = LangProduct.make(:name => "bauhaus", 
-                                    :description => "mother fuck light", 
-                                    :tech_description => "lightttttt", 
-                                    :product_id => produto.id, 
-                                    :language_id => lingua2.id)    
 
 puts "OK!"

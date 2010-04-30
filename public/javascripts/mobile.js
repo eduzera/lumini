@@ -36,6 +36,15 @@ function gallery_start()
 	});
 */
 
+
+$('#page-'+$new_id+' .swipe_trigger').bind('click', function(){
+	$( '.top-bar' ).stop();
+	$( '.bottom-bar' ).stop();
+	$( '.top-bar' ).slideToggle(300);
+	$( '.bottom-bar' ).slideToggle(300);
+	//setTimeout( 'hide_bars()' , 3000 );
+});
+
 }
 
 function remove_swipe(id){
@@ -43,13 +52,7 @@ function remove_swipe(id){
 }
 
 
-$('.swipe_trigger').live('click', function(){
-	$( '.top-bar' ).stop();
-	$( '.bottom-bar' ).stop();
-	$( '.top-bar' ).slideToggle(300);
-	$( '.bottom-bar' ).slideToggle(300);
-	setTimeout( 'hide_bars()' , 3000 );
-});
+
 
 function hide_bars()
 {
