@@ -1,0 +1,109 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+	<link rel="stylesheet" href="stylesheets/publisher-grid.css" type="text/css" charset="utf-8">
+	<link rel="stylesheet" href="stylesheets/publisher-text.css" type="text/css" charset="utf-8">
+	<title>lumini</title>
+	<script type="text/javascript" src="javascripts/jquery-1.4.2.min.js" ></script>
+	<script type="text/javascript" src="javascripts/jquery-ui-1.8.custom.min.js" ></script>
+	<script type="text/javascript">
+		$( document ).ready( function(){
+			$( '#cover_preview , #product_stock' ).sortable({
+				connectWith: '.sortable',
+				item: 'div.product'
+			});
+			
+			$( '.add_to_preview' ).click( function(){
+				var $stock = $( '#product_stock' );
+				var $product = $( '#product_factory' ).find( 'select[name="product_id"]' ).val();
+				var $title = $( '#product_factory' ).find( 'select[name="product_id"]' ).find( 'option[value="'+$product+'"]').html();
+				var $image = $( '#product_factory' ).find( 'select[name="product_id"]' ).find( 'option[value="'+$product+'"]').attr('image');
+				var $size = $( '#product_factory' ).find( 'select[name="size"]' ).val();
+			//	alert( "produto"  + $product + $title + "\n" + $image + "\n" + $size );
+			//	alert( $image.replace( /grid_[2-6]/ , $size ) );
+				if( $product == undefined )
+					return false;
+				if( $image == undefined )
+					return false;
+				if( $size == undefined )
+					return false;
+				var $new_product = $( '<div class="product"></div>' );
+				var $new_image = $( '<img />' );
+				var $new_title = $( '<p class="rule-two"></p>' );
+				var $hidden_id = $( '<input name="product_id" type="hidden" value="" />');
+				var $hidden_size = $( '<input name="size" type="hidden" value="" />');
+				$new_title.html( $title );
+				$hidden_id.attr( 'value' , $product );
+				$hidden_size.attr( 'value' , $size );
+				$new_product.append( $hidden_id );
+				$new_product.append( $hidden_size );
+				$new_product.addClass( $size ).append( $new_title );
+				$new_image.attr( 'src' , $image.replace( /grid_[2-6]/ , $size ) );
+				$new_product.append( $new_image );
+				$stock.append( $new_product );
+				// reset combo box
+				$( '#product_factory' ).find( 'select[name="product_id"]' ).val( '' );
+				$( '#product_factory' ).find( 'select[name="size"]' ).val( '' );
+				$( '.form_submit' ).click( function(){
+					$( '#cover_preview > div.product' ).each( function( i, el ){
+						alert( $( el ).find( 'input[name="product_id"]').attr( 'value' ) + " : " + $( el ).find( 'input[name="size"]').attr( 'value' ) );
+					});
+				});
+			});
+		});
+	</script>
+</head>
+
+<body>
+	<div class="container_19">
+		<div class="grid_4">MENU...</div>
+		<div class="grid_15">
+			<div class="grid_7 alpha" style="width: 330px; padding: 0px 6px;">
+				<p class="rule-two" style="margin-top: 16px;margin-bottom: 16px;">composição da capa</p>
+				<div id="cover_preview" class="sortable" style="background: #464646; overflow: hidden; margin:0;">
+					&nbsp;
+				</div>
+			</div>
+			<div class="grid_8 omega">
+				<p class="rule-two" style="margin-top: 16px;margin-bottom: 16px;">fábrica de produtos</p>
+				<div class="form-container" style="border: none;" id="product_factory">
+					<div class="form-sub-container grid_3 alpha">
+						produto
+					</div>
+					<div class="form-sub-container grid_5 omega">
+						<select name="product_id">
+							<option value="">selecione</option>
+							<option value="1" image="uploads/front/grid3_bossa.jpg">bossa</option>
+							<option value="2" image="uploads/front/grid3_bauhaus_90.jpg">bauhaus</option>
+							<option value="3" image="uploads/front/grid2_lift.jpg">lift</option>
+							<option value="4" image="uploads/front/grid2_piccoloR.jpg">led it be</option>
+						</select>
+					</div>
+					<div class="form-sub-container grid_3 alpha">
+						destaque
+					</div>
+					<div class="form-sub-container grid_5 omega">
+						<select name="size">
+							<option value="">selecione</option>
+							<option value="grid_2">2 colunas</option>
+							<option value="grid_3">3 colunas</option>
+							<option value="grid_6">6 colunas</option>
+						</select>
+					</div>
+					<div class="form-sub-container grid_8 alpha omega" style="margin-top: 16px;margin-bottom: 16px;">
+						<a href="javascript://" class="add_to_preview">ADICIONAR</a>
+						
+						<a href="javascript://" class="form_submit">SALVAR</a>
+					</div>
+				</div>
+				<p class="rule-two" style="margin-top: 16px;margin-bottom: 16px;">produtos fabricados</p>
+				<div id="product_stock" class="sortable">
+					&nbsp;
+				</div>
+			</div>
+		</div>
+</body>
+</html>

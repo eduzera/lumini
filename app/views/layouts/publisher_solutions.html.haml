@@ -9,9 +9,7 @@
 
 					-Solution.all.each do |solution|
 						%li
-							.grid_1.alpha
-								= image_tag "/images/noimg_grid1.png"
-							.grid_3.rule-two.omega
+							.grid_4.rule-two.alpha
 								= link_to solution.lang_solution.first.name, admin_solution_path(solution)
 								
 	=yield

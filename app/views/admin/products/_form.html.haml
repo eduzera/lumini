@@ -14,9 +14,9 @@
 			%strong
 			= link_to "info", @product.new_record? ? new_admin_product_path : edit_admin_product_path(@product)
 		%li 
-			= link_to "fotografias", show_images_path(@product, 'fotografia') unless @product.new_record? 
+			= link_to "fotografias", admin_images_path(:product, @product, 'fotografia') unless @product.new_record? 
 		%li 
-			= link_to "desenhos", show_images_path(@product, 'desenho') unless @product.new_record? 
+			= link_to "desenhos", admin_images_path(:product, @product, 'desenho') unless @product.new_record? 
 
 	.actionContent
 		-semantic_form_for @product, :url => @product.new_record?  ? admin_products_path : admin_product_path(@product) do |form|
@@ -27,20 +27,25 @@
 							=link_to "+ novo idioma","#", :onclick => "add_new_language()"
 						
 							.form-content
-								.grid_3.alpha <strong>título</strong>
+								.grid_3.alpha 
+									%strong título
 						
 							.form-content
-								.grid_3.alpha <strong>descrição</strong>
+								.grid_3.alpha
+									%strong descrição
 					
 							.form-content
-								.grid_3.alpha <strong>dados técnicos</strong>
+								.grid_3.alpha
+									%strong dados técnicos
 				
 				#language_product
 					= render :partial => 'add_new_language', :collection => @product.lang_product , :as => :lang_product
 
 			.form-container 							
 				.form-content
-					.grid_3.alpha <strong>status</strong>
+					.grid_3.alpha
+						%strong status
+					
 					.grid_6 
 						=form.input :status, :label => false, :as => :radio, :collection => [["publicado", true], ["rascunho", false]]
 					
@@ -48,15 +53,21 @@
 			.form-container 
 				/ Agrupamento de campos belongs_to
 				.form-content
-					.grid_3.alpha <strong>fabricante</strong>
+					.grid_3.alpha 
+						%strong fabricante
+					
 					.grid_3
 						=form.inputs :manufacture
 				.form-content
-					.grid_3.alpha <strong>categoria</strong>
+					.grid_3.alpha
+						%strong categoria
+					
 					.grid_3
 						=form.inputs :category
 				.form-content
-					.grid_3.alpha <strong>família</strong>
+					.grid_3.alpha 
+						%strong família
+					
 					.grid_3
 						=form.inputs :family
 
@@ -66,10 +77,11 @@
 						= render :partial => 'add_new_prize', :collection => @product.product_prize, :as => :product_prize
 					=link_to "+ novo premio", "#" , :onclick => "add_new_prize()"
 
-
 			.form-container 
 				.form-content
-					.grid_3.alpha <strong>designer</strong>
+					.grid_3.alpha
+						%strong designer
+					
 					.grid_3
 						=form.inputs :designer
 

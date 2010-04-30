@@ -10,7 +10,7 @@
 					-Designer.all.each do |designer|
 						%li
 							.grid_1.alpha
-								= image_tag designer.img.url(:grid_1)
+								= image_tag ( designer.images.second.nil? ? designer.images.first.img.url(:grid_1) :  designer.images.second.img.url(:grid_1))
 							.grid_3.rule-two.omega
 								= link_to designer.name, admin_designer_path(designer)
 								

@@ -1,25 +1,23 @@
 class Prize < ActiveRecord::Base
-
   has_many :lang_prize
-  
   has_many :product_prize
+  has_many :images, :as => :imageable
   
   after_update :save_languages
   
   def to_label
     "#{lang_prize.first.name}"
   end
-  
-  
-  has_attached_file :img, :styles => {:grid_1 => "45x45#", :grid_2 => "96x96#" ,:grid_3 => "147x144#"},
 
-    :url => "/uploads/:class/:id/:style.:extension",
-    :path => ":rails_root/public/uploads/:class/:id/:style.:extension",
-    :default_url => "/images/noimg_grid1.png"
+  # has_attached_file :img, :styles => {:grid_1 => "45x45#", :grid_2 => "96x96#" ,:grid_3 => "147x144#",
 
-  validates_attachment_content_type :img, :content_type => ['image/jpeg', 'image/png', 'image/jpg', 'image/gif']
-  
-  
+  # :url => "/uploads/:class/:prize_id/:id/:style.:extension",
+  # :path => ":rails_root/public/uploads/:class/:prize_id/:id/:style.:extension",
+  # :default_url => "/images/noimg_grid1.png"}
+
+  # named_scope :by_product, lambda {|product|{ :include => [:product], :conditions => [''] }}
+
+
   def new_lang_prize_attributes=(prize_attributes)   
     prize_attributes.each do |attributes|
       lang_prize.build(attributes)

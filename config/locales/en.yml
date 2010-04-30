@@ -2,9 +2,6 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  formtastic:
-    labels:
-      category:
-        title: "Categoria"
-    actions:
-      create: "Create my {{model}}"
+    navigation:
+        lamps: "luminárias[en]"
+        stores: "lojas[en]"

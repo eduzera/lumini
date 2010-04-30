@@ -7,12 +7,14 @@
 			=link_to "cancelar /",  @prize.new_record? ? admin_path : admin_prize_path(@prize)
 			=link_to "salvar","javascript://" ,:class => "prize_save_admin"
 			=link_to "/ excluir", admin_prize_path(@prize), :confirm => 'Tem certeza que deseja Excluir o Premio?', :method => :delete unless @prize.new_record?
-			
+	
 	%ul.actionMenu
 		%li
 			%strong
-				info
-			
+			= link_to "info", @prize.new_record? ? new_admin_prize_path : edit_admin_prize_path(@prize)
+		%li 
+			= link_to "images", admin_images_path(:prize, @prize, 'prize') unless @prize.new_record?
+
 	.actionContent
 		-semantic_form_for @prize, :url => @prize.new_record?  ? admin_prizes_path : admin_prize_path(@prize) , :html => {:multipart => true} do |form|
 			.form-container
@@ -30,17 +32,6 @@
 								
 				#language_prize
 					= render :partial => 'add_new_language', :collection => @prize.lang_prize , :as => :lang_prize
-					
-			.form-content
-				.grid3.alpha
-					Imagem
-				.grid9
-					= form.input :img , :label => false
-					
-			.form-content
-				.grid3.alpha
-					= image_tag @prize.img.url(:grid_1)
-					
 					
 
 	

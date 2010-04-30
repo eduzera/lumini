@@ -1,10 +1,17 @@
 class Admin::ProductsController < ActionController::Base
   layout "publisher_products"
   
+  before_filter :put_last_controller_on_session
+  
+  def index
+
+  end
+  
   def new
     @product = Product.new
     @product.lang_product.build
     @product.product_prize.build
+    @product.images.build
   end
   
   def show
@@ -33,26 +40,30 @@ class Admin::ProductsController < ActionController::Base
       else
         render edit_admin_product_url(@product)
       end
-    end
+  end
     
-    def add_new_language
-      
-      render :partial => "add_new_language", :locals => { :lang_product => LangProduct.new }
+  def add_new_language
+    
+    render :partial => "add_new_language", :locals => { :lang_product => LangProduct.new }
 
-    end
+  end
     
-    def add_new_prize
-      
-      render :partial => "add_new_prize", :locals => { :product_prize => ProductPrize.new}
-      
-    end
+  def add_new_prize
     
-    def destroy
-      
-      @product = Product.find(params[:id])
-      @product.destroy
-      
-      redirect_to admin_products_path
-    end
+    render :partial => "add_new_prize", :locals => { :product_prize => ProductPrize.new}
     
+  end
+    
+  def destroy
+    
+    @product = Product.find(params[:id])
+    @product.destroy
+    
+    redirect_to admin_products_path
+  end
+  
+  def put_last_controller_on_session 
+        session[:last_controller] = self.controller_name
+  end
+
 end

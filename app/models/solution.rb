@@ -1,5 +1,6 @@
 class Solution < ActiveRecord::Base
   has_many :lang_solution
+  has_many :images, :as => :imageable
   
   after_update :save_languages
   

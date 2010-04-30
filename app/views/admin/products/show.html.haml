@@ -9,9 +9,9 @@
 		%li 
 			= link_to "info", edit_admin_product_path(@product)
 		%li 
-			= link_to "fotografias", show_images_path(@product, 'fotografia')
+			= link_to "fotografias", admin_images_path(:product, @product, 'fotografia')
 		%li 
-			= link_to "desenhos", show_images_path(@product, 'desenho')
+			= link_to "desenhos", admin_images_path(:product, @product, 'desenho')
 
 	.actionContent
 
@@ -61,7 +61,7 @@
 			.form-content
 				.grid_3.alpha <strong>fabricante</strong>
 				.grid_3
-					=@product.manufacture.name
+					=@product.manufacture.lang_manufacture.first.name
 					
 			.form-content
 				.grid_3.alpha <strong>categoria</strong>
