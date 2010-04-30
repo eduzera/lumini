@@ -13,10 +13,10 @@
 		.swipe_trigger
 			= image_tag @image.img.url(:grid_6), :class => "touch"
 
-		.bottom-bar
-			.grid_1.alpha
+		.bottom-bar{:style=>"padding-top: 12px;"}
+			.grid_1
 				= link_to image_tag ("ico-prev.png"), change_image_path(@image.imageable_type.downcase, @image.image_type.name, @image, 'previous'), :class => 'prev slideback'
 			.grid_4{:style=>"text-align: center"}
 				= link_to image_tag ("ico-thumbs.png"), galeries_path(@image.imageable_type.downcase, @image.image_type.name), :class => "dissolve"
-			.grid_1.omega
-				= link_to image_tag ("ico-next.png"), change_image_path(@image.imageable_type.downcase, @image.image_type.name, @image, 'next'), :class => 'next'		
+			.grid_1{:style => "text-align: right;"}
+				= link_to image_tag ("ico-next.png"), change_image_path(@image.imageable_type.downcase, @image.image_type.name, @image, 'next'), :class => 'next'
