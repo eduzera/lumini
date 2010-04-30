@@ -29,6 +29,84 @@ $(document).ready(function()
 			$(link[0]).replaceWith('&nbsp;');
 		}
 	}
+	
+	if ($("#language_solution").size() != 0)
+	{
+		totalBox = $('#language_solution').find('.form-sub-container');
+		
+		if (totalBox.size() == 4)
+		{
+			$(totalBox[3]).addClass('omega');
+			
+			link = $('.add_new_language_solution').find('a')
+			$(link[0]).replaceWith('&nbsp;');
+		}
+	}
+	
+	if ($("#language_category").size() != 0)
+	{
+		totalBox = $('#language_category').find('.form-sub-container');
+		
+		if (totalBox.size() == 4)
+		{
+			$(totalBox[3]).addClass('omega');
+			
+			link = $('.add_new_language_category').find('a')
+			$(link[0]).replaceWith('&nbsp;');
+		}
+	}
+	
+	if ($("#language_manufacture").size() != 0)
+	{
+		totalBox = $('#language_manufacture').find('.form-sub-container');
+		
+		if (totalBox.size() == 4)
+		{
+			$(totalBox[3]).addClass('omega');
+			
+			link = $('.add_new_language_manufacture').find('a')
+			$(link[0]).replaceWith('&nbsp;');
+		}
+	}
+	
+	if ($("#language_family").size() != 0)
+	{
+		totalBox = $('#language_family').find('.form-sub-container');
+		
+		if (totalBox.size() == 4)
+		{
+			$(totalBox[3]).addClass('omega');
+			
+			link = $('.add_new_language_family').find('a')
+			$(link[0]).replaceWith('&nbsp;');
+		}
+	}
+	
+	if ($("#language_designer").size() != 0)
+	{
+		totalBox = $('#language_designer').find('.form-sub-container');
+		
+		if (totalBox.size() == 4)
+		{
+			$(totalBox[3]).addClass('omega');
+			
+			link = $('.add_new_language_designer').find('a')
+			$(link[0]).replaceWith('&nbsp;');
+		}
+	}
+	
+	if ($("#language_store").size() != 0)
+	{
+		totalBox = $('#language_store').find('.form-sub-container');
+		
+		if (totalBox.size() == 4)
+		{
+			$(totalBox[3]).addClass('omega');
+			
+			link = $('.add_new_language_store').find('a')
+			$(link[0]).replaceWith('&nbsp;');
+		}
+	}
 
 
 	// add by brancher => 22/04/2010
@@ -66,6 +144,14 @@ $(document).ready(function()
 	});
 	
 	$('.manufacture_save_admin').click( function(){
+		$('form').submit();
+	});
+	
+	$('.family_save_admin').click( function(){
+		$('form').submit();
+	});
+	
+	$('.solution_save_admin').click( function(){
 		$('form').submit();
 	});
 	
@@ -201,6 +287,49 @@ function add_new_language_designer(){
 				
 				//Oculta link para add mais linguas. Limite eh 4
 				link = $('.add_new_language_designer').find('a');
+				$(link[0]).replaceWith('&nbsp;');
+			}
+		});
+}
+//Adiciona novo campo de Lingua para uma Designer. by EZaghi => 29/04/2010
+function add_new_language_family(){
+
+	$.get('/admin/families/add_new_language',
+		function(result)
+		{	
+			$('#language_family').append(result);
+			
+			totalBox = $('#language_family').find('.form-sub-container');
+			
+			if(totalBox.size()%4 == 0)
+			{
+				//Define ultimo elemento como omega
+				$(totalBox[totalBox.size() - 1]).addClass('omega');
+				
+				//Oculta link para add mais linguas. Limite eh 4
+				link = $('.add_new_language_family').find('a');
+				$(link[0]).replaceWith('&nbsp;');
+			}
+		});
+}
+
+//Adiciona novo campo de Linga para uma Solucao. by EZaghi => 29/04/2010
+function add_new_language_solution(){
+
+	$.get('/admin/solutions/add_new_language',
+		function(result)
+		{	
+			$('#language_solution').append(result);
+			
+			totalBox = $('#language_solution').find('.form-sub-container');
+			
+			if(totalBox.size()%4 == 0)
+			{
+				//Define ultimo elemento como omega
+				$(totalBox[totalBox.size() - 1]).addClass('omega');
+				
+				//Oculta link para add mais linguas. Limite eh 4
+				link = $('.add_new_language_solution').find('a');
 				$(link[0]).replaceWith('&nbsp;');
 			}
 		});

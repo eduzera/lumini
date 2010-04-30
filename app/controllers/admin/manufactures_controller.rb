@@ -1,6 +1,6 @@
 class Admin::ManufacturesController < ApplicationController
   
-  layout "admin"
+  layout "publisher_products"
   
   def index
     @manufacture = Manufacture.all
@@ -44,7 +44,7 @@ class Admin::ManufacturesController < ApplicationController
     
     @manufacture.destroy
     
-    redirect_to admin_path
+    redirect_to admin_manufactures_path
   end
   
   def add_new_language  

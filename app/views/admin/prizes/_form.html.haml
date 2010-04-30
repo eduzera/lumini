@@ -1,7 +1,7 @@
 .actionContainer.grid_15
 	.actionHeader
 		%h2.grid_3.alpha 
-			= @prize.new_record? ? "criar novo" : @prize.lang_prize.first.name
+			= @prize.new_record? ? "criar novo premio" : @prize.lang_prize.first.name
 		%p.messageBoard.grid_9 &nbsp;
 		%p.actionTriggers.grid_3.omega
 			=link_to "cancelar /",  @prize.new_record? ? admin_path : admin_prize_path(@prize)

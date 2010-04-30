@@ -18,13 +18,16 @@ ActionController::Routing::Routes.draw do |map|
     product.resources :designers, :only => [:index, :show]
   end
   
-  map.connect 'admin/designers/add_new_language',       :controller => "admin/designers",     :action => 'add_new_language'
-  map.connect 'admin/manufactures/add_new_language',    :controller => "admin/manufactures",  :action => 'add_new_language'
-  map.connect 'admin/categories/add_new_language',      :controller => "admin/categories",    :action => 'add_new_language'
-  map.connect 'admin/stores/add_new_language',          :controller => "admin/stores",        :action => 'add_new_language'
-  map.connect 'admin/prizes/add_new_language',          :controller => "admin/prizes",        :action => 'add_new_language'
-  map.connect 'admin/products/add_new_language',        :controller => "admin/products",      :action => 'add_new_language'
-  map.connect 'admin/products/add_new_prize',           :controller => "admin/products",      :action => 'add_new_prize'
+  map.connect 'admin/solutions/add_new_language',       :controller => "admin/solutions",    :action => 'add_new_language'
+  map.connect 'admin/families/add_new_language',        :controller => "admin/families",     :action => 'add_new_language'
+  map.connect 'admin/designers/add_new_language',       :controller => "admin/designers",    :action => 'add_new_language'
+  map.connect 'admin/manufactures/add_new_language',    :controller => "admin/manufactures", :action => 'add_new_language'
+  map.connect 'admin/categories/add_new_language',      :controller => "admin/categories",   :action => 'add_new_language'
+  map.connect 'admin/stores/add_new_language',          :controller => "admin/stores",       :action => 'add_new_language'
+  map.connect 'admin/prizes/add_new_language',          :controller => "admin/prizes",       :action => 'add_new_language'
+  map.connect 'admin/products/add_new_language',        :controller => "admin/products",     :action => 'add_new_language'
+  map.connect 'admin/products/add_new_prize',           :controller => "admin/products",     :action => 'add_new_prize'
+
 
   map.admin_images "/admin/images/:imageable_type/:id/:type", :controller => "admin/images", :action => 'show'
   map.admin_image '/admin/images/', :controller => "admin/images", :action => 'create'
@@ -44,12 +47,9 @@ ActionController::Routing::Routes.draw do |map|
   	admin.resources :stores
   	admin.resources :categories
   	admin.resources :manufactures
+  	admin.resources :families
+  	admin.resources :solutions
   end
-  
-
-  
-
-
 
 
   # The priority is based upon order of creation: first created -> highest priority.

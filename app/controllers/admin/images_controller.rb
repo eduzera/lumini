@@ -1,7 +1,9 @@
 class Admin::ImagesController < ApplicationController
-  layout "admin"
+
+  layout "publisher_images"
   
   before_filter :find_parent
+ 
   
   def show
     @image = @klass.find(params[:id]).images.new
@@ -18,7 +20,7 @@ class Admin::ImagesController < ApplicationController
 
   private
 
-  def find_parent
+  def find_parent    
     @klass = params[:imageable_type]
     @klass = params[:image][:imageable_type] if @klass.nil?
     @klass = @klass.capitalize.constantize

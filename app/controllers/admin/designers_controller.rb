@@ -1,6 +1,8 @@
 class Admin::DesignersController < ApplicationController
   
-  layout "admin"
+  layout "publisher_designers"
+  
+  before_filter :put_last_controller_on_session
   
   def index
     @designers = Designer.all
@@ -50,6 +52,10 @@ class Admin::DesignersController < ApplicationController
     respond_to do |format|
       format.js {render :partial => "add_new_language", :locals => { :lang_designer => LangDesigner.new }}
     end
+  end
+  
+  def put_last_controller_on_session 
+        session[:last_controller] = self.controller_name
   end
   
 end
