@@ -17,6 +17,6 @@
 			-@product_prizes.each do |prize|
 				%li
 					.grid_1.alpha
-						= image_tag prize.product_prize.first.product.images.second.img(:grid_1)
+						= image_tag  (prize.product_prize.first.product.images.second.nil? ? prize.product_prize.first.product.images.first.img(:grid_1) : prize.product_prize.first.product.images.second.img(:grid_1))
 					.grid_5.rule-two.omega
 						= link_to prize.product_prize.first.product.lang_product.first.name + " "+ prize.product_prize.first.year.to_s,  product_path(prize.product_prize.first.product_id)
