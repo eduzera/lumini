@@ -2,7 +2,9 @@
 	.actionHeader
 		%h2.grid_3.alpha 
 			= @family.lang_family.first.name
-		%p.messageBoard.grid_9 &nbsp;
+		%p.messageBoard.grid_11 &nbsp;
+		%p.actionTriggers.grid_1.omega 
+			=link_to "excluir", admin_family_path(@family), :confirm => 'Tem certeza que deseja Excluir a Familia?', :method => :delete
 
 		
 	%ul.actionMenu

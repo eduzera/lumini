@@ -2,7 +2,9 @@
 	.actionHeader
 		%h2.grid_3.alpha 
 			= @product.lang_product.first.name
-		%p.messageBoard.grid_9 &nbsp;
+		%p.messageBoard.grid_11 &nbsp;
+		%p.actionTriggers.grid_1.omega
+			=link_to "excluir", admin_product_path(@product), :confirm => 'Tem certeza que deseja Excluir o Produto?', :method => :delete
 
 		
 	%ul.actionMenu

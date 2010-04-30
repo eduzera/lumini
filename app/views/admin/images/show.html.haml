@@ -6,7 +6,7 @@
 
 	%ul.actionMenu
 		%li 
-			= link_to "info", polymorphic_path(:admin)
+			= link_to "info", :back
 		-@types.each do |type|	
 			%li 
 				= link_to ((type.name == @klass.name.downcase ? "imagem #{type.name}": type.name) , admin_images_path(@klass, @image.imageable_id, type.name))

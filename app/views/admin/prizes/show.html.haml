@@ -2,12 +2,16 @@
 	.actionHeader
 		%h2.grid_3.alpha 
 			= @prize.lang_prize.first.name
-		%p.messageBoard.grid_9 &nbsp;
+		%p.messageBoard.grid_11 &nbsp;
+		%p.actionTriggers.grid_1.omega
+			=link_to "excluir", admin_prize_path(@prize), :confirm => 'Tem certeza que deseja Excluir o Premio?', :method => :delete
 
 		
 	%ul.actionMenu
 		%li 
 			= link_to "info", edit_admin_prize_path(@prize)
+		%li 
+			= link_to "imagens", admin_images_path(:prize, @prize, 'peize')
 
 	.actionContent
 

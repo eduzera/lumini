@@ -2,8 +2,9 @@
 	.actionHeader
 		%h2.grid_3.alpha 
 			= @store.lang_store.first.title
-		%p.messageBoard.grid_9 &nbsp;
-
+		%p.messageBoard.grid_11 &nbsp;
+		%p.actionTriggers.grid_1.omega 
+			=link_to "excluir", admin_store_path(@store), :confirm => 'Tem certeza que deseja Excluir a Loja?', :method => :delete
 		
 	%ul.actionMenu
 		%li 
