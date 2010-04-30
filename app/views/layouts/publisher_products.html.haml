@@ -11,7 +11,7 @@
 					-Product.all_with_filter.each do |product|
 						%li
 							.grid_1.alpha
-								= image_tag (product.images.second.nil? ? product.images.first.img.url(:grid_1) : product.images.second.img.url(:grid_1)) 
+								= image_tag (product.images.second.nil? ? product.images.first.img.url(:grid_1) : product.images.second.img.url(:grid_1))  
 							.grid_3.rule-two.omega
 								= link_to product.name, admin_product_path(product)
 			%li
