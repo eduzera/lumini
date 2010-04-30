@@ -10,4 +10,4 @@
 	
 		%ul
 			- @manufactures.each do |manufacture|
-				%li= link_to manufacture.name, manufacture_path(manufacture)
+				%li= link_to manufacture.lang_manufacture.first.name, manufacture_path(manufacture)

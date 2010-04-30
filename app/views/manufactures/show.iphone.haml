@@ -11,7 +11,7 @@
 			%ul.with_images
 				-@families.each do |family|
 					%li.no_link= family.name
-					-family.product.by_manufacture(family.product_manufacture_id).each do |item|
+					-family.product.by_manufacture(family.product_manufacture_id).by_family(family.id).each do |item|
 						%li
 							.grid_1.alpha
 								= image_tag "../uploads/front/grid1_#{item.name}.jpg"

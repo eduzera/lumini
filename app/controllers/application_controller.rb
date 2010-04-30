@@ -10,9 +10,13 @@ class ApplicationController < ActionController::Base
   
    before_filter :fix_refere_url  
 
-   def fix_refere_url
-     if request.request_uri.count('/') > 2
-       session[:back_to_parent] = request.request_uri[0, request.request_uri.index('/', 1+ (request.request_uri.index('/', +1)))] if request.request_uri 
-     end
-   end
+  def fix_refere_url
+    var = request.request_uri
+
+    if var.split('/').length > 3
+      if var.split('/')[2].to_i != 0
+        session[:back_to_parent] = var.split('/')[0..2].join('/')
+      end
+    end
+  end
 end
