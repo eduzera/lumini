@@ -5,15 +5,15 @@
 		-semantic_fields_for prefix, lang_designer do |lang|
 		-lang.inputs
 		.form-content
-			.grid_3 
+			.grid_3.alpha.title
 				= lang.input :language, :as => :select, :include_blank => false, :collection => Language.all
 				
 		.form-content
-			.grid_3
+			.grid_3.alpha.description
 				=lang.input :biography, :as => :text, :label => false
 		
 		.form-content
-			.grid_3
+			.grid_3.alpha.title
 				=lang.input :nacionality, :label => false
 
 				

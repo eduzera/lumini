@@ -1,7 +1,7 @@
 .actionContainer.grid_15
 	.actionHeader
 		%h2.grid_3.alpha 
-			= @prize.new_record? ? "criar novo premio" : @prize.lang_prize.first.name
+			= @prize.new_record? ? "criar novo prêmio" : @prize.lang_prize.first.name
 		%p.messageBoard.grid_9 &nbsp;
 		%p.actionTriggers.grid_3.omega
 			=link_to "cancelar /",  @prize.new_record? ? admin_path : admin_prize_path(@prize)
@@ -20,14 +20,16 @@
 			.form-container
 				.form-sub-container.grid_3.alpha
 					.form-content
-						.grid_3.alpha.add_new_language_prize
+						.grid_3.alpha.add_new_language_prize.title
 							=link_to "+ novo idioma","#", :onclick => "add_new_language_prize()"
 
 							.form-content
-								.grid_3.alpha <strong>nome</strong>
+								.grid_3.alpha.title
+									%strong nome
 
 							.form-content
-								.grid_3.alpha <strong>descrição</strong>
+								.grid_3.alpha.description
+									%strong descrição
 								
 								
 				#language_prize
