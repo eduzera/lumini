@@ -2,12 +2,16 @@
 	.actionHeader
 		%h2.grid_3.alpha 
 			= @designer.name
-		%p.messageBoard.grid_9 &nbsp;
+		%p.messageBoard.grid_11 &nbsp;
+		%p.actionTriggers.grid_1.omega
+			=link_to "/ excluir", admin_designer_path(@designer), :confirm => 'Tem certeza que deseja Excluir o Designer?', :method => :delete
 
 		
 	%ul.actionMenu
 		%li 
 			= link_to "info", edit_admin_designer_path(@designer)
+		%li 
+			= link_to "imagens", admin_images_path(:designer, @designer, 'designer')
 
 	.actionContent
 
