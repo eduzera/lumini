@@ -34,7 +34,7 @@ class GaleriesController < ApplicationController
       end
     end
 
-    redirect_to galery_path(@image.imageable_type, @image.id)
+    redirect_to galery_path(@image.imageable_type.downcase, @image.image_type.name, @image)
   end
   
   

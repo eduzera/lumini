@@ -7,6 +7,7 @@ ImageType.make(:name => "prize",     :model_name => "Prize")
 ImageType.make(:name => "designer",   :model_name => "Designer")
 
 lingua = Language.make
+lingua2 = Language.make(:name => "English", :abbr => "en_US")
 
 fabricante = Manufacture.make(:website => "http://www.lumini.com.br")
   lang_fabricante = LangManufacture.make(:name => 'lumini', :manufacture_id => fabricante.id, :language_id => lingua.id)
@@ -90,13 +91,13 @@ familia = Family.make
                                     :language_id => lingua.id)    
                                      
                                     
-  lingua = Language.make(:name => "English", :abbr => "en")
+
   
 
     lang_product = LangProduct.make(:name => "bauhaus", 
                                     :description => "mother fuck light", 
                                     :tech_description => "lightttttt", 
                                     :product_id => produto.id, 
-                                    :language_id => lingua.id)    
+                                    :language_id => lingua2.id)    
 
 puts "OK!"
