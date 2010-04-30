@@ -9,13 +9,13 @@
 				= lang.input :language, :as => :select, :include_blank => false, :collection => Language.all
 
 		.form-content
-			.grid_3
+			.grid_3.title
 				=lang.input :name, :label => false
 
 		.form-content
-			.grid_3
+			.grid_3.description
 				=lang.input :description, :as => :text,  :label => false
 
 		.form-content	
-			.grid_3
-				=lang.input :tech_description, :label => false
+			.grid_3.tech_info
+				=lang.input :tech_description, :as => :text, :label => false

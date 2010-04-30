@@ -7,7 +7,7 @@
 			
 			=link_to "cancelar /",  @product.new_record? ? admin_path : admin_product_path(@product)
 			=link_to "salvar","javascript://" ,:class => "product_save_admin"
-			=link_to "/ excluir", admin_product_path(@product), :confirm => 'Tem certeza que deseja Excluir o Produto?', :method => :delete unless @product.new_record?
+			=link_to "/ excluir", admin_product_path(@product), :confirm => 'Tem certeza que deseja EXCLUIR o produto?', :method => :delete unless @product.new_record?
 		
 	%ul.actionMenu
 		%li
@@ -27,15 +27,15 @@
 							=link_to "+ novo idioma","#", :onclick => "add_new_language()"
 						
 							.form-content
-								.grid_3.alpha 
+								.grid_3.alpha.title
 									%strong título
 						
 							.form-content
-								.grid_3.alpha
+								.grid_3.alpha.description
 									%strong descrição
 					
 							.form-content
-								.grid_3.alpha
+								.grid_3.alpha.tech_info
 									%strong dados técnicos
 				
 				#language_product
@@ -54,7 +54,7 @@
 				/ Agrupamento de campos belongs_to
 				.form-content
 					.grid_3.alpha 
-						%strong fabricante
+						%strong marca
 					
 					.grid_3
 						=form.inputs :manufacture
