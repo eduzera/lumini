@@ -7,7 +7,7 @@ class Admin::ImagesController < ApplicationController
   
   def show
     @image = @klass.find(params[:id]).images.new
-    @images = Image.all_with_filter(params[:imageable_type].capitalize, params[:type]) #conditions tira o to_a
+    @images = Image.all_with_filter(params[:imageable_type].capitalize, params[:type]).by_imageable_id(params[:id]) #conditions tira o to_a
     @types = ImageType.all_with_filter(@klass.name.capitalize)
   end
   
