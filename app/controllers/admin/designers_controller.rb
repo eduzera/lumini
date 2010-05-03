@@ -11,10 +11,13 @@ class Admin::DesignersController < ApplicationController
   def new
     @designer = Designer.new
     @designer.lang_designer.build
+    @designer.images.build
   end
   
   def create
     @designer = Designer.new(params[:designer])
+    @designer.images.build
+    
     if @designer.save
       flash[:notice] = "Successfully created contact."
       redirect_to admin_designer_url(@designer)

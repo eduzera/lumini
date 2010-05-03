@@ -24,13 +24,14 @@ class Admin::ProductsController < ActionController::Base
   
   def create
     @product = Product.new(params[:product])
-    @product.images.build if Image.find_by_imageable_type('Product').nil? # colocar nos outros
+    @product.images.build
+    @product.product_prize.slice! 0 if @product.product_prize.first.year.nil?
     
-    if @product.save
+    if @product.save!
       flash[:notice] = "Successfully created contact."
       redirect_to admin_product_url(@product)
     else
-      redirect_to :back
+#      redirect_to :back
     end
   end
   
@@ -40,7 +41,7 @@ class Admin::ProductsController < ActionController::Base
         flash[:notice] = "Successfully updated contact."
         redirect_to admin_product_url(@product)
       else
-        render edit_admin_product_url(@product)
+ #       render edit_admin_product_url(@product)
       end
   end
     

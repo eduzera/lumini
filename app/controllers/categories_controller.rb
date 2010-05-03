@@ -1,6 +1,6 @@
 class CategoriesController < ApplicationController
   def index
-    @categories = Category.active
+    @categories = Category.active(session[:language])
     
     respond_to do |format|
       format.iphone { render :layout => false }

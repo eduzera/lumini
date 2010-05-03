@@ -6,9 +6,12 @@ class Family < ActiveRecord::Base
     "#{lang_family.first.name}"
   end
   
-  named_scope :all_with_filter, :select => "families.id 'id', lang_families.name 'name'",
-                            :joins => [:lang_family, :product],
-                            :conditions => ["products.family_id = families.id"] 
+  named_scope :all_with_filter, lambda {| category, language |{
+                            :select => "families.id 'id', lang_families.name 'name', manufactures.id 'product_manufacture_id', lang_manufactures.name 'product_manufacture'",
+                            :joins => [:lang_family, {:product => [:category, {:manufacture => [:lang_manufacture], :lang_product => [:language]}]}],
+                            :conditions => ["products.family_id = families.id AND products.status = ? AND categories.id = ?
+                                            AND languages.abbr = ?", true, category, language], 
+                            :group => "id, name"}}  
   
   
   
@@ -34,22 +37,22 @@ class Family < ActiveRecord::Base
   #                 :conditions => ["products.category_id = ?", category], :group => "products.family_id"}}
                                 
   
-   named_scope :product_by_family_and_category, 
-                 lambda { |category| {
-                   :select => "lang_families.id 'id', lang_families.name 'name', 
-                               lang_categories.id 'product_category_id', lang_categories.name 'product_category'",
-                   :joins => [:lang_family, {:product => [{:category => :lang_category}]}],
-                   :conditions => ["products.category_id = ?", category], 
-                   :group => "id"}}
+#   named_scope :product_by_family_and_category, 
+#                 lambda { |category| {
+#                   :select => "lang_families.id 'id', lang_families.name 'name', 
+#                               lang_categories.id 'product_category_id', lang_categories.name 'product_category'",
+#                   :joins => [:lang_family, {:product => [{:category => :lang_category}]}],
+#                   :conditions => ["products.category_id = ?", category], 
+#                   :group => "id"}}
                    
                    
-   named_scope :product_by_family_and_manufacture, 
-                 lambda { |manufacture| {
-                   :select => "lang_families.id 'id', lang_families.name 'name', 
-                               products.id 'product_id', manufactures.id 'product_manufacture_id', lang_manufactures.name 'product_manufacture'",
-                   :joins => [:lang_family, {:product => {:manufacture => [:lang_manufacture]}}],
-                   :conditions => ["products.manufacture_id = ?", manufacture], 
-                   :group => "products.id"}}
+#   named_scope :product_by_family_and_manufacture, 
+#                 lambda { |manufacture| {
+#                   :select => "lang_families.id 'id', lang_families.name 'name', 
+#                               products.id 'product_id', manufactures.id 'product_manufacture_id', lang_manufactures.name 'product_manufacture'",
+#                   :joins => [:lang_family, {:product => {:manufacture => [:lang_manufacture]}}],
+#                   :conditions => ["products.manufacture_id = ?", manufacture], 
+#                   :group => "id, products.id"}}
                    
    after_update :save_languages
 

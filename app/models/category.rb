@@ -9,9 +9,9 @@ class Category < ActiveRecord::Base
                                 :group => "categories.id"
                     
                     
-  named_scope :active,  :include => [:product], 
-                        :conditions => ["products.category_id = categories.id"], 
-                        :group => "categories.id"   
+  named_scope :active, lambda {|language| { :include => {:product => {:lang_product => [:language]}}, 
+                        :conditions => ["products.category_id = categories.id AND languages.abbr = ?", language], 
+                        :group => "categories.id"}}
                         
                         
   named_scope :info, lambda { |category| {
