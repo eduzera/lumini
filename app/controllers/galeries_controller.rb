@@ -39,6 +39,25 @@ class GaleriesController < ApplicationController
   end
   
   
+  def slideshow_changeimage
+    if params[:direction] == "next"
+      @image = Image.by_imageable_type(params[:imageable_type]).by_image_type(params[:name]).by_product_category(params[:category_id]).find(:first, :conditions => ['imageable_id > ?', params[:id]])
+    else
+      @image = Image.by_imageable_type(params[:imageable_type]).by_image_type(params[:name]).by_product_category(params[:category_id]).find(:last, :conditions => ['imageable_id < ?', params[:id]])
+    end
+
+    if @image.nil?
+      if params[:direction] == 'previous'
+        @image = Image.by_imageable_type(params[:imageable_type]).by_image_type(params[:name]).by_product_category(params[:category_id]).last
+      else
+        @image = Image.by_imageable_type(params[:imageable_type]).by_image_type(params[:name]).by_product_category(params[:category_id]).first
+      end
+    end
+
+    redirect_to slideshow_path(@image.imageable_type, @image.image_type.name, @image)
+  end
+  
+  
   private
   
   def fix

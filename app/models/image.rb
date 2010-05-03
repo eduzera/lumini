@@ -28,6 +28,9 @@ class Image < ActiveRecord::Base
 
   named_scope :all_with_filter, lambda {|imageable_type, type| {  :include => [:image_type], :conditions => ["imageable_type = ? AND image_types.name = ?", imageable_type, type]
   }}
+  
+  named_scope :by_product_category, lambda {|category| { :select => "products.category_id 'category_id'", :joins => "INNER JOIN products ON products.id = images.imageable_id", :conditions => ["products.category_id = ?", category] }}
+  
                                      
    def dimension(url)
      Paperclip::Geometry.from_file(url)
