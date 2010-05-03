@@ -15,7 +15,7 @@
 		%ul.grid_2
 			-@images.each do |img|		
 				%li
-					= link_to img.name, galery_path(@product.class.name.downcase, img.name), :class => "dissolve" 
+					= link_to img.name, galery_path(img.imageable_id, @product.class.name.downcase, img.name), :class => "dissolve" 
 			%li
 				= link_to "o designer",	product_designers_path(@product), :class => "dissolve"
 			%li

@@ -6,4 +6,4 @@
 		%p.clear
 		-@galeries.each do |pic|
 			.grid_2.product 
-				=link_to image_tag(pic.img.url(:grid_2)), galery_path("product", pic.image_type.name, pic.id)
+				=link_to image_tag(pic.img.url(:grid_2)), galery_path(pic.imageable_id, "product", pic.image_type.name, pic.id)

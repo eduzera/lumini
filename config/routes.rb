@@ -33,9 +33,9 @@ ActionController::Routing::Routes.draw do |map|
   map.admin_image '/admin/images/', :controller => "admin/images", :action => 'create'
   
   
-  map.galeries      "/galeries/:imageable_type/:name",                    :controller => "galeries",      :action => 'index'
-  map.galery        "/galery/:imageable_type/:name/:id",                  :controller => "galeries",      :action => 'show'
-  map.change_image  '/change_image/:imageable_type/:name/:id/:direction', :controller => 'galeries',      :action => 'changeimage'
+  map.galeries      "/galeries/:imageable_type/:name/:id",                :controller => "galeries",      :action => 'index'
+  map.galery        "/galery/:imageable_id/:imageable_type/:name/:id",                  :controller => "galeries",      :action => 'show'
+  map.change_image  '/change_image/:imageable_id/:imageable_type/:name/:id/:direction', :controller => 'galeries',      :action => 'changeimage'
   map.show_images   '/show_image/:product_id/image/:imagetype',           :controller => 'admin/images',  :action => 'show'
   map.images '/images/:id', :controller => 'admin/images',  :action => 'destroy'
   

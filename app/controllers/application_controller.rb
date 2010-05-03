@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
     var = request.request_uri
 
     if var.split('/').length > 3
-      if var.split('/')[2].to_i != 0
+      if var.split('/')[2].to_i != 0 && var.split('/')[1] != 'galery'
         session[:back_to_parent] = var.split('/')[0..2].join('/')
       end
     end
