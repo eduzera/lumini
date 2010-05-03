@@ -41,8 +41,7 @@ class Admin::ManufacturesController < ApplicationController
 
   def destroy
     @manufacture = Manufacture.find(params[:id])
-    
-    @manufacture.destroy
+    @manufacture.destroy if @manufacture.product.empty?
     
     redirect_to admin_manufactures_path
   end

@@ -40,7 +40,7 @@ class Admin::FamiliesController < ApplicationController
 
   def destroy
     @family = Family.find(params[:id])
-    @family.destroy
+    @family.destroy if @family.product.empty?
     
     redirect_to admin_families_path
   end

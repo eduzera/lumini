@@ -58,4 +58,4 @@
 										%br
 										= number_to_human_size image.size(image.img.path(:original))
 									.grid_1.omega
-										-#= link_to "[X]", polymorphic_path(image), :confirm => "Tem certeza que deseja deletar essa imagem?", :method => :delete
+										= link_to "[X]", polymorphic_path(image, :imageable_type => image.imageable_type), :confirm => "Tem certeza que deseja deletar essa imagem?", :method => :delete

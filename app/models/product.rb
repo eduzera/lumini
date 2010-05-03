@@ -18,6 +18,8 @@ class Product < ActiveRecord::Base
                                 :group => "products.id"
 
 
+  named_scope :active , :conditions => ['products.status = ?', true]
+
   named_scope :by_language, lambda { |language| {
                                 :joins => {:lang_product => [:language]},
                                 :conditions => ["languages.abbr = ?", language]}}
@@ -26,7 +28,7 @@ class Product < ActiveRecord::Base
   named_scope :by_family, lambda { |family| {
                                 :select => "products.id 'id', lang_products.name 'name'",
                                 :joins => [:family, :lang_product],
-                                :conditions => ["products.family_id = ? AND products.status = ?", family, true], 
+                                :conditions => ["products.family_id = ?", family], 
                                 :group => "products.id"}}
   
   
@@ -40,6 +42,13 @@ class Product < ActiveRecord::Base
                                     :joins => [:lang_product],
                                     :conditions => ["products.manufacture_id = ?", manufacture]}}
                                     
+                                    
+  named_scope :by_prize, lambda { |prize| { 
+                                    :select => "products.id 'id', lang_products.name 'name'",
+                                    :joins => [:lang_product, :product_prize],
+                                    :conditions => ["product_prizes.prize_id = ?", prize], 
+                                    :order => "product_prizes.year"}}
+
   after_update :save_prizes
   
    def new_product_prize_attributes=(prize_attributes)

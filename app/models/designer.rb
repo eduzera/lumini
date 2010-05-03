@@ -1,7 +1,7 @@
 class Designer < ActiveRecord::Base
   has_one :product
   has_many :lang_designer
-  has_many :images, :as => :imageable
+  has_many :images, :as => :imageable, :dependent => :destroy
   
   # has_attached_file :img, :styles => {:grid_1 => "45x45#", :grid_2 => "96x96#" ,:grid_3 => "147x144#"},
 
