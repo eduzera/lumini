@@ -12,6 +12,7 @@ class Admin::PrizesController < ApplicationController
   
   def create
     @prize = Prize.new(params[:prize])
+    @prize.images.build
     if @prize.save
       flash[:notice] = "Successfully created contact."
       redirect_to admin_prize_url(@prize)
