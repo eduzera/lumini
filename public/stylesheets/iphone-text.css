@@ -54,5 +54,5 @@ ul.with_images li.no_link { border-top: 1px solid #969696; margin-top: 2px; padd
 ul.with_images li.more_link { border-top: 1px solid #969696; margin-top: 2px; padding-top: 3px; padding-bottom: 6px; }
 ul.with_images li.more_link a { background: url('../images/ico-plus.png') right top no-repeat; }
 
-.top-bar { background-color: #414141; height: 60px; position: absolute; top: 0; width: 100%; display: none; }
-.bottom-bar { background-color: #414141; height: 60px; position: absolute;
+.top-bar { background-color: #414141; padding-top: 12px; height: 48px; position: absolute; top: 0; width: 100%; display: none; }
+.bottom-bar { background-color: #414141; height: 48px; position: absolute; bottom: 0px; width: 100%; display: none; }

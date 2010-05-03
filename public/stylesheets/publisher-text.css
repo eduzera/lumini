@@ -23,9 +23,9 @@ textarea { border: 0; background: #969696; font-family: Helvetica, Arial, Verdan
 .grid_3 textarea { width: 147px; height: 120px; }
 .grid_3 select { width: 145px; }
 
-.title { height: 24px; padding-top: 6px; margin-bottom: 6px; }
-.description { height: 120px; padding-top: 6px; margin-bottom: 6px; }
-.tech_info { height: 120px; padding-top: 6px; margin-bottom: 6px; }
+.title { height: 24px; }
+.description { height: 120px; }
+.tech_info { height: 120px; }
 
 ul.categories_browser { margin: 0; padding: 0; }
 ul.categories_browser > li { border-bottom: 1px solid #969696; overflow: hidden;  padding: 6px 0px 3px 0px; margin-bottom: 0px; }

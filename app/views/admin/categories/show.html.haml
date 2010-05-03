@@ -2,7 +2,9 @@
 	.actionHeader
 		%h2.grid_3.alpha 
 			= @category.lang_category.first.name
-		%p.messageBoard.grid_9 &nbsp;
+		%p.messageBoard.grid_11 &nbsp;
+		%p.actionTriggers.grid_1.omega 
+			=link_to "excluir", admin_category_path(@category), :confirm => 'Tem certeza que deseja Excluir a Categoria?', :method => :delete
 
 		
 	%ul.actionMenu

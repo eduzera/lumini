@@ -2,7 +2,9 @@
 	.actionHeader
 		%h2.grid_3.alpha 
 			= @manufacture.lang_manufacture.first.name
-		%p.messageBoard.grid_9 &nbsp;
+		%p.messageBoard.grid_11 &nbsp;
+		%p.actionTriggers.grid_1.omega 
+			=link_to "excluir", admin_manufacture_path(@manufacture), :confirm => 'Tem certeza que deseja Excluir a Marca?', :method => :delete
 
 		
 	%ul.actionMenu

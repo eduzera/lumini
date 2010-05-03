@@ -11,7 +11,7 @@ class Manufacture < ActiveRecord::Base
 
 
   def to_label
-  "#{ lang_manufacture.first.name }"
+    "#{lang_manufacture.first.name}"
   end
 
 
