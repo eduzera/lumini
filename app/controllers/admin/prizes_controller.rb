@@ -1,5 +1,4 @@
 class Admin::PrizesController < ApplicationController
-  
   layout "publisher_prizes"
   
   def index
@@ -13,6 +12,7 @@ class Admin::PrizesController < ApplicationController
   
   def create
     @prize = Prize.new(params[:prize])
+    @prize.images.build
     if @prize.save
       flash[:notice] = "Successfully created contact."
       redirect_to admin_prize_url(@prize)
@@ -51,7 +51,5 @@ class Admin::PrizesController < ApplicationController
     respond_to do |format|
       format.js {render :partial => "add_new_language", :locals => { :lang_prize => LangPrize.new }}
     end
-    
   end
-  
 end

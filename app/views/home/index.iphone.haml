@@ -33,5 +33,8 @@
 
 		%p.clear
 		.footer
-			%p.grid_6.rule-two english | deutsch
-			
+			%p.grid_6.rule-two
+				-@languages.each do |lang| 
+					= link_to lang.name, language_path(lang)
+					|
+		

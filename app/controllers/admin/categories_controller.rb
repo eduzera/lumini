@@ -17,7 +17,7 @@ class Admin::CategoriesController < ApplicationController
       flash[:notice] = "Successfully created contact."
       redirect_to admin_category_url(@category)
     else
-      redirect_to :back
+#      redirect_to :back
     end
   end
   
@@ -31,7 +31,7 @@ class Admin::CategoriesController < ApplicationController
       flash[:notice] = "Successfully updated contact."
       redirect_to admin_category_path(@category)
     else
-      redirect_to :back
+#      redirect_to :back
     end
   end
   

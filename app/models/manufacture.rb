@@ -2,9 +2,10 @@ class Manufacture < ActiveRecord::Base
   has_many :product
   has_many :lang_manufacture
   
-  named_scope :active,  :include => [:product], 
-                        :conditions => ["products.manufacture_id = manufactures.id"], 
-                        :group => "manufactures.id"
+  named_scope :active, lambda {|language| {
+                        :include => {:product => {:lang_product => [:language]}}, 
+                        :conditions => ["products.manufacture_id = manufactures.id AND languages.abbr = ?", language], 
+                        :group => "manufactures.id"}}
                         
   after_update :save_languages
 

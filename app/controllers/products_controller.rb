@@ -1,6 +1,6 @@
 class ProductsController < ApplicationController
   def show
-    @product = Product.find(params[:id])
+    @product = Product.all_with_filter.by_language(session[:language]).find(params[:id])
     @images = Image.by_imageable_type(@product.class.name.capitalize).group_image_type
 
     respond_to do |format|
