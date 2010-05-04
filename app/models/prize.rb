@@ -3,6 +3,8 @@ class Prize < ActiveRecord::Base
   has_many :product_prize
   has_many :images, :as => :imageable
   
+  accepts_nested_attributes_for :lang_prize
+  
   after_update :save_languages
   
   def to_label

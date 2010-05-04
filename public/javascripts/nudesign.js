@@ -155,6 +155,10 @@ $(document).ready(function()
 		$('form').submit();
 	});
 	
+	$('.language_save_admin').click( function(){
+		$('form').submit();
+	});
+	
 	$("#designer_birthdate").datepicker();
 	$("#designer_deathdate").datepicker();
 	

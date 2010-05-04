@@ -19,7 +19,7 @@ class Admin::SolutionsController < ApplicationController
       flash[:notice] = "Successfully created contact."
       redirect_to admin_solution_url(@solution)
     else
-      redirect_to :back
+      render :action => 'new'
     end
   end
 
@@ -33,7 +33,7 @@ class Admin::SolutionsController < ApplicationController
       flash[:notice] = "Successfully updated contact."
       redirect_to admin_solution_path(@solution)
     else
-      redirect_to :back
+      render :action => 'edit'
     end
   end
 

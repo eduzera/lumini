@@ -1,6 +1,8 @@
 class Admin::PrizesController < ApplicationController
   layout "publisher_prizes"
   
+  before_filter :put_last_controller_on_session
+  
   def index
     @prizes = Prize.all
   end
@@ -17,7 +19,7 @@ class Admin::PrizesController < ApplicationController
       flash[:notice] = "Successfully created contact."
       redirect_to admin_prize_url(@prize)
     else
-      redirect_to :back
+      render :action => 'new'
     end
   end
   
@@ -31,7 +33,7 @@ class Admin::PrizesController < ApplicationController
       flash[:notice] = "Successfully updated contact."
       redirect_to admin_prize_path(@prize)
     else
-      redirect_to :back
+      render :action => 'edit'
     end
   end
   
@@ -52,4 +54,9 @@ class Admin::PrizesController < ApplicationController
       format.js {render :partial => "add_new_language", :locals => { :lang_prize => LangPrize.new }}
     end
   end
+  
+  def put_last_controller_on_session 
+        session[:last_controller] = self.controller_name
+  end
+  
 end

@@ -1,0 +1,34 @@
+.actionContainer.grid_15
+	.actionHeader
+		%h2.grid_3.alpha 
+			= @language.name
+		%p.messageBoard.grid_11 &nbsp;
+		%p.actionTriggers.grid_1.omega 
+			=link_to "excluir", admin_language_path(@language), :confirm => 'Tem certeza que deseja Excluir o Idioma?', :method => :delete
+
+		
+	%ul.actionMenu
+		%li 
+			= link_to "info", edit_admin_language_path(@language)
+
+	.actionContent
+
+		.form-container 
+			.form-sub-container.grid_3.alpha
+					
+				.form-content
+					.grid_3.alpha <strong>nome</strong>
+
+				.form-content
+					.grid_3.alpha <strong>abreviacao</strong>
+										
+					
+			.form-sub-container.grid_3.alpha
+
+				.form-content
+					.grid_3.alpha 
+						= @language.name
+
+				.form-content
+					.grid_3.alpha 
+						= @language.abbr

@@ -51,6 +51,7 @@ ActionController::Routing::Routes.draw do |map|
   	admin.resources :manufactures
   	admin.resources :families
   	admin.resources :solutions
+  	admin.resources :languages
   end
 
 

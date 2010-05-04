@@ -19,6 +19,9 @@
 
 	.actionContent
 		-semantic_form_for @solution, :url => @solution.new_record?  ? admin_solutions_path : admin_solution_path(@solution) do |form|
+			- unless @solution.errors.empty?
+				.error_message 
+					= form.error_messages
 			.form-container
 				.form-sub-container.grid_3.alpha
 					.form-content

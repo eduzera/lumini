@@ -4,6 +4,11 @@ class Store < ActiveRecord::Base
   
   after_update :save_languages
   
+  validates_presence_of :telephone, :email, :operation
+  validates_format_of :email, :with => /^[\'_]*([a-zA-Z0-9\-]+(\.|\_*)?)+@([a-zA-Z][a-zA-Z0-9\-]+(\.|\-*\.))+[a-zA-Z]{2,6}$/ , :message => " Invalido"
+  
+  accepts_nested_attributes_for :lang_store
+  
   def new_lang_store_attributes=(store_attributes)   
     store_attributes.each do |attributes|
       lang_store.build(attributes)

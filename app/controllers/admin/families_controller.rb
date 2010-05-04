@@ -20,7 +20,7 @@ class Admin::FamiliesController < ApplicationController
       flash[:notice] = "Successfully created contact."
       redirect_to admin_family_url(@family)
     else
-      redirect_to :back
+      render :action => 'new'
     end
   end
 
@@ -30,7 +30,7 @@ class Admin::FamiliesController < ApplicationController
       flash[:notice] = "Successfully updated contact."
       redirect_to admin_family_path(@family)
     else
-      redirect_to :back
+      render :action => 'edit'
     end
   end
 

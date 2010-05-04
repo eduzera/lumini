@@ -1,6 +1,8 @@
 class Category < ActiveRecord::Base
   has_many :product
   has_many :lang_category
+  
+  accepts_nested_attributes_for :lang_category
                     
                     
   named_scope :all_with_filter, :select => "lang_categories.id 'id', lang_categories.name 'name'", 

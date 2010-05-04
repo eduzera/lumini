@@ -16,10 +16,13 @@
 			
 	.actionContent
 		-semantic_form_for @family, :url => @family.new_record?  ? admin_families_path : admin_family_path(@family) do |form|
+			- unless @family.errors.empty?
+				.error_message 
+					= form.error_messages
 			.form-container
 				.form-sub-container.grid_3.alpha
 					.form-content
-						.grid_3.alpha.add_new_language_family.title
+						.grid_3.alpha.add_new_language_family
 							=link_to "+ novo idioma","javascript://", :onclick => "add_new_language_family()"
 
 							.form-content

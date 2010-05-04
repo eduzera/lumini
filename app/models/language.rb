@@ -5,6 +5,9 @@ class Language < ActiveRecord::Base
   has_many :lang_prize
   has_many :lang_product
   has_many :lang_solution
+  
+  validates_presence_of :name, :abbr
+  
 end
 
 

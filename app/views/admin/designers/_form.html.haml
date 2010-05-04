@@ -19,6 +19,9 @@
 			
 	.actionContent
 		-semantic_form_for @designer, :url => @designer.new_record?  ? admin_designers_path : admin_designer_path(@designer) , :html => {:multipart => true} do |form|
+			- unless @designer.errors.empty?
+				.error_message 
+					= form.error_messages
 			.form-container
 				.form-sub-container.grid_3.alpha
 					.form-content

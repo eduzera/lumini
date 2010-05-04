@@ -2,6 +2,8 @@ class Solution < ActiveRecord::Base
   has_many :lang_solution
   has_many :images, :as => :imageable
   
+  accepts_nested_attributes_for :lang_solution
+  
   after_update :save_languages
   
   def new_lang_solution_attributes=(solution_attributes)   
