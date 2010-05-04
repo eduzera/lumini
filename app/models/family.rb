@@ -6,14 +6,21 @@ class Family < ActiveRecord::Base
     "#{lang_family.first.name}"
   end
   
-  named_scope :all_with_filter, lambda {| category, language |{
+  named_scope :by_category, lambda {| category, language |{
                             :select => "families.id 'id', lang_families.name 'name', manufactures.id 'product_manufacture_id', lang_manufactures.name 'product_manufacture'",
                             :joins => [:lang_family, {:product => [:category, {:manufacture => [:lang_manufacture], :lang_product => [:language]}]}],
                             :conditions => ["products.family_id = families.id AND products.status = ? AND categories.id = ?
                                             AND languages.abbr = ?", true, category, language], 
                             :group => "id, name"}}  
-  
-  
+
+  named_scope :by_manufacture, lambda {| manufacture, language |{
+                            :select => "families.id 'id', lang_families.name 'name', manufactures.id 'product_manufacture_id', lang_manufactures.name 'product_manufacture'",
+                            :joins => [:lang_family, {:product => [:category, {:manufacture => [:lang_manufacture], :lang_product => [:language]}]}],
+                            :conditions => ["products.family_id = families.id AND products.status = ? AND manufactures.id = ?
+                                            AND languages.abbr = ?", true, manufacture, language], 
+                            :group => "id, name"}}  
+
+
   
  # named_scope :product_by_family_and_category, 
  #              lambda { |category| {
