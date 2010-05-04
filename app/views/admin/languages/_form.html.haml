@@ -1,0 +1,42 @@
+.actionContainer.grid_15
+	.actionHeader
+		%h2.grid_3.alpha 
+			= @language.new_record? ? "criar novo idioma" : @language.name
+		%p.messageBoard.grid_9 &nbsp;
+		%p.actionTriggers.grid_3.omega 
+			
+			=link_to "cancelar /",  @language.new_record? ? admin_path : admin_language_path(@language)
+			=link_to "salvar","javascript://" ,:class => "language_save_admin"
+			=link_to "/ excluir", admin_language_path(@language), :confirm => 'Tem certeza que deseja Excluir o Idioma?', :method => :delete unless @language.new_record?
+			
+						
+	%ul.actionMenu
+		%li
+			%strong
+				info
+
+	.actionContent
+		-semantic_form_for @language, :url => @language.new_record?  ? admin_languages_path : admin_language_path(@language) do |form|
+			- unless @language.errors.empty?
+				.error_message 
+					= form.error_messages
+			.form-container
+				.form-sub-container.grid_3.alpha
+					.form-content
+						.form-content
+							.grid_3.alpha <strong>titulo</strong>
+
+						.form-content
+							.grid_3.alpha <strong>abreviacao</strong>
+							
+							
+				.form-sub-container.grid_3
+					-semantic_fields_for @language do |form|
+						-form.inputs
+						.form-content
+							.grid_3 
+								= form.input :name, :label => false
+
+						.form-content
+							.grid_3
+								= form.input :abbr, :label => false

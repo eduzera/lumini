@@ -8,6 +8,10 @@ class Manufacture < ActiveRecord::Base
                         :group => "manufactures.id"}}
                         
   after_update :save_languages
+  
+  accepts_nested_attributes_for :lang_manufacture
+  
+  validates_presence_of :website
 
 
   def to_label

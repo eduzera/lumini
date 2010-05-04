@@ -23,8 +23,8 @@ textarea { border: 0; background: #969696; font-family: Helvetica, Arial, Verdan
 .grid_3 textarea { width: 147px; height: 120px; }
 .grid_3 select { width: 145px; }
 
-.title { height: 24px; }
-.description { height: 120px; }
+.title { height: 28px; }
+.description { height: 135px; }
 .tech_info { height: 120px; }
 
 ul.categories_browser { margin: 0; padding: 0; }
@@ -59,4 +59,7 @@ a.active:hover { font-weight: bold; color: #FFF; text-decoration: none; }
 a.active:active { font-weight: bold; color: #FFF; text-decoration: none; }
 
 .rule-two { border-top: 1px solid #969696; padding-top: 9px; margin-bottom: 8px; }
+
+.error_message{text-align:center;border-bottom:1px solid #969696;padding:11px 0 8px;}
+.error_message h2{color:white;}
 

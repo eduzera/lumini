@@ -25,7 +25,7 @@ class Admin::ManufacturesController < ApplicationController
       flash[:notice] = "Successfully created contact."
       redirect_to admin_manufacture_url(@manufacture)
     else
-      redirect_to :back
+      render :action => 'new'
     end
   end
 
@@ -35,7 +35,7 @@ class Admin::ManufacturesController < ApplicationController
       flash[:notice] = "Successfully updated contact."
       redirect_to admin_manufacture_path(@manufacture)
     else
-      redirect_to :back
+      render :action => 'edit'
     end
   end
 

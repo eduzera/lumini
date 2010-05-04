@@ -1,0 +1,15 @@
+-inside_layout 'admin' do
+	.navContainer 
+		%ul.categories_browser
+			%li
+				= link_to "Idiomas", "javascript://"
+				%ul.with_images
+					%li.more_link
+						= link_to "criar novo", new_admin_language_path
+
+					-Language.all.each do |lang|
+						%li
+							.grid_4.rule-two.alpha
+								= link_to lang.name, admin_language_path(lang)
+								
+	=yield

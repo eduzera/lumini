@@ -17,7 +17,7 @@ class Admin::StoresController < ApplicationController
       flash[:notice] = "Successfully created contact."
       redirect_to admin_store_url(@store)
     else
-      redirect_to :back
+      render :action => 'new'
     end
   end
   
@@ -27,7 +27,7 @@ class Admin::StoresController < ApplicationController
       flash[:notice] = "Successfully updated contact."
       redirect_to admin_store_path(@store)
     else
-      redirect_to :back
+      render :action => 'edit'
     end
   end
   

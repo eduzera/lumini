@@ -3,6 +3,10 @@ class Designer < ActiveRecord::Base
   has_many :lang_designer
   has_many :images, :as => :imageable, :dependent => :destroy
   
+  accepts_nested_attributes_for :lang_designer
+  
+  validates_presence_of :name, :birthdate, :deathdate
+  
   # has_attached_file :img, :styles => {:grid_1 => "45x45#", :grid_2 => "96x96#" ,:grid_3 => "147x144#"},
 
   # :url => "/uploads/:class/:id/:style.:extension",

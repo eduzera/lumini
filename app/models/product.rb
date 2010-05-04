@@ -8,8 +8,11 @@ class Product < ActiveRecord::Base
   has_many :lang_product
   has_many :product_prize
  
-  accepts_nested_attributes_for :lang_product
+  accepts_nested_attributes_for :lang_product, :product_prize
   #accepts_nested_attributes_for :images
+  
+  #designer_id: integer, manufacture_id: integer, category_id: integer, family_id: integer
+  validates_presence_of :designer_id, :manufacture_id, :category_id, :family_id
 
   named_scope :all_with_filter, :select => "products.id 'id', lang_products.name 'name', lang_products.description 'description', 
                                             lang_products.tech_description 'tech_description', lang_categories.name 'category_name', 

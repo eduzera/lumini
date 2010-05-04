@@ -16,6 +16,9 @@
 
 	.actionContent
 		-semantic_form_for @manufacture, :url => @manufacture.new_record?  ? admin_manufactures_path : admin_manufacture_path(@manufacture) do |form|
+			- unless @manufacture.errors.empty?
+				.error_message 
+					= form.error_messages
 			.form-container
 				.form-sub-container.grid_3.alpha
 					.form-content

@@ -16,6 +16,9 @@
 
 	.actionContent
 		-semantic_form_for @category, :url => @category.new_record?  ? admin_categories_path : admin_category_path(@category) do |form|
+			- unless @category.errors.empty?
+				.error_message 
+					= form.error_messages
 			.form-container
 				.form-sub-container.grid_3.alpha
 					.form-content

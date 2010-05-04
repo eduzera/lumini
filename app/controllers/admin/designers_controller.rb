@@ -22,7 +22,7 @@ class Admin::DesignersController < ApplicationController
       flash[:notice] = "Successfully created contact."
       redirect_to admin_designer_url(@designer)
     else
-      redirect_to :back
+      render :action => 'new'
     end
   end
   
@@ -36,7 +36,7 @@ class Admin::DesignersController < ApplicationController
       flash[:notice] = "Successfully updated contact."
       redirect_to admin_designer_url(@designer)
     else
-      redirect_to :back
+      render :action => 'edit'
     end
   end
   

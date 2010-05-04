@@ -6,6 +6,8 @@ class Family < ActiveRecord::Base
     "#{lang_family.first.name}"
   end
   
+  accepts_nested_attributes_for :lang_family
+  
   named_scope :by_category, lambda {| category, language |{
                             :select => "families.id 'id', lang_families.name 'name', manufactures.id 'product_manufacture_id', lang_manufactures.name 'product_manufacture'",
                             :joins => [:lang_family, {:product => [:category, {:manufacture => [:lang_manufacture], :lang_product => [:language]}]}],

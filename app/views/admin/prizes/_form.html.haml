@@ -17,10 +17,13 @@
 
 	.actionContent
 		-semantic_form_for @prize, :url => @prize.new_record?  ? admin_prizes_path : admin_prize_path(@prize) , :html => {:multipart => true} do |form|
+			- unless @prize.errors.empty?
+				.error_message 
+					= form.error_messages
 			.form-container
 				.form-sub-container.grid_3.alpha
 					.form-content
-						.grid_3.alpha.add_new_language_prize.title
+						.grid_3.alpha.add_new_language_prize
 							=link_to "+ novo idioma","#", :onclick => "add_new_language_prize()"
 
 							.form-content
