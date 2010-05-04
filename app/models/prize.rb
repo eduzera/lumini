@@ -15,11 +15,15 @@ class Prize < ActiveRecord::Base
   # :path => ":rails_root/public/uploads/:class/:prize_id/:id/:style.:extension",
   # :default_url => "/images/noimg_grid1.png"}
 
-   #named_scope :by_product, lambda {|product| { :joins => {:product_prize => [:product]}, :conditions => ['products.id = ?', product] }}
+   named_scope :by_product, lambda {|product| { 
+                                :joins => {:product_prize => [:product]}, 
+                                :conditions => ['products.id = ?', product] }}
 
    named_scope :by_language, lambda { |language| {
-                                 :include => {:lang_prize => [:language]},
-                                 :conditions => ["languages.abbr = ?", language]}}
+                                :select => "prizes.id 'id', lang_prizes.name 'name', lang_prizes.description 'description', product_prizes.year 'year'",
+                                :joins => [:product_prize, {:lang_prize => [:language]}],
+                                :conditions => ["languages.abbr = ?", language],
+                                :group => "id"}}
 
 
   def new_lang_prize_attributes=(prize_attributes)   

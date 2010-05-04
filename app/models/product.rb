@@ -44,9 +44,10 @@ class Product < ActiveRecord::Base
                                     
                                     
   named_scope :by_prize, lambda { |prize| { 
-                                    :select => "products.id 'id', lang_products.name 'name'",
+                                    :select => "products.id 'id', lang_products.name 'name', product_prizes.year 'year'",
                                     :joins => [:lang_product, :product_prize],
                                     :conditions => ["product_prizes.prize_id = ?", prize], 
+                                    :group => "id",
                                     :order => "product_prizes.year"}}
 
   after_update :save_prizes

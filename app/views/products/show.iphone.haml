@@ -16,8 +16,9 @@
 			-@images.each do |img|		
 				%li
 					= link_to img.name, galery_path(img.imageable_id, @product.class.name.downcase, img.name), :class => "dissolve" 
-			%li
-				= link_to "o designer",	product_designers_path(@product), :class => "dissolve" unless @designer.nil?
+			-unless @designer.nil?
+				%li
+					= link_to "o designer",	product_designers_path(@product), :class => "dissolve"
 			%li
 				%a{:name=>"fb_share", :type=>"button", :share_url=> product_url(@product)} facebook
 				
@@ -26,9 +27,10 @@
 			%p{:style => "margin-bottom: 24px"}= @product.description
 			%p.rule-two dados técnicos
 			%p= @product.tech_description
+		
+	-@prizes.each do |prize|
 		.grid_2
-			
-			-@product.product_prize.each do |product_prize|
-				.grid_1.alpha
-					= link_to image_tag (product_prize.prize.images.second.nil? ? product_prize.prize.images.first.img.url(:grid_1) : product_prize.prize.images.second.img.url(:grid_1)), prize_path(product_prize.prize.id), :class => "dissolve"
-				%p.grid_1.rule-two.arrow.omega &nbsp;
+			.grid_1.alpha
+				= link_to image_tag (prize.images.second.nil? ? prize.images.first.img.url(:grid_1) : prize.images.second.img.url(:grid_1)), prize_path(prize), :class => "dissolve"
+			.grid_1.rule-two.arrow.omega{:style => "width: 45px;"}
+				= link_to prize.year, prize_path(prize), :class => "dissolve"

@@ -9,8 +9,9 @@ class ManufacturesController < ApplicationController
   
   def show
     #@families = Family.product_by_family_and_manufacture(params[:id])
-    @families = Family.all_with_filter(params[:id], session[:language])
-
+    @families = Family.by_manufacture(params[:id], session[:language])
+    @products = Product.by_manufacture(@families.first.product_manufacture_id).by_language(session[:language])
+    
      respond_to do |format|
         format.iphone {render :layout => false}
       end

@@ -54,7 +54,7 @@ class GaleriesController < ApplicationController
       end
     end
 
-    redirect_to slideshow_path(@image.imageable_type, @image.image_type.name, @image)
+    redirect_to slideshow_path(@image.imageable_type, @image.image_type.name, params[:category_id], @image)
   end
   
   
