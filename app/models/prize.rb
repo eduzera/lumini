@@ -1,7 +1,7 @@
 class Prize < ActiveRecord::Base
   has_many :lang_prize
   has_many :product_prize
-  has_many :images, :as => :imageable
+  has_many :images, :as => :imageable, :dependent => :destroy
   
   accepts_nested_attributes_for :lang_prize
   
@@ -17,7 +17,7 @@ class Prize < ActiveRecord::Base
   # :path => ":rails_root/public/uploads/:class/:prize_id/:id/:style.:extension",
   # :default_url => "/images/noimg_grid1.png"}
 
-   named_scope :by_product, lambda {|product| { :joins => {:product_prize => [:product]}, :conditions => ['products.id = ?', product] }}
+   #named_scope :by_product, lambda {|product| { :joins => {:product_prize => [:product]}, :conditions => ['products.id = ?', product] }}
 
    named_scope :by_language, lambda { |language| {
                                  :include => {:lang_prize => [:language]},

@@ -46,7 +46,7 @@ class Admin::DesignersController < ApplicationController
   
   def destroy
     @designer = Designer.find(params[:id])
-    @designer.destroy
+    @designer.destroy if @designer.product.empty?
     
     redirect_to admin_designers_path
   end

@@ -43,7 +43,7 @@ class Admin::PrizesController < ApplicationController
   
   def destroy
     @prize = Prize.find(params[:id])
-    @prize.destroy
+    @prize.destroy if @prize.product_prize.empty?
     
     redirect_to admin_prizes_path
   end

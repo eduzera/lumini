@@ -1,6 +1,7 @@
 class ManufacturesController < ApplicationController
   def index
     @manufactures = Manufacture.active(session[:language])
+    
      respond_to do |format|
         format.iphone {render :layout => false}
       end

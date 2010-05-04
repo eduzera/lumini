@@ -1,7 +1,7 @@
 class Designer < ActiveRecord::Base
   has_one :product
   has_many :lang_designer
-  has_many :images, :as => :imageable
+  has_many :images, :as => :imageable, :dependent => :destroy
   
   accepts_nested_attributes_for :lang_designer
   

@@ -15,9 +15,9 @@
 		%ul.grid_2
 			-@images.each do |img|		
 				%li
-					= link_to img.name, galery_path(@product.class.name.downcase, img.name), :class => "dissolve" 
+					= link_to img.name, galery_path(img.imageable_id, @product.class.name.downcase, img.name), :class => "dissolve" 
 			%li
-				= link_to "o designer",	product_designers_path(@product), :class => "dissolve"
+				= link_to "o designer",	product_designers_path(@product), :class => "dissolve" unless @designer.nil?
 			%li
 				%a{:name=>"fb_share", :type=>"button", :share_url=> product_url(@product)} facebook
 				
@@ -30,5 +30,5 @@
 			
 			-@product.product_prize.each do |product_prize|
 				.grid_1.alpha
-					= link_to image_tag (product_prize.prize.images.second.nil? ? product_prize.prize.images.first.img.url(:grid_1) : product_prize.prize.images.second.img.url(:grid_1)), prize_path(product_prize), :class => "dissolve"
+					= link_to image_tag (product_prize.prize.images.second.nil? ? product_prize.prize.images.first.img.url(:grid_1) : product_prize.prize.images.second.img.url(:grid_1)), prize_path(product_prize.prize.id), :class => "dissolve"
 				%p.grid_1.rule-two.arrow.omega &nbsp;

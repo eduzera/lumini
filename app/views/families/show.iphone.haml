@@ -5,7 +5,8 @@
 			%p.grid_2
 				=@category.name
 			%p.grid_2 &nbsp;
-			%p.grid_2 slideshow
+			%p.grid_2
+				= link_to "slideshow", slideshow_path("product", "fotografia", @category)
 		
 		%p.clear
 		-@families.each do |family|
