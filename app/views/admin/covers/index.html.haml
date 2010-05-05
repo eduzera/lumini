@@ -1,0 +1,54 @@
+.container_19
+	.grid_4
+		&nbsp;
+	.grid_15
+		.grid_7.alpha{:style => 'width: 330px; padding: 0px 6px;'}
+			%p.rule-two{:style => 'margin-top: 16px;margin-bottom: 16px;'}
+				composicao da capa
+			#cover_preview.sortable{:style => 'background: #464646; overflow: hidden; margin:0;'}
+				&nbsp;
+		.grid_8.omega
+			%p.rule-two{:style => 'margin-top: 16px;margin-bottom: 16px;'}
+				solucao da capa
+			.form-container{:style => 'border: none;', :id => 'solution_factory'}
+				.form-sub-container.grid_3.alpha
+					solucao
+				.form-sub-container.grid_5.omega
+					%select{:name => 'solution_id'}
+						- @solutions.each do |solution|
+							%option{:value => solution.id}
+								= solution.name
+									
+			%p.rule-two{:style => 'margin-top: 16px;margin-bottom: 16px;'}
+				fábrica de produtos
+			.form-container{:style => 'border: none;', :id => 'product_factory'}
+				.form-sub-container.grid_3.alpha
+					produto
+				.form-sub-container.grid_5.omega
+					%select{:name => 'product_id'}
+						- @products.each do |product|
+							%option{:value => product.id}
+								= product.name
+
+				.form-sub-container.grid_3.alpha
+					destaque
+				.form-sub-container.grid_5.omega
+					%select{:name => 'size'}
+						%option{:value => ''}
+							selecione
+						%option{:value => 'grid_2'}
+							2 colunas
+						%option{:value => 'grid_3'}
+							3 colunas
+						%option{:value => 'grid_6'}
+							6 colunas
+										
+				.form-sub-container.grid_8.alpha.omega{:style => 'margin-top: 16px;margin-bottom: 16px;'}
+					%a.add_to_preview{:href => 'javascript://'}
+						ADICIONAR
+					%a.form_submit{:href => 'javascript://'}
+						SALVAR
+			%p.rule-two{:style => 'margin-top: 16px;margin-bottom: 16px;'}
+				produtos fabricados
+			#product_stock.sortable
+				&nbsp;

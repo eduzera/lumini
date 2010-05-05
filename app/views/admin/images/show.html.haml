@@ -9,7 +9,7 @@
 			= link_to "info", :back
 		-@types.each do |type|	
 			%li 
-				= link_to ((type.name == @klass.name.downcase ? "imagem #{type.name}": type.name) , admin_images_path(@klass, @image.imageable_id, type.name))
+				= link_to((type.name == @klass.name.downcase ? "imagem #{type.name}": type.name) , admin_images_path(@klass, @image.imageable_id, type.name))
 
 	-semantic_form_for @image, :url => admin_image_path , :html => {:multipart => true} do |form|
 		.actionContent
@@ -31,31 +31,31 @@
 										=form.input :image_type, :as => :select, :include_blank => false, :collection => ImageType.find_by_name("#{request.request_uri.reverse[0, (request.request_uri.reverse.index'/')].reverse}").to_a
 									.grid_3.omega
 										=form.commit_button
-										
-						-@images.each do |image|		
-							%li
-								.grid_1.alpha
-									=image_tag image.img.url(:grid_1)
-								.grid_11.rule-two.omega
-									.grid_2.alpha
-										= image.dimension(image.img.path(:grid_1))
-										%br
-										= number_to_human_size image.size(image.img.path(:grid_1))
-									.grid_2
-										= image.dimension(image.img.path(:grid_2))
-										%br
-										= number_to_human_size image.size(image.img.path(:grid_2))
-									.grid_2
-										= image.dimension(image.img.path(:grid_3))
-										%br
-										= number_to_human_size image.size(image.img.path(:grid_3))
-									.grid_2
-										= image.dimension(image.img.path(:grid_6))
-										%br
-										= number_to_human_size image.size(image.img.path(:grid_6))
-									.grid_2
-										= image.dimension(image.img.path(:original))
-										%br
-										= number_to_human_size image.size(image.img.path(:original))
-									.grid_1.omega
+						%ul{:id => "sortable_images"}	
+							-@images.each do |image|		
+								%li.item{:id => "#{image.id}"}
+									.grid_1.alpha
+										=image_tag image.img.url(:grid_1)
+									.grid_11.rule-two.omega
+										.grid_2.alpha
+											= image.dimension(image.img.path(:grid_1))
+											%br
+											= number_to_human_size image.size(image.img.path(:grid_1))
+										.grid_2
+											= image.dimension(image.img.path(:grid_2))
+											%br
+											= number_to_human_size image.size(image.img.path(:grid_2))
+										.grid_2
+											= image.dimension(image.img.path(:grid_3))
+											%br
+											= number_to_human_size image.size(image.img.path(:grid_3))
+										.grid_2
+											= image.dimension(image.img.path(:grid_6))
+											%br
+											= number_to_human_size image.size(image.img.path(:grid_6))
+										.grid_2
+											= image.dimension(image.img.path(:original))
+											%br
+											= number_to_human_size image.size(image.img.path(:original))
+										.grid_1.omega
 										= link_to "[X]", polymorphic_path(image, :imageable_type => image.imageable_type), :confirm => "Tem certeza que deseja deletar essa imagem?", :method => :delete

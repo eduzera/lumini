@@ -31,9 +31,10 @@ class Image < ActiveRecord::Base
   
   named_scope :by_product_category, lambda {|category| { :select => "products.category_id 'category_id'", :joins => "INNER JOIN products ON products.id = images.imageable_id", :conditions => ["products.category_id = ?", category] }}
   
-  named_scope :by_order, :order => "images.created_at"
+  named_scope :by_order, :order => "images.priority, images.id"
   
-  
+  named_scope :by_cover, :conditions => "priority = 0"
+
                                      
    def dimension(url)
      Paperclip::Geometry.from_file(url)

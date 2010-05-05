@@ -20,6 +20,7 @@ ActionController::Routing::Routes.draw do |map|
     product.resources :designers, :only => [:index, :show]
   end
   
+  map.connect 'admin/covers/product_image/:product_id/:grid', :controller => "admin/covers",       :action => 'product_image'
   map.connect 'admin/solutions/add_new_language',       :controller => "admin/solutions",    :action => 'add_new_language'
   map.connect 'admin/families/add_new_language',        :controller => "admin/families",     :action => 'add_new_language'
   map.connect 'admin/designers/add_new_language',       :controller => "admin/designers",    :action => 'add_new_language'
@@ -31,8 +32,9 @@ ActionController::Routing::Routes.draw do |map|
   map.connect 'admin/products/add_new_prize',           :controller => "admin/products",     :action => 'add_new_prize'
 
 
-  map.admin_images "/admin/images/:imageable_type/:id/:type", :controller => "admin/images", :action => 'show'
-  map.admin_image '/admin/images/',                           :controller => "admin/images",  :action => 'create'
+  map.admin_images  "/admin/images/:imageable_type/:id/:type", :controller => "admin/images", :action => 'show'
+  map.admin_image   '/admin/images/',                           :controller => "admin/images",  :action => 'create'
+  map.update_order  "/admin/images/update_order", :controller => "admin/images", :action => 'update_order' 
   
   
   map.galeries                "/galeries/:imageable_type/:name/:id",                              :controller => "galeries",      :action => 'index'
@@ -46,15 +48,16 @@ ActionController::Routing::Routes.draw do |map|
   map.namespace(:admin) do |admin|
     admin.resources :home,      :only => [:index]
   	admin.resources :products
-  	admin.resources :images
+  	admin.resources :images#, :member => { :update_order => [:post] } 
   	admin.resources :prizes
   	admin.resources :designers
-  	admin.resources :stores
+  	admin.resources :stores 
   	admin.resources :categories
   	admin.resources :manufactures
   	admin.resources :families
   	admin.resources :solutions
   	admin.resources :languages
+  	admin.resources :covers
   end
 
 

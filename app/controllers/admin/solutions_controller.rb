@@ -11,10 +11,12 @@ class Admin::SolutionsController < ApplicationController
   def new
     @solution = Solution.new
     @solution.lang_solution.build
+    @solution.images.build
   end
 
   def create
     @solution = Solution.new(params[:solution])
+    @solution.images.build
     if @solution.save
       flash[:notice] = "Successfully created contact."
       redirect_to admin_solution_url(@solution)
