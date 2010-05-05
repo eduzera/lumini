@@ -1,6 +1,6 @@
 .wrapper
 	%script{:type => "text/javascript", :charset => "utf-8"}
-		slideshow_start();
+		gallery_start();
 		
 	.container_6
 		.top-bar
@@ -11,11 +11,12 @@
 				= image_tag "lumini_logo.png"
 	
 		.swipe_trigger
-			= image_tag @slideshow.img.url(:grid_6)
+			= image_tag @slideshow.img.url(:grid_6), :class => "touch"
 
 		.bottom-bar{:style=>"padding-top: 12px;"}
 			.grid_1
-				= link_to image_tag("ico-prev.png"), slideshow_change_image_path(@slideshow.imageable_type, @slideshow.image_type.name, @slideshow.product.category_id, @slideshow.imageable_id, 'previous'), :class => 'prev slideback'
+				= link_to image_tag("ico-prev.png"), slideshow_change_image_path(@slideshow.imageable_type, @slideshow.image_type.name, params[:category_id], @slideshow.imageable_id, 'previous'), :class => 'prev'
 			.grid_4
 			.grid_1{:style => "text-align: right;"}
-				= link_to image_tag("ico-next.png"), slideshow_change_image_path(@slideshow.imageable_type, @slideshow.image_type.name, , @slideshow.imageable_id, 'next'), :class => 'next'
+				= link_to image_tag("ico-next.png"), slideshow_change_image_path(@slideshow.imageable_type, @slideshow.image_type.name, params[:category_id], @slideshow.imageable_id, 'next'), :class => 'next'
+

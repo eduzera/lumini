@@ -40,8 +40,7 @@ Rails::Initializer.run do |config|
   # config.i18n.default_locale = :de
   config.gem 'notahat-machinist', :lib => 'machinist', :source => 'http://gems.github.com', :version => "0.3.1"
   config.gem 'formtastic', :source => 'http://gemcutter.org/'
+  config.gem "searchlogic"
   
   config.i18n.default_locale = "pt-BR"
-  
- 
 end

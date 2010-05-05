@@ -11,7 +11,7 @@
 			%ul.with_images
 				-@families.each do |family|
 					%li.no_link= family.name
-					-family.product.by_manufacture(family.product_manufacture_id).by_family(family.id).each do |item|
+					-@products.by_family(family.id).active.each do |item|
 						%li
 							.grid_1.alpha
 								= link_to image_tag (item.images.second.nil? ? item.images.first.img.url(:grid_1) : item.images.second.img.url(:grid_1)) , product_path(item)
