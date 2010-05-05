@@ -1,0 +1,44 @@
+.wrapper
+	.toolbar
+		.container_6
+			.header.without_link
+				.grid_2
+					= link_to image_tag("ico-close-white.png"), product_path(@share), :class => "dissolve"
+				.grid_2 &nbsp
+				.grid_2
+					= image_tag "lumini_logo.png"
+	%p.clear
+	
+	%script{:type=>"text/javascript", :src=>"http://www.google.com/buzz/api/button.js"}
+	%script{:src=>"http://static.ak.fbcdn.net/connect.php/js/FB.Share", :type=>"text/javascript"}
+	
+	.container_6
+		.grid_2.alpha.alignCenter
+			.grid_1.alpha
+				= link_to image_tag("ico-facebook.png"), "http://www.facebook.com/sharer.php?u="+product_url(@share), :target => "_blank"
+			.grid_1.omega{:style =>"left: 5px; top: 15px;"}
+				= link_to "Facebook", "http://www.facebook.com/sharer.php?u="+product_url(@share), :target => "_blank"
+
+		%p.clear
+		.grid_2.alignCenter
+			.grid_1.alpha
+				= link_to image_tag("ico-buzz.png"), "http://www.google.com/buzz/post?url="+product_url(@share)+"&imageurl=" + @share.images.second.img.path(:grid_2), :target => "_blank"
+			.grid_1.omega{:style =>"left: 5px; top: 15px;"}
+				= link_to "Buzz", "http://www.google.com/buzz/post?url="+product_url(@share)+"&imageurl=" + @share.images.second.img.path(:grid_2), :target => "_blank"
+			
+		%p.clear
+		.grid_2
+			.grid_1.alpha
+				= link_to image_tag("ico-twitter.png"), "http://twitter.com/home?status="+ @share.lang_product.first.name + " - "+ product_url(@share), :target => "_blank"
+			.grid_1.omega{:style =>"left: 5px; top: 15px;"}
+				= link_to "Twitter", "http://twitter.com/home?status="+ @share.lang_product.first.name + " - "+ product_url(@share), :target => "_blank"
+			
+		%p.clear
+		.grid_2
+			.grid_1.alpha
+				= link_to image_tag("ico-delicious.png"), "http://delicious.com/save", :onclick=>"window.open('http://delicious.com/save?v=5&noui&jump=close&url="+ product_url(@share) +"&title='+encodeURIComponent(document.title), 'delicious','toolbar=no,width=550,height=550'); return false;" 
+			.grid_1.omega{:style =>"left: 5px; top: 15px;"}
+				= link_to "Delicious", "http://delicious.com/save", :onclick=>"window.open('http://delicious.com/save?v=5&noui&jump=close&url="+ product_url(@share) +"&title='+encodeURIComponent(document.title), 'delicious','toolbar=no,width=550,height=550'); return false;"
+		
+		/.grid_2.alpha.alignCenter
+		/	%script{:src=>"http://www.stumbleupon.com/hostedbadge.php?s=1", :type=>"text/javascript"}

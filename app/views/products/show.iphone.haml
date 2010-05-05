@@ -1,6 +1,6 @@
 .wrapper
 	= render :partial => "layouts/top_menu"
-	%script{:type => "text/javascript", :charset => "utf-8", :src => 'http://static.ak.fbcdn.net/connect.php/js/FB.Share'}
+	/%script{:type => "text/javascript", :charset => "utf-8", :src => 'http://static.ak.fbcdn.net/connect.php/js/FB.Share'}
 	
 	.container_6
 		.submenu
@@ -20,7 +20,8 @@
 				%li
 					= link_to "o designer",	product_designers_path(@product), :class => "dissolve"
 			%li
-				%a{:name=>"fb_share", :type=>"button", :share_url=> product_url(@product)} facebook
+				/%a{:name=>"fb_share", :type=>"button", :share_url=> product_url(@product)} facebook
+				= link_to "share",	share_path(@product), :class => "slideup"
 				
 		%p.clear
 		.grid_4
