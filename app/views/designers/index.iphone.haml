@@ -1,5 +1,13 @@
 .wrapper
-	= render :partial => "layouts/top_menu_without_link"
+	.toolbar
+		.container_6
+			.header.without_link
+				.grid_2
+					= link_to image_tag("ico-close-white.png"), product_path(@designer.product.id), :class => "dissolve"
+				.grid_2 &nbsp
+				.grid_2
+					= image_tag "lumini_logo.png"
+	%p.clear
 	
 	.container_6
 		.designer
