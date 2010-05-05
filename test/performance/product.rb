@@ -6,8 +6,8 @@ ImageType.make(:name => "desenho",    :model_name => "Product")
 ImageType.make(:name => "prize",     :model_name => "Prize")
 ImageType.make(:name => "designer",   :model_name => "Designer")
 
-lingua = Language.make
-lingua2 = Language.make(:name => "English", :abbr => "en_US")
+#lingua = Language.make
+#lingua2 = Language.make(:name => "English", :abbr => "en_US")
 
 #fabricante = Manufacture.make(:website => "http://www.lumini.com.br")
 #  lang_fabricante = LangManufacture.make(:name => 'lumini', :manufacture_id => fabricante.id, :language_id => lingua.id)

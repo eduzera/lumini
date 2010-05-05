@@ -91,8 +91,20 @@ pt-BR:
         delimiter: '.'
     human: 
       format: 
-        precision: 1
+        precision: 0
         delimiter: '.'
+      storage_units:
+          # Storage units output formatting.
+          # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte: 
+           one: "Byte"
+           other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
   support: 
     array: 
       sentence_connector: "e"

@@ -162,6 +162,93 @@ $(document).ready(function()
 	$("#designer_birthdate").datepicker();
 	$("#designer_deathdate").datepicker();
 	
+	//Adiciona sortable as images by EZaghi 04/05/2010
+	$('#sortable_images').sortable({
+	   update: function(event, ui) 
+		{
+			order = $('#sortable_images').sortable('toArray');
+			
+			$.ajax({
+			   type: "POST",
+			   url: "/admin/images/update_order/",
+			   data: "order="+order
+			 });	 
+		}
+	});
+	
+	//Funcoes para a capa do publisher
+	$( '#cover_preview , #product_stock' ).sortable({
+		connectWith: '.sortable',
+		item: 'div.product'
+	});
+	
+	$( '.add_to_preview' ).click( function(){
+		var $stock = $( '#product_stock' );
+		var $product = $( '#product_factory' ).find( 'select[name="product_id"]' ).val();
+		var $title = $( '#product_factory' ).find( 'select[name="product_id"]' ).find( 'option[value="'+$product+'"]').html();
+		//var $image = $( '#product_factory' ).find( 'select[name="product_id"]' ).find( 'option[value="'+$product+'"]').attr('image');		
+		var $size = $( '#product_factory' ).find( 'select[name="size"]' ).val();
+		$.ajax({
+		   type: "GET",
+		   url: "/admin/covers/product_image/"+ $product + "/" + $size,
+		   success: function(data)
+		   {
+				$image = data;
+				
+				if( $product == undefined )
+					return false;
+				if( $image == undefined )
+					return false;
+				if( $size == undefined )
+					return false;
+				var $new_product = $( '<div class="product"></div>' );
+				var $new_image = $( '<img />' );
+				var $new_title = $( '<p class="rule-two"></p>' );
+				var $hidden_id = $( '<input name="product_id" type="hidden" value="" />');
+				var $hidden_size = $( '<input name="size" type="hidden" value="" />');
+				$new_product.attr('id' , 'cover_product_'+$product)
+				$new_title.html( $title );
+				$hidden_id.attr( 'value' , $product );
+				$hidden_size.attr( 'value' , $size );
+				$new_product.append( $hidden_id );
+				$new_product.append( $hidden_size );
+				$new_product.addClass( $size ).append( $new_title );
+				$new_image.attr( 'src', $image );
+				$new_product.append( $new_image );
+				$stock.append( $new_product );
+				// reset combo box
+				$( '#product_factory' ).find( 'select[name="product_id"]' ).val( '' );
+				$( '#product_factory' ).find( 'select[name="size"]' ).val( '' );
+		   }
+		 });
+	//	alert( "produto"  + $product + $title + "\n" + $image + "\n" + $size );
+	//	alert( $image.replace( /grid_[2-6]/ , $size ) );
+
+	});
+	
+	$( '.form_submit' ).click( function(){
+		
+		cover = new Array();
+		
+		cover_solution = $( '#solution_factory' ).find( 'select[name="solution_id"]' ).val();
+		
+		$( '#cover_preview > div.product' ).each( function( i, el ){
+			cover_element = $( el ).find( 'input[name="product_id"]').attr( 'value' ) + ',' + $( el ).find( 'input[name="size"]').attr( 'value' )
+			cover[i] = cover_element
+			alert( $( el ).find( 'input[name="product_id"]').attr( 'value' ) + " : " + $( el ).find( 'input[name="size"]').attr( 'value' ) );
+		});
+		
+		$.ajax({
+		   type: "POST",
+		   url: "/admin/covers/",
+		   data: ( {cover_elements: cover, cover_solution: cover_solution} ),
+		   success: function(data)
+		   {
+				alert('OK');
+		   }
+		});
+	});
+
  });
 
 //Adiciona novo campo de Linga para um produto. by EZaghi => 19/04/2010
@@ -348,3 +435,6 @@ function add_new_prize(){
 			$('#product_prize').append(result)
 		});
 }
+
+
+

@@ -63,3 +63,7 @@ a.active:active { font-weight: bold; color: #FFF; text-decoration: none; }
 .error_message{text-align:center;border-bottom:1px solid #969696;padding:11px 0 8px;}
 .error_message h2{color:white;}
 
+.placehold { visibility: visible; min-height: 30px; background: #EEE; }
+
+#sortable_images { padding: 20px 0; overflow: hidden; }
+#sortable_images .item { overflow: hidden; }

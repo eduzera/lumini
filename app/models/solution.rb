@@ -6,6 +6,10 @@ class Solution < ActiveRecord::Base
   
   after_update :save_languages
   
+  named_scope :all_with_filter, :select => "solutions.id 'id', lang_solutions.name 'name', lang_solutions.description 'description'",
+                                :joins => [:images, {:lang_solution => [:language]}], 
+                                :group => "id"
+  
   def new_lang_solution_attributes=(solution_attributes)   
     solution_attributes.each do |attributes|
       lang_solution.build(attributes)
