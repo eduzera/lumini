@@ -1,0 +1,16 @@
+.wrapper
+	.toolbar
+		.container_6
+			.header.without_link
+				.grid_2
+					= link_to image_tag("ico-close-white.png"), categories_path, :class => "dissolve"
+				.grid_2 &nbsp
+				.grid_2
+					= image_tag "lumini_logo.png"
+	%p.clear
+	
+	.container_6
+		%p.clear
+		-@slideshows.each do |pic|
+			.grid_2.product 
+				=link_to image_tag(pic.img.url(:grid_2)), slideshow_path(pic.imageable_id, "product", pic.image_type.name, pic.id)

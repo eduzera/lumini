@@ -41,16 +41,16 @@ class GaleriesController < ApplicationController
   
   def slideshow_changeimage
     if params[:direction] == "next"
-      @image = Image.by_imageable_type(params[:imageable_type]).by_image_type(params[:name]).by_product_category(params[:category_id]).find(:first, :conditions => ['imageable_id > ?', params[:id]])
+      @image = Image.by_imageable_type(params[:imageable_type]).by_image_type(params[:name]).by_product_category(params[:category_id]).by_cover.find(:first, :conditions => ['images.id > ?', params[:id]])
     else
-      @image = Image.by_imageable_type(params[:imageable_type]).by_image_type(params[:name]).by_product_category(params[:category_id]).find(:last, :conditions => ['imageable_id < ?', params[:id]])
+      @image = Image.by_imageable_type(params[:imageable_type]).by_image_type(params[:name]).by_product_category(params[:category_id]).by_cover.find(:last, :conditions => ['images.id < ?', params[:id]])
     end
 
     if @image.nil?
       if params[:direction] == 'previous'
-        @image = Image.by_imageable_type(params[:imageable_type]).by_image_type(params[:name]).by_product_category(params[:category_id]).last
+        @image = Image.by_imageable_type(params[:imageable_type]).by_image_type(params[:name]).by_product_category(params[:category_id]).by_cover.last
       else
-        @image = Image.by_imageable_type(params[:imageable_type]).by_image_type(params[:name]).by_product_category(params[:category_id]).first
+        @image = Image.by_imageable_type(params[:imageable_type]).by_image_type(params[:name]).by_product_category(params[:category_id]).by_cover.first
       end
     end
 
