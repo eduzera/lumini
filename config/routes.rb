@@ -41,13 +41,14 @@ ActionController::Routing::Routes.draw do |map|
   map.update_order  "/admin/images/update_order", :controller => "admin/images", :action => 'update_order' 
   
   
-  map.galeries                "/galeries/:imageable_type/:name/:id",                              :controller => "galeries",      :action => 'index'
-  map.galery                  "/galery/:imageable_id/:imageable_type/:name/:id",                  :controller => "galeries",      :action => 'show'
-  map.slideshow_change_image  '/slideshow_change_image/:imageable_type/:name/:category_id/:id/:direction',     :controller => 'galeries',      :action => 'slideshow_changeimage'
-  map.slideshow               "/slideshow/:imageable_type/:name/:category_id/:id",                             :controller => "slideshow",     :action => "show"
-  map.change_image            '/change_image/:imageable_id/:imageable_type/:name/:id/:direction', :controller => 'galeries',      :action => 'changeimage'
-  map.show_images             '/show_image/:product_id/image/:imagetype',                         :controller => 'admin/images',  :action => 'show'
-  map.images                  '/images/:id',                                                      :controller => 'admin/images',  :action => 'destroy'
+  map.galeries                "/galeries/:imageable_type/:name/:id",                                            :controller => "galeries",      :action => 'index'
+  map.galery                  "/galery/:imageable_id/:imageable_type/:name/:id",                                :controller => "galeries",      :action => 'show'
+  map.slideshow_change_image  '/slideshow_change_image/:imageable_type/:name/:category_id/:id/:direction',      :controller => 'galeries',      :action => 'slideshow_changeimage'
+  map.slideshow               "/slideshow/:imageable_type/:name/:category_id/:id",                              :controller => "slideshow",     :action => "show"
+  map.slideshows              "/slideshows/:imageable_type/:name/:category_id/",                                :controller => "slideshow",     :action => "index"
+  map.change_image            '/change_image/:imageable_id/:imageable_type/:name/:id/:direction',               :controller => 'galeries',      :action => 'changeimage'
+  map.show_images             '/show_image/:product_id/image/:imagetype',                                       :controller => 'admin/images',  :action => 'show'
+  map.images                  '/images/:id',                                                                    :controller => 'admin/images',  :action => 'destroy'
   
   map.namespace(:admin) do |admin|
     admin.resources :home,      :only => [:index]
