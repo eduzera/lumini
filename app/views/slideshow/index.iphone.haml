@@ -13,4 +13,4 @@
 		%p.clear
 		-@slideshows.each do |pic|
 			.grid_2.product 
-				=link_to image_tag(pic.img.url(:grid_2)), slideshow_path(pic.imageable_id, "product", pic.image_type.name, pic.id)
+				=link_to image_tag(pic.img.url(:grid_2)), slideshow_path("product", pic.image_type.name, params[:category_id], pic.id)

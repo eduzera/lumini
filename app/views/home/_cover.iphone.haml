@@ -6,8 +6,11 @@
 
 	
 %p.clear
-.solutions
-	%p.grid_6.rule-one soluções
-	%p.clear
-	%p.grid_4.rule-two Texto bem curto, apenas dizendo que além dos produtos a Lumini também faz ótimas soluções e projetos para necessidades específicas dos clientes, e indicando alguma forma de contato
-	%p.grid_2.rule-two.go_forward fotografias
+-unless @solution.nil?
+	.solutions
+		%p.grid_6.rule-one soluções
+		%p.clear
+		%p.grid_4.rule-two 
+			=@solution.description 
+		%p.grid_2.rule-two.go_forward
+			= link_to "fotografias", galery_path(1, "Solution", "solution"), :class => "dissolve" 
