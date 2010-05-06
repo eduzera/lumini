@@ -43,4 +43,14 @@ class Image < ActiveRecord::Base
    def size(url)
       File.size(url)
    end
+   
+   def self.update_order(array)
+     for i in 0..(array.length) -1
+        image = Image.find array[i].to_i
+        image.priority = i unless image.nil?
+        image.save
+      end
+      return true
+   end
+   
 end

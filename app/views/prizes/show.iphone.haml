@@ -18,7 +18,7 @@
 				= @prize.description 
 				
 			%p.grid_2.subtitle.photo 
-				= image_tag (@prize.images.second.nil? ? @prize.images.first.img.url(:grid_2) : @prize.images.second.img.url(:grid_2))
+				= image_tag (@prize.images.by_cover.first.nil? ? @prize.images.first.img.url(:grid_2) : @prize.images.by_cover.first.img.url(:grid_2))
 				
 		%p.clear
 		
@@ -26,6 +26,6 @@
 			-@product_prizes.each do |product|
 				%li
 					.grid_1.alpha
-						= link_to image_tag(product.images.second.nil? ? product.images.first.img(:grid_1) : product.images.second.img(:grid_1))
+						= link_to image_tag(product.images.by_cover.first.nil? ? product.images.first.img(:grid_1) : product.images.by_cover.first.img(:grid_1))
 					.grid_5.rule-two.omega
 						= link_to product.name + " "+ product.year.to_s,  product_path(product)

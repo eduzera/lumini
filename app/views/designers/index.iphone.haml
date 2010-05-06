@@ -18,4 +18,4 @@
 				= @designer.bio
 
 			%p.grid_2.subtitle.photo 
-				= image_tag (@designer.images.second.nil? ? @designer.images.first.img.url(:grid_2) : @designer.images.second.img.url(:grid_2))
+				= image_tag (@designer.images.by_cover.first.nil? ? @designer.images.first.img.url(:grid_2) : @designer.images.by_cover.first.img.url(:grid_2))
