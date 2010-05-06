@@ -11,7 +11,7 @@
 		%p.grid_6.rule-two
 			= @product.name
 		.grid_4{:style => "margin-bottom: 18px"}
-			= image_tag ( @product.images.second.nil? ?  @product.images.first.img.url(:grid_4) :  @product.images.second.img.url(:grid_4) )
+			= image_tag ( @product.images.by_cover.first.nil? ? @product.images.first.img.url(:grid_4) : @product.images.by_cover.first.img.url(:grid_4) )
 		%ul.grid_2
 			-@images.each do |img|		
 				%li
@@ -33,6 +33,6 @@
 	-@prizes.each do |prize|
 		.grid_2
 			.grid_1.alpha
-				= link_to image_tag (prize.images.second.nil? ? prize.images.first.img.url(:grid_1) : prize.images.second.img.url(:grid_1)), prize_path(prize), :class => "dissolve"
+				= link_to image_tag (prize.images.by_cover.first.nil? ? prize.images.first.img.url(:grid_1) : prize.images.by_cover.first.img.url(:grid_1)), prize_path(prize), :class => "dissolve"
 			.grid_1.rule-two.arrow.omega{:style => "width: 45px;"}
 				= link_to prize.year, prize_path(prize), :class => "dissolve"

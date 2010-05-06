@@ -1,6 +1,7 @@
 -object.by_family(family).active.each do |item|
 	%li
 		.grid_1.alpha
-			= link_to image_tag (item.images.second.nil? ? item.images.first.img.url(:grid_1) : item.images.second.img.url(:grid_1)) , product_path(item)
+			= link_to image_tag (item.images.by_cover.first.nil? ? item.images.first.img.url(:grid_1) : item.images.by_cover.first.img.url(:grid_1)) , product_path(item)
+			
 		.grid_5.rule-two.omega
 			= link_to item.name, product_path(item)

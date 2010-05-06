@@ -1,4 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :covers
+
   map.resources :shares
 
   map.root :controller => "home", :action => "index"

@@ -29,6 +29,7 @@
 										=form.input :imageable_id, :as => :hidden
 										=form.input :imageable_type, :as => :hidden
 										=form.input :image_type, :as => :select, :include_blank => false, :collection => ImageType.find_by_name("#{request.request_uri.reverse[0, (request.request_uri.reverse.index'/')].reverse}").to_a
+										=form.input :priority, :as => :hidden
 									.grid_3.omega
 										=form.commit_button
 						%ul{:id => "sortable_images"}	

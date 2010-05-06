@@ -235,7 +235,7 @@ $(document).ready(function()
 		$( '#cover_preview > div.product' ).each( function( i, el ){
 			cover_element = $( el ).find( 'input[name="product_id"]').attr( 'value' ) + ',' + $( el ).find( 'input[name="size"]').attr( 'value' )
 			cover[i] = cover_element
-			alert( $( el ).find( 'input[name="product_id"]').attr( 'value' ) + " : " + $( el ).find( 'input[name="size"]').attr( 'value' ) );
+			//alert( $( el ).find( 'input[name="product_id"]').attr( 'value' ) + " : " + $( el ).find( 'input[name="size"]').attr( 'value' ) );
 		});
 		
 		$.ajax({

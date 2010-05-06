@@ -7,7 +7,7 @@ class Image < ActiveRecord::Base
    has_attached_file :img, :styles => {:grid_1 => "45x45#", :grid_2 => "96x96#", :grid_3 => "147x144#", :grid_4 => "198x198#", :grid_6 => "320x480#"},
 
      :url => "/uploads/:class/:imageable_type/:imageable_id/:id/:style.:extension",
-     :path => "http://localhost:3000/uploads/:class/:imageable_type/:imageable_id/:id/:style.:extension",
+     :path => ":rails_root/public/uploads/:class/:imageable_type/:imageable_id/:id/:style.:extension",
      :default_url => "/images/noimg_grid1.png"
 
   # validates_attachment_content_type :img, :content_type => ['image/jpeg', 'image/png', 'image/jpg', 'image/gif']
@@ -43,4 +43,14 @@ class Image < ActiveRecord::Base
    def size(url)
       File.size(url)
    end
+   
+   def self.update_order(array)
+     for i in 0..(array.length) -1
+        image = Image.find array[i].to_i
+        image.priority = i unless image.nil?
+        image.save
+      end
+      return true
+   end
+   
 end

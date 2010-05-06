@@ -8,6 +8,8 @@ class HomeController < ApplicationController
     I18n.locale = session[:language]
     
     @languages = Language.all
+    @cover = Cover.active
+    @image = Image.by_imageable_type("Product").by_image_type("fotografia").by_cover.by_order
     
     respond_to do |format|
       format.iphone do 
