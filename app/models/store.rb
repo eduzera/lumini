@@ -9,6 +9,14 @@ class Store < ActiveRecord::Base
   
   accepts_nested_attributes_for :lang_store
   
+  
+  named_scope :active, :select => "stores.email 'email', stores.operation 'operation', stores.telephone 'telephone', 
+                                  lang_stores.title 'title', lang_stores.city 'city', lang_stores.state 'state', 
+                                  lang_stores.street 'street' , lang_stores.neighborhood 'neighborhood' , lang_stores.postal_code 'postal_code'",
+                        :joins => {:lang_store => [:language]}
+  
+  
+  
   def new_lang_store_attributes=(store_attributes)   
     store_attributes.each do |attributes|
       lang_store.build(attributes)

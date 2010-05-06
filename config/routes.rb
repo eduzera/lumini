@@ -1,8 +1,4 @@
 ActionController::Routing::Routes.draw do |map|
-  map.resources :covers
-
-  map.resources :shares
-
   map.root :controller => "home", :action => "index"
   
   map.admin "/admin", :controller => "admin/home", :action => "index"
@@ -16,7 +12,9 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :families,        :only => [:index, :show]
   map.resources :categories,      :only => [:index, :show]
   map.resources :manufactures,    :only => [:index, :show]
-  map.resources :images,    :only => [:index, :show]
+  map.resources :images,          :only => [:index, :show]
+  map.resources :stores,          :only => [:index]
+  map.resources :shares,          :only => [:show]
   
   map.resources :products, :only => [:index, :show] do |product|
     product.resources :designers, :only => [:index, :show]
