@@ -1,0 +1,13 @@
+-cover.each do |el|
+	.product{:class => el.product_grid}
+		%p.rule-two 
+			=el.product_name
+		= link_to image_tag(image.by_imageable_id(el).first.img.url(el.product_grid)), product_path(el)
+
+	
+%p.clear
+.solutions
+	%p.grid_6.rule-one soluções
+	%p.clear
+	%p.grid_4.rule-two Texto bem curto, apenas dizendo que além dos produtos a Lumini também faz ótimas soluções e projetos para necessidades específicas dos clientes, e indicando alguma forma de contato
+	%p.grid_2.rule-two.go_forward fotografias
