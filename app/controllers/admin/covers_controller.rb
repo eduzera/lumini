@@ -17,7 +17,7 @@ class Admin::CoversController < ApplicationController
     @solution = Solution.find cover_solution.to_i
     
     @cover = Cover.new
-    @cover.solution = @solution unless @solution.nil?
+    @cover.solution = @solutions
     
 
     for i in 0...cover_elements.length
