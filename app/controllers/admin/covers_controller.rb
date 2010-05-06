@@ -1,6 +1,6 @@
 class Admin::CoversController < ApplicationController
   
-  layout "admin"
+  layout "publisher_covers"
   
   def index
     @products  = Product.all_with_filter.active
@@ -9,7 +9,7 @@ class Admin::CoversController < ApplicationController
   
   def create
     
-    Cover.destroy_all
+    #Cover.destroy_all
     
     cover_elements = params[:cover_elements]
     cover_solution = params[:cover_solution]

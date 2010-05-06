@@ -9,7 +9,8 @@ class ApplicationController < ActionController::Base
   #:inherit_resources
   
    after_filter :fix_refere_url  
-
+   before_filter :set_locale
+  
   def fix_refere_url
     var = request.request_uri
 
@@ -19,4 +20,13 @@ class ApplicationController < ActionController::Base
       end
     end
   end
+  
+  def set_locale    
+    if session[:language].nil?
+      I18n.locale = 'pt-BR'
+    else
+      I18n.locale = session[:language]
+    end
+  end
+  
 end

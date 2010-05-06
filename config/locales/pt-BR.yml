@@ -1,4 +1,29 @@
 pt-BR: 
+  menu:
+    luminarias: "luminarias"
+    lojas: "lojas"
+    busca: "busca"      
+      
+  home:
+
+      destaque: "destaque"
+      solucoes: "soluções"
+      fotografias: "fotografias"
+      
+  product:
+      fotografia: "fotografia"
+      designer: "o designer"
+      share: "share"
+      dados_tec: "dados tecnicos"
+      desenho: "desenho"
+      
+  categoria:
+      por_tipo: "por tipo"
+      por_marca: "por marca"
+      
+  familia:
+      slideshow: "slideshow"
+  
   # formatos de data e hora
   date: 
     formats: 

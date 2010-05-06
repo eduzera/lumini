@@ -1,6 +1,9 @@
 class LanguagesController < ApplicationController
   def show
-    session[:language] = Language.find(params[:id]).abbr
-    redirect_to categories_path
+    @language = Language.find(params[:id])
+   
+    session[:language] = @language.abbr
+    
+    redirect_to request.referrer
   end
 end

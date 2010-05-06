@@ -15,18 +15,19 @@
 		%ul.grid_2
 			-@images.each do |img|		
 				%li
-					= link_to img.name, galery_path(img.imageable_id, @product.class.name.downcase, img.name), :class => "dissolve" 
+					= link_to "#{t ("product." + img.name)}", galery_path(img.imageable_id, @product.class.name.downcase, img.name), :class => "dissolve" 
 			-unless @designer.nil?
 				%li
-					= link_to "o designer",	product_designers_path(@product), :class => "dissolve"
+					= link_to "#{t "product.designer"}",	product_designers_path(@product), :class => "dissolve"
 			%li
 				/%a{:name=>"fb_share", :type=>"button", :share_url=> product_url(@product)} facebook
-				= link_to "share",	share_path(@product), :class => "slideup"
+				= link_to "#{t "product.share"}",	share_path(@product), :class => "slideup"
 				
 		%p.clear
 		.grid_4
 			%p{:style => "margin-bottom: 24px"}= @product.description
-			%p.rule-two dados técnicos
+			%p.rule-two 
+				=t "product.dados_tec"
 			%p= @product.tech_description
 		
 	-@prizes.each do |prize|

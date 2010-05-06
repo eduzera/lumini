@@ -1,0 +1,25 @@
+de:
+    menu:
+      luminarias: "luminarias[de]"
+      lojas: "lojas[de]"
+      busca: "busca[de]"        
+
+    home:
+
+        destaque: "destaque[de]"
+        solucoes: "soluções[de]"
+        fotografias: "fotografias[de]"
+
+    product:
+        fotografia: "fotografia[de]"
+        designer: "o designer[de]"
+        share: "share[de]"
+        dados_tec: "dados tecnicos[de]"
+        desenho: "desenho[de]"
+
+    categoria:
+        por_tipo: "por tipo[de]"
+        por_marca: "por marca[de]"
+
+    familia:
+        slideshow: "slideshow[de]"
