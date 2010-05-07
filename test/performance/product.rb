@@ -5,6 +5,7 @@ ImageType.make(:name => "fotografia", :model_name => "Product")
 ImageType.make(:name => "desenho",    :model_name => "Product")
 ImageType.make(:name => "prize",     :model_name => "Prize")
 ImageType.make(:name => "designer",   :model_name => "Designer")
+ImageType.make(:name => "solution",   :model_name => "Solution")
 
 #lingua = Language.make
 #lingua2 = Language.make(:name => "English", :abbr => "en_US")

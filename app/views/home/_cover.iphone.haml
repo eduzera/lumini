@@ -13,4 +13,4 @@
 		%p.grid_4.rule-two 
 			=@solution.description 
 		%p.grid_2.rule-two.go_forward
-			= link_to "fotografias", galery_path(1, "Solution", "solution"), :class => "dissolve" 
+			= link_to "fotografias", galery_path(1, "Solution", "solution"), :class => "dissolve"  unless @solution.images.by_cover.first.nil?

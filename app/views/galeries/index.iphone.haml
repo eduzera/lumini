@@ -3,7 +3,7 @@
 		.container_6
 			.header.without_link
 				.grid_2
-					= link_to image_tag("ico-close-white.png"), product_path(@galeries.first.imageable_id), :class => "dissolve"
+					= link_to image_tag("ico-close-white.png"), (@galeries.first.imageable_type.downcase.to_sym == :product ? session[:back_to_parent] : home_index_path ), :class => "dissolve"
 				.grid_2 &nbsp
 				.grid_2
 					= image_tag "lumini_logo.png"
@@ -13,4 +13,4 @@
 		%p.clear
 		-@galeries.each do |pic|
 			.grid_2.product 
-				=link_to image_tag(pic.img.url(:grid_2)), galery_path(pic.imageable_id, "product", pic.image_type.name, pic.id)
+				=link_to image_tag(pic.img.url(:grid_2)), galery_path(pic.imageable_id, pic.imageable_type, pic.image_type.name, pic.id)

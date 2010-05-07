@@ -9,7 +9,7 @@ class GaleriesController < ApplicationController
   
   def show
     if params[:id].nil?
-      @image = Image.by_imageable_type(params[:imageable_type]).by_imageable_id(params[:imageable_id]).by_image_type(params[:name]).first
+      @image = Image.by_imageable_type(params[:imageable_type]).by_imageable_id(params[:imageable_id]).by_image_type(params[:name]).by_cover.first
   #  end
    else
       @image = Image.by_imageable_type(params[:imageable_type]).by_imageable_id(params[:imageable_id]).find(params[:id])

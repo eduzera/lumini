@@ -13,6 +13,10 @@ class ApplicationController < ActionController::Base
   
   def fix_refere_url
     var = request.request_uri
+    
+    puts var
+    puts session[:back_to_parent]
+    
 
     if var.split('/').length > 2
       if var.split('/')[2].to_i != 0 && var.split('/')[1] != 'galery'
