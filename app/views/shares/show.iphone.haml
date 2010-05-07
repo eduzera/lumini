@@ -22,9 +22,9 @@
 		%p.clear
 		.grid_2.alignCenter
 			.grid_1.alpha
-				= link_to image_tag("ico-buzz.png"), "http://www.google.com/buzz/post?url="+product_url(@share)+"&imageurl='http://lumini.nudesign.com.br"+ @share.images.by_cover.first.img.url(:grid_2), :target => "_blank"
+				= link_to image_tag("ico-buzz.png"), "http://www.google.com/buzz/post?url="+product_url(@share)+"&imageurl=http://lumini.nudesign.com.br"+ @share.images.by_cover.first.img.url(:grid_2), :target => "_blank"
 			.grid_1.omega{:style =>"left: 5px; top: 15px;"}
-				= link_to "Buzz", "http://www.google.com/buzz/post?url="+product_url(@share)+"&imageurl='http://lumini.nudesign.com.br"+ @share.images.by_cover.first.img.url(:grid_2)+"'", :target => "_blank"
+				= link_to "Buzz", "http://www.google.com/buzz/post?url="+product_url(@share)+"&imageurl=http://lumini.nudesign.com.br"+ @share.images.by_cover.first.img.url(:grid_2), :target => "_blank"
 
 		%p.clear
 		.grid_2
