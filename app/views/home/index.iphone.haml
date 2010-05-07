@@ -5,10 +5,10 @@
 			.grid_4 
 				=t 'home.destaque'
 
-	=render :partial => "cover", :locals => {:cover => @cover, :image => @image}
+		=render :partial => "cover", :locals => {:cover => @cover, :image => @image}
 	
-	.footer
-		%p.grid_6.rule-two
-			-@languages.each do |lang| 
-				= link_to lang.name, language_path(lang)
-				|
+		.footer
+			%p.grid_6.rule-two
+				-@languages.each do |lang| 
+					= link_to lang.name, language_path(lang)
+					|

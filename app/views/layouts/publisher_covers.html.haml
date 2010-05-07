@@ -10,6 +10,6 @@
 					-Cover.by_date.each do |cover|
 						%li
 							.grid_4.rule-two.alpha
-								= link_to cover.created_at.strftime("%d/%m/%y %H:%M:%S"), admin_cover_path(cover)
+								= link_to cover.public_date.strftime("%d/%m/%y"), admin_cover_path(cover)
 								
 	=yield

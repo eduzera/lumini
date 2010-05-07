@@ -161,6 +161,7 @@ $(document).ready(function()
 	
 	$("#designer_birthdate").datepicker();
 	$("#designer_deathdate").datepicker();
+	$("#cover_public_date").datepicker();
 	
 	//Adiciona sortable as images by EZaghi 04/05/2010
 	$('#sortable_images').sortable({
@@ -226,30 +227,51 @@ $(document).ready(function()
 
 	});
 	
-	$( '.form_submit' ).click( function(){
+	$( '.form_submit_update' ).click( function(){
 		
-		cover = new Array();
+		cover_id = $('#cover_id').val();
 		
-		cover_solution = $( '#solution_factory' ).find( 'select[name="solution_id"]' ).val();
+		url = "/admin/covers/"+cover_id;
+		method = "PUT";
 		
-		$( '#cover_preview > div.product' ).each( function( i, el ){
-			cover_element = $( el ).find( 'input[name="product_id"]').attr( 'value' ) + ',' + $( el ).find( 'input[name="size"]').attr( 'value' )
-			cover[i] = cover_element
-			//alert( $( el ).find( 'input[name="product_id"]').attr( 'value' ) + " : " + $( el ).find( 'input[name="size"]').attr( 'value' ) );
-		});
-		
-		$.ajax({
-		   type: "POST",
-		   url: "/admin/covers/",
-		   data: ( {cover_elements: cover, cover_solution: cover_solution} ),
-		   success: function(data)
-		   {
-				alert('OK');
-		   }
-		});
+		create_or_update_cover(url,method);
+	});
+	
+	$( '.form_submit_save' ).click( function(){
+		url = "/admin/covers/";
+		method = "POST";
+		create_or_update_cover(url,method);
 	});
 
  });
+
+function create_or_update_cover(url,method){
+	
+	cover = new Array();
+	
+	cover_solution 		= $( '#solution_factory' ).find( 'select[name="solution_id"]' ).val();
+	cover_date_public 	= $('#cover_public_date').val();
+	cover_status 		= $( '#public_date_factory' ).find('input[name="cover[status]"]:checked').val();
+	
+	$( '#cover_preview > div.product' ).each( function( i, el ){
+		cover_element = $( el ).find( 'input[name="product_id"]').attr( 'value' ) + ',' + $( el ).find( 'input[name="size"]').attr( 'value' )
+		cover[i] = cover_element
+	});
+	
+	$.ajax({
+	   type: method,
+	   url: url,
+	   data: ( {cover_elements: cover, 
+				cover_solution: cover_solution,
+				cover_date_public: cover_date_public,
+				cover_status: cover_status} 
+			 ),
+	   success: function(data)
+	   {
+			alert('OK');
+	   }
+	});
+}
 
 //Adiciona novo campo de Linga para um produto. by EZaghi => 19/04/2010
 function add_new_language(){

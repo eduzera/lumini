@@ -5,7 +5,7 @@ class Designer < ActiveRecord::Base
   
   accepts_nested_attributes_for :lang_designer
   
-  validates_presence_of :name, :birthdate, :deathdate
+  validates_presence_of :name, :birthdate
   
   # has_attached_file :img, :styles => {:grid_1 => "45x45#", :grid_2 => "96x96#" ,:grid_3 => "147x144#"},
 

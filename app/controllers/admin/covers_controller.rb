@@ -3,21 +3,41 @@ class Admin::CoversController < ApplicationController
   layout "publisher_covers"
   
   def index
+
+  end
+  
+  def new
+    
+    @cover = Cover.new
+    
     @products  = Product.all_with_filter.active
     @solutions = Solution.all_with_filter
+    
+  end
+  
+  def show
+
+    @cover = Cover.find params[:id]
+    
+    @products  = Product.all_with_filter.active
+    @solutions = Solution.all_with_filter
+    
   end
   
   def create
+
     
-    #Cover.destroy_all
-    
-    cover_elements = params[:cover_elements]
-    cover_solution = params[:cover_solution]
+    cover_elements    = params[:cover_elements]
+    cover_solution    = params[:cover_solution]
+    cover_date_public = params[:cover_date_public]
+    cover_status      = params[:cover_status]
     
     @solution = Solution.find cover_solution.to_i
     
-    @cover = Cover.new
-    @cover.solution = @solutions
+    @cover             = Cover.new
+    @cover.solution    = @solutions
+    @cover.public_date = cover_date_public
+    @cover.status      = cover_status
     
 
     for i in 0...cover_elements.length
@@ -40,6 +60,49 @@ class Admin::CoversController < ApplicationController
     
   end
   
+  def update
+    
+    puts '*' * 40
+    puts 'TO NO UPDATE'
+    
+    cover_id          = params[:id]
+    cover_elements    = params[:cover_elements]
+    cover_solution    = params[:cover_solution]
+    cover_date_public = params[:cover_date_public]
+    cover_status      = params[:cover_status]
+    
+    @solution = Solution.find cover_solution.to_i
+    
+    @cover             = Cover.find cover_id
+    @cover.destroy
+    
+    @cover             = Cover.new
+    
+    @cover.id          = cover_id
+    @cover.solution    = @solutions
+    @cover.public_date = cover_date_public
+    @cover.status      = cover_status
+
+
+    for i in 0...cover_elements.length
+      
+      elements = cover_elements[i].split(',')
+      
+      @product = Product.find elements[0].to_i
+      
+      @cover.cover_element.build(:grid_size => elements[1], :priority => i)
+      
+      @cover.cover_element.last.product = @product
+      
+    end
+    
+    if @cover.save
+      render :text => 'ok'
+    else
+      render :text => 'error'
+    end
+    
+  end
   
   
   
