@@ -14,6 +14,9 @@ class Solution < ActiveRecord::Base
                                 :joins => {:lang_solution => [:language]},
                                 :conditions => ["languages.abbr = ?", language]}}
   
+  def to_label
+    "#{lang_solution.first.name}"
+  end
   
   def new_lang_solution_attributes=(solution_attributes)   
     solution_attributes.each do |attributes|

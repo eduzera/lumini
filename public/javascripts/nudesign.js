@@ -249,7 +249,7 @@ function create_or_update_cover(url,method){
 	
 	cover = new Array();
 	
-	cover_solution 		= $( '#solution_factory' ).find( 'select[name="solution_id"]' ).val();
+	cover_solution 		= $( '#solution_factory' ).find( 'select[name="cover[solution_id]"]' ).val();
 	cover_date_public 	= $('#cover_public_date').val();
 	cover_status 		= $( '#public_date_factory' ).find('input[name="cover[status]"]:checked').val();
 	
