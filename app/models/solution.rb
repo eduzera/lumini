@@ -10,6 +10,11 @@ class Solution < ActiveRecord::Base
                                 :joins => [:images, {:lang_solution => [:language]}], 
                                 :group => "id"
   
+  named_scope :by_language, lambda { |language| {
+                                :joins => {:lang_solution => [:language]},
+                                :conditions => ["languages.abbr = ?", language]}}
+  
+  
   def new_lang_solution_attributes=(solution_attributes)   
     solution_attributes.each do |attributes|
       lang_solution.build(attributes)
