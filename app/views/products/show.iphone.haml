@@ -17,6 +17,7 @@
 			-unless @designer.nil?
 				%li
 					= link_to "#{t "product.designer"}", product_designers_path(@product), :class => "dissolve"
+			-unless @images.empty?
 			%li
 				= link_to "#{t "product.share"}", share_path(@product), :class => "slideup"
 				
