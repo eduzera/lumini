@@ -50,7 +50,7 @@ class Product < ActiveRecord::Base
                                     :select => "products.id 'id', lang_products.name 'name', product_prizes.year 'year'",
                                     :joins => [:lang_product, :product_prize],
                                     :conditions => ["product_prizes.prize_id = ?", prize], 
-                                    :group => "id",
+                                    :group => "products.id",
                                     :order => "product_prizes.year"}}
 
   after_update :save_prizes
