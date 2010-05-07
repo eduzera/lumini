@@ -8,7 +8,7 @@ class Solution < ActiveRecord::Base
   
   named_scope :all_with_filter, :select => "solutions.id 'id', lang_solutions.name 'name', lang_solutions.description 'description'",
                                 :joins => [:images, {:lang_solution => [:language]}], 
-                                :group => "id"
+                                :group => "solutions.id"
   
   named_scope :by_language, lambda { |language| {
                                 :joins => {:lang_solution => [:language]},
