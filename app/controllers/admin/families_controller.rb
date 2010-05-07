@@ -1,4 +1,4 @@
-class Admin::FamiliesController < ApplicationController
+class Admin::FamiliesController < Admin::PublisherController
   
   layout "publisher_products"
   

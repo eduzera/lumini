@@ -1,4 +1,4 @@
-class Admin::PrizesController < ApplicationController
+class Admin::PrizesController < Admin::PublisherController
   layout "publisher_prizes"
   
   before_filter :put_last_controller_on_session

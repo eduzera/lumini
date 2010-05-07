@@ -1,6 +1,6 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => "home", :action => "index"
-  
+    
   map.admin "/admin", :controller => "admin/home", :action => "index"
   map.home    'home/render_index' , :controller => 'home' , :action => 'render_index'
   
@@ -16,12 +16,15 @@ ActionController::Routing::Routes.draw do |map|
   map.resources :images,          :only => [:index, :show]
   map.resources :stores,          :only => [:index]
   map.resources :shares,          :only => [:show]
+  map.resources :user_sessions
+  map.resources :users
   
   map.resources :products, :only => [:index, :show] do |product|
     product.resources :designers, :only => [:index, :show]
   end
   
-
+  map.login "login",                                    :controller => "user_sessions", :action => "new"
+  map.logout "logout",                                  :controller => "user_sessions", :action => "destroy"
   map.connect 'admin/covers/product_image/:product_id/:grid', :controller => "admin/covers",       :action => 'product_image'
   map.connect 'admin/solutions/add_new_language',       :controller => "admin/solutions",    :action => 'add_new_language'
   map.connect 'admin/families/add_new_language',        :controller => "admin/families",     :action => 'add_new_language'

@@ -1,4 +1,4 @@
-class Admin::CoversController < ApplicationController
+class Admin::CoversController < Admin::PublisherController
   
   layout "publisher_covers"
   

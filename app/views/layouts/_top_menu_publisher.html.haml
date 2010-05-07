@@ -14,4 +14,10 @@
 			= link_to "capa", admin_covers_path
 		%li
 			= link_to "outros", admin_languages_path
+		%li
+			%strong
+				= link_to current_user.username, edit_user_url(current_user)
+			|
+			= link_to "logout", logout_url
+			
 	= image_tag "lumini-logo_publisher.png"

@@ -1,4 +1,4 @@
-class Admin::SolutionsController < ApplicationController
+class Admin::SolutionsController < Admin::PublisherController
   
   layout "publisher_solutions"
   

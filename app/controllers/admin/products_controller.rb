@@ -1,4 +1,4 @@
-class Admin::ProductsController < ActionController::Base
+class Admin::ProductsController < Admin::PublisherController
   layout "publisher_products"
   
   before_filter :put_last_controller_on_session
