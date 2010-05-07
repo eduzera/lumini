@@ -26,6 +26,9 @@ class Admin::CoversController < ApplicationController
   
   def create
 
+    puts '*' * 40
+    puts 'TO NO CREATE'
+    puts  params[:cover_solution]
     
     cover_elements    = params[:cover_elements]
     cover_solution    = params[:cover_solution]
@@ -35,7 +38,7 @@ class Admin::CoversController < ApplicationController
     @solution = Solution.find cover_solution.to_i
     
     @cover             = Cover.new
-    @cover.solution    = @solutions
+    @cover.solution    = @solution
     @cover.public_date = cover_date_public
     @cover.status      = cover_status
     
@@ -64,6 +67,7 @@ class Admin::CoversController < ApplicationController
     
     puts '*' * 40
     puts 'TO NO UPDATE'
+    puts  params[:cover_solution]
     
     cover_id          = params[:id]
     cover_elements    = params[:cover_elements]
@@ -79,7 +83,7 @@ class Admin::CoversController < ApplicationController
     @cover             = Cover.new
     
     @cover.id          = cover_id
-    @cover.solution    = @solutions
+    @cover.solution    = @solution
     @cover.public_date = cover_date_public
     @cover.status      = cover_status
 

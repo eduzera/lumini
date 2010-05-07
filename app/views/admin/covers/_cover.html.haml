@@ -38,11 +38,10 @@
 			.form-container{:style => 'border: none;', :id => 'solution_factory'}
 				.form-sub-container.grid_3.alpha
 					solucao
-				.form-sub-container.grid_5.omega
-					%select{:name => 'solution_id'}
-						- @solutions.each do |solution|
-							%option{:value => solution.id}
-								= solution.name
+				.form-sub-container.grid_5.omega{:style => 'list-style-type:none;'}
+					-semantic_fields_for @cover do |solution|
+					-solution.inputs
+						=solution.input :solution, :label => false, :include_blank => false
 									
 			%p.rule-two{:style => 'margin-top: 16px;margin-bottom: 16px;'}
 				fábrica de produtos
