@@ -28,7 +28,7 @@ production:
   pool: 5
   username: root
   password: root
-  host: localhost:8889
+  host: mysql.nudesign.com.br
   
 development:
     adapter: mysql
@@ -38,4 +38,4 @@ development:
     pool: 5
     username: root
     password: root
-    host: localhost:8889
+    host: mysql.nudesign.com.br
