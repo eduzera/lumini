@@ -18,7 +18,9 @@ function gallery_start()
 {	
 	var $cur_id = $('.current').attr('id'); 
 	var $new_id = parseInt($cur_id.substr($cur_id.lastIndexOf('-')+1))+1;
-
+	if (isNaN($new_id)) {
+		$new_id = 1
+	}
 
 	$('#page-'+$new_id+' .swipe_trigger').bind('swipe', function( event , info ){
 		if (info.direction == 'right') {

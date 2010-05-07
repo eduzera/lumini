@@ -1,0 +1,16 @@
+.wrapper
+	= render :partial => "layouts/top_menu"
+	
+	.container_6
+		-@stores.each do |store|
+			.submenu.alpha.omega		 
+				%strong 
+					=store.title
+				%p
+					=store.street+ " - "+store.neighborhood
+				%p
+					=store.telephone
+				%p
+					=store.email
+				%p
+					=store.operation

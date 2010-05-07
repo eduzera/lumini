@@ -25,7 +25,7 @@ class Prize < ActiveRecord::Base
                                 :select => "prizes.id 'id', lang_prizes.name 'name', lang_prizes.description 'description', product_prizes.year 'year'",
                                 :joins => [:product_prize, {:lang_prize => [:language]}],
                                 :conditions => ["languages.abbr = ?", language],
-                                :group => "id"}}
+                                :group => "prizes.id"}} 
 
 
   def new_lang_prize_attributes=(prize_attributes)   

@@ -2,24 +2,17 @@ class HomeController < ApplicationController
  skip_before_filter :fix_refere_url
   
   def index
-        
     session[:language] = 'pt-BR' if session[:language].nil?
-    
-    I18n.locale = session[:language]
-
     
     @languages = Language.all
     @cover = Cover.active.by_order
-    @cover = @cover.by_date(@cover.first.public_date)
+    @cover = @cover.by_date(@cover.first.public_date) unless @cover.empty?
     
     @image = Image.by_imageable_type("Product").by_image_type("fotografia").by_cover.by_order
     
     @solution = Solution.all_with_filter.by_language(session[:language])
-    unless @solution.empty?
-       @solution = @solution.find(@cover.first.solution_id)
-    else
-      @solution=nil
-    end
+    @solution = @solution.find(@cover.first.solution_id) unless @solution.empty? unless @cover.empty?
+    @solution = nil if @cover.empty?
     
     respond_to do |format|
       format.iphone do 

@@ -30,9 +30,13 @@ class ApplicationController < ActionController::Base
   #marco filtro
   def fix_refere_url
     var = request.request_uri
+    
+    puts var
+    puts session[:back_to_parent]
+    
 
     if var.split('/').length > 2
-      if var.split('/')[2].to_i != 0 && var.split('/')[1] != 'galery'
+      if var.split('/')[2].to_i != 0 && var.split('/')[1] != 'galery' && var.split('/')[1] != 'change_image'
         session[:back_to_parent] = request.request_uri
       end
     end
