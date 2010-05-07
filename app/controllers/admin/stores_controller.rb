@@ -1,4 +1,4 @@
-class Admin::StoresController < ApplicationController
+class Admin::StoresController < Admin::PublisherController
   
   layout "publisher_stores"
   

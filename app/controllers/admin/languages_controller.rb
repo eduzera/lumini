@@ -1,4 +1,4 @@
-class Admin::LanguagesController < ApplicationController
+class Admin::LanguagesController < Admin::PublisherController
   
   layout "publisher_others"
   

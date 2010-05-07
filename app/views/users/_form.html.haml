@@ -1,0 +1,39 @@
+.actionHeader
+	%h2
+		=title
+
+.form-container
+	.form-login{:style => 'list-style-type:none;'}
+		.form-sub-container.grid_3.alpha
+
+		-semantic_form_for @user do |f|
+			.grid_6
+				.grid_3.alpha.title
+					%strong username
+				.grid_3.alpha
+					=f.input :username,  :label => false
+			.grid_6
+				.grid_3.alpha.title
+					%strong email
+				.grid_3.alpha
+					=f.input :email,  :label => false
+			.grid_6
+				.grid_3.alpha.title
+					%strong password
+				.grid_3.alpha
+					=f.input :password,  :label => false
+			.grid_6
+				.grid_3.alpha.title
+					%strong password confirmation
+				.grid_3.alpha
+					=f.input :password_confirmation,  :label => false
+			.grid_6
+				.grid_3.alpha.title
+					&nbsp
+				.grid_3.alpha{:style => 'text-align:center;'}
+					=f.buttons
+			.grid_6{:style => 'text-align:center;'}
+				=f.error_messages
+
+.grid_6.login_message
+	= flash[:notice]

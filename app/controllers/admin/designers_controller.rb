@@ -1,4 +1,4 @@
-class Admin::DesignersController < ApplicationController
+class Admin::DesignersController < Admin::PublisherController
   
   layout "publisher_designers"
   

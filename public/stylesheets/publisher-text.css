@@ -14,12 +14,12 @@ body { font-family: Helvetica, Arial, Verdana, Sans-Serif; font-size: 12px; line
 
 
 .form-container { border-bottom: 1px solid #969696; overflow: hidden; padding: 0px 0px 0px 0px; margin: 0px 0px 0px 0px; }
-	.form-container input[type="text"] { border: 0; background: #969696; font-family: Helvetica, Arial, Verdana, Sans-Serif; font-size: 11px; line-height: 16px; margin: 0; padding: 2px 0px 2px 0px; vertical-align: top; }
+.form-container input[type="text"],.form-container input[type="password"] { border: 0; background: #969696; font-family: Helvetica, Arial, Verdana, Sans-Serif; font-size: 11px; line-height: 16px; margin: 0; padding: 2px 0px 2px 0px; vertical-align: top; }
 .form-content { margin: 0; padding: 0px 0 0px 0; margin: 8px 0 16px 0; overflow: hidden; }
 
 textarea { border: 0; background: #969696; font-family: Helvetica, Arial, Verdana, Sans-Serif; font-size: 11px; line-height: 16px;  margin: 0; padding: 0; vertical-align: top; }
 
-.grid_3 input[type="text"] { width: 147px; }
+.grid_3 input[type="text"],.grid_3 input[type="password"] { width: 147px; }
 .grid_3 textarea { width: 147px; height: 120px; }
 .grid_3 select { width: 145px; }
 
@@ -67,3 +67,5 @@ a.active:active { font-weight: bold; color: #FFF; text-decoration: none; }
 
 #sortable_images { padding: 20px 0; overflow: hidden; }
 #sortable_images .item { overflow: hidden; }
+
+.login_message{ text-align: center;}
