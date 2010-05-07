@@ -26,8 +26,8 @@ production:
   reconnect: false
   database: lumini_iphone
   pool: 5
-  username: root
-  password: root
+  username: lumini_br
+  password: ASLp7Tnm
   host: mysql.nudesign.com.br
   
 development:
@@ -36,6 +36,6 @@ development:
     reconnect: false
     database: lumini_iphone
     pool: 5
-    username: root
-    password: root
+    username: lumini_br
+    password: ASLp7Tnm
     host: mysql.nudesign.com.br
