@@ -8,9 +8,10 @@ div { background-color: #414141 }
 
 .header { padding: 0px 0px 5px 0px; border-bottom: 1px solid #FFF; color: #FFF; overflow: hidden; margin-bottom: 0; }
 .header .grid_2, #header .grid_4  { height: 36px; margin-top: 12px; }
-.header .lumini-logo { margin-top: 0px; margin-left: 0px; }
+.header .lumini_logo { margin-top: 11px; margin-left: 0px; }
 .header a { display: block; padding-top: 15px; }
 .header.without_link { margin-bottom: 12px; }
+
 
 .submenu { margin-top: 3px; margin-bottom: 14px; padding-top: 6px; padding-bottom: 6px; overflow: hidden; }
 	.submenu .active { color: #FFF; font-weight: bold; }
