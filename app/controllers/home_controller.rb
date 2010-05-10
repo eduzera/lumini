@@ -5,14 +5,14 @@ class HomeController < ApplicationController
     session[:language] = 'pt-BR' if session[:language].nil?
     
     @languages = Language.all
-    @cover = Cover.active.by_order
+    @cover = Cover.active.by_priority_order
     @cover = @cover.by_date(@cover.first.public_date) unless @cover.empty?
     
     @image = Image.by_imageable_type("Product").by_image_type("fotografia").by_cover.by_order
     
     @solution = Solution.all_with_filter.by_language(session[:language])
     @solution = @solution.find(@cover.first.solution_id) unless @solution.empty? unless @cover.empty?
-    @solution = nil if @cover.empty?
+    @solution = nil if @solution.to_a.empty? || @cover.empty?
     
     respond_to do |format|
       format.iphone do 

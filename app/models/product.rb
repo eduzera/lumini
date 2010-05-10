@@ -15,9 +15,8 @@ class Product < ActiveRecord::Base
   validates_presence_of :designer_id, :manufacture_id, :category_id, :family_id
 
   named_scope :all_with_filter, :select => "products.id 'id', lang_products.name 'name', lang_products.description 'description', 
-                                            lang_products.tech_description 'tech_description', lang_categories.name 'category_name', 
-                                            lang_families.name 'family_name'",
-                                :joins => [:images, {:category => [:lang_category], :family => [:lang_family],  :lang_product => [:language]}], 
+                                            lang_products.tech_description 'tech_description', products.category_id 'category_id'",
+                                :joins => [:images, {:category => [:lang_category], :family => [:lang_family], :lang_product => [:language]}], 
                                 :group => "products.id"
 
 
@@ -52,6 +51,9 @@ class Product < ActiveRecord::Base
                                     :conditions => ["product_prizes.prize_id = ?", prize], 
                                     :group => "products.id",
                                     :order => "product_prizes.year"}}
+
+  named_scope :with_images, :include => :images, :conditions => ["images.img_file_name is not null"]
+
 
   after_update :save_prizes
   

@@ -10,7 +10,7 @@ class Admin::CoversController < Admin::PublisherController
     
     @cover = Cover.new
     
-    @products  = Product.all_with_filter.active
+    @products  = Product.all_with_filter.active.with_images
     @solutions = Solution.all_with_filter
     
   end
@@ -25,11 +25,6 @@ class Admin::CoversController < Admin::PublisherController
   end
   
   def create
-
-    puts '*' * 40
-    puts 'TO NO CREATE'
-    puts  params[:cover_solution]
-    
     cover_elements    = params[:cover_elements]
     cover_solution    = params[:cover_solution]
     cover_date_public = params[:cover_date_public]
@@ -64,11 +59,6 @@ class Admin::CoversController < Admin::PublisherController
   end
   
   def update
-    
-    puts '*' * 40
-    puts 'TO NO UPDATE'
-    puts  params[:cover_solution]
-    
     cover_id          = params[:id]
     cover_elements    = params[:cover_elements]
     cover_solution    = params[:cover_solution]

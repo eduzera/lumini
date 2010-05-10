@@ -7,7 +7,7 @@
 			
 			=link_to "cancelar /",  @product.new_record? ? admin_path : admin_product_path(@product)
 			=link_to "salvar","javascript://" ,:class => "product_save_admin"
-			=link_to "/ excluir", admin_product_path(@product), :confirm => 'Tem certeza que deseja EXCLUIR o produto?', :method => :delete unless @product.new_record?
+			=link_to "/ excluir", admin_product_path(@product), :confirm => 'Capas com esse produto serão setadas para RASCUNHO e o mesmo removido delas. Tem certeza que deseja EXCLUIR o produto?', :method => :delete unless @product.new_record?
 		
 	%ul.actionMenu
 		%li
