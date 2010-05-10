@@ -3,7 +3,7 @@
 	.container_6
 		.submenu
 			%p.grid_6
-				=@category.name
+				= link_to @category.name, family_path(@category)
 
 	.container_6
 		%p.grid_6.rule-two
