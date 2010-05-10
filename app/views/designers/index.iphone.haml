@@ -16,9 +16,5 @@
 			.grid_4 
 				%p
 					= @designer.bio
-				%p
-					= @designer.birthdate.strftime("%d/%m/%y")
-				-unless @designer.deathdate.nil?
-					= " - " + @designer.deathdate.strftime("%d/%m/%y")
-			.grid_2.subtitle.photo 
+			.grid_2
 				= image_tag (@designer.images.by_cover.first.nil? ? @designer.images.first.img.url(:grid_2) : @designer.images.by_cover.first.img.url(:grid_2))
