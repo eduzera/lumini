@@ -10,13 +10,13 @@
 			.grid_2
 				= image_tag "lumini_logo.png"
 	
-		.swipe_trigger
-			= image_tag @image.img.url(:full_screen), :class => "touch"
+	.swipe_trigger
+		= image_tag @image.img.url(:full_screen), :class => "touch"
 
-		.bottom-bar{:style=>"padding-top: 12px;"}
-			.grid_1
-				= link_to image_tag ("ico-prev.png"), change_image_path(@image.imageable_id, @image.imageable_type.downcase, @image.image_type.name, @image, 'previous'), :class => 'prev'
-			.grid_4{:style=>"text-align: center"}
-				= link_to image_tag ("ico-thumbs.png"), galeries_path(@image.imageable_type.downcase, @image.image_type.name, @image.imageable_id), :class => "dissolve"
-			.grid_1{:style => "text-align: right;"}
-				= link_to image_tag ("ico-next.png"), change_image_path(@image.imageable_id, @image.imageable_type.downcase, @image.image_type.name, @image, 'next'), :class => 'next'
+	.bottom-bar{:style=>"padding-top: 12px;"}
+		.grid_1
+			= link_to image_tag ("ico-prev.png"), change_image_path(@image.imageable_id, @image.imageable_type.downcase, @image.image_type.name, @image, 'previous'), :class => 'prev'
+		.grid_4{:style=>"text-align: center"}
+			= link_to image_tag ("ico-thumbs.png"), galeries_path(@image.imageable_type.downcase, @image.image_type.name, @image.imageable_id), :class => "dissolve"
+		.grid_1{:style => "text-align: right;"}
+			= link_to image_tag ("ico-next.png"), change_image_path(@image.imageable_id, @image.imageable_type.downcase, @image.image_type.name, @image, 'next'), :class => 'next'
