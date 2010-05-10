@@ -13,19 +13,19 @@
 	%script{:src=>"http://static.ak.fbcdn.net/connect.php/js/FB.Share", :type=>"text/javascript"}
 	
 	.container_6
-		.grid_3.alpha.alignCenter{:style=>"margin-bottom: 12px;"}
+		.grid_2.alpha.alignCenter{:style=>"margin-bottom: 12px;"}
 			= link_to image_tag("ico-facebook.png"), "http://www.facebook.com/sharer.php?u="+product_url(@share), :target => "_blank"
 			/= link_to "Facebook", "http://www.facebook.com/sharer.php?u="+product_url(@share), :target => "_blank"
 
-		.grid_3.omega.alignCenter{:style=>"margin-bottom: 12px;"}
-			= link_to image_tag("ico-buzz.png"), "http://www.google.com/buzz/post?url="+product_url(@share)+"&imageurl=http://lumini.nudesign.com.br"+ @share.images.by_cover.first.img.url(:grid_2), :target => "_blank"
-			/= link_to "Buzz", "http://www.google.com/buzz/post?url="+product_url(@share)+"&imageurl=http://lumini.nudesign.com.br"+ @share.images.by_cover.first.img.url(:grid_2), :target => "_blank"
-
-		%p.clear
-		.grid_3.alpha.alignCenter
+		.grid_2.alignCenter{:style=>"margin-bottom: 12px;"}
 			= link_to image_tag("ico-twitter.png"), "http://twitter.com/home?status="+ @share.lang_product.first.name + " - "+ product_url(@share), :target => "_blank"
 			/= link_to "Twitter", "http://twitter.com/home?status="+ @share.lang_product.first.name + " - "+ product_url(@share), :target => "_blank"
-		.grid_3.omega.alignCenter
+		
+		/.grid_2.alignCenter{:style=>"margin-bottom: 12px;"}
+			/= link_to image_tag("ico-buzz.png"), "http://www.google.com/buzz/post?url="+product_url(@share)+"&imageurl=http://lumini.nudesign.com.br"+ @share.images.by_cover.first.img.url(:grid_2), :target => "_blank"
+			/= link_to "Buzz", "http://www.google.com/buzz/post?url="+product_url(@share)+"&imageurl=http://lumini.nudesign.com.br"+ @share.images.by_cover.first.img.url(:grid_2), :target => "_blank"
+
+		.grid_2.omega.alignCenter
 			= link_to image_tag("ico-delicious.png"), "http://delicious.com/save", :onclick=>"window.open('http://delicious.com/save?v=5&noui&jump=close&url="+ product_url(@share) +"&title='+encodeURIComponent(document.title), 'delicious','toolbar=no,width=550,height=550'); return false;" 
 			/= link_to "Delicious", "http://delicious.com/save", :onclick=>"window.open('http://delicious.com/save?v=5&noui&jump=close&url="+ product_url(@share) +"&title='+encodeURIComponent(document.title), 'delicious','toolbar=no,width=550,height=550'); return false;"
 		
