@@ -2,25 +2,26 @@
 	= render :partial => "layouts/top_menu"
 	.container_6
 		.submenu
-			%p.grid_6
-				=@product.category_name
+			.grid_6
+				= link_to @product.category_name, family_path(item), :class => "slide.in"
 				
 	.container_6
 		%p.grid_6.rule-two
 			= @product.name
 		.grid_4{:style => "margin-bottom: 18px"}
 			= image_tag(@product.images.by_cover.first.nil? ? @product.images.first.img.url(:grid_4) : @product.images.by_cover.first.img.url(:grid_4))
-		%ul.grid_2
-			-unless @images.empty?
-				-@images.each do |img|		
+		.grid_2
+			%ul
+				-unless @images.empty?
+					-@images.each do |img|		
+						%li
+							= link_to "#{t ("product." + img.name)}", galery_path(img.imageable_id, @product.class.name.downcase, img.name), :class => "dissolve" 
+				-unless @designer.nil?
 					%li
-						= link_to "#{t ("product." + img.name)}", galery_path(img.imageable_id, @product.class.name.downcase, img.name), :class => "dissolve" 
-			-unless @designer.nil?
-				%li
-					= link_to "#{t "product.designer"}", product_designers_path(@product), :class => "dissolve"
-			-unless @images.empty?
-				%li
-					= link_to "#{t "product.share"}", share_path(@product), :class => "slideup"
+						= link_to "#{t "product.designer"}", product_designers_path(@product), :class => "dissolve"
+				-unless @images.empty?
+					%li
+						= link_to "#{t "product.share"}", share_path(@product), :class => "slideup"
 				
 		%p.clear
 		.grid_4

@@ -21,7 +21,7 @@ en-US:
 
     categoria:
         por_tipo: "by type"
-        por_marca: "by manufacturer"
+        por_marca: "&nbsp;"
 
     familia:
         slideshow: "slideshow"
