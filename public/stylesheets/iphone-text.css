@@ -37,7 +37,7 @@ p , div { margin: 0; padding: 0; }
 
 .title-one { color: #FFF; padding-top: 10px; margin-bottom: 20px; }
 .title-two { font-weight: bold; padding-top: 10px; margin-bottom: 20px; }
-.title-three { }
+.title-three { color: #FFF; }
 .rule-one { border-top: 1px solid #FFF; color: #FFF; padding-top: 9px; margin-bottom: 20px; }
 .rule-two { border-top: 1px solid #969696; padding-top: 9px; margin-bottom: 8px; }
 .rule-three { color: #FFF; margin-top: 18px; margin-bottom: 6px; }
