@@ -60,5 +60,7 @@ ul.with_images li.no_link { border-top: 1px solid #969696; margin-top: 2px; padd
 ul.with_images li.more_link { border-top: 1px solid #969696; margin-top: 2px; padding-top: 3px; padding-bottom: 6px; }
 ul.with_images li.more_link a { background: url('../images/ico-plus.png') right top no-repeat; }
 
+.swipe_trigger{margin-left: auto;margin-right: auto;width: 100%;}
+.swipe_trigger img{margin-top: auto;margin-bottom: auto;width: 100%;}
 .top-bar { background-color: #414141; padding-top: 12px; height: 48px; position: absolute; top: 0px; width: 100%; display: none; padding-left: 3px; padding-right: 3px; }
 .bottom-bar { background-color: #414141; padding-top: 12px; height: 48px; position: absolute; bottom: 0px; width: 100%; display: none; padding-left: 3px; padding-right: 3px; }
