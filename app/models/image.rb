@@ -4,7 +4,7 @@ class Image < ActiveRecord::Base
 
   accepts_nested_attributes_for :image_type
 
-   has_attached_file :img, :styles => {:grid_1 => "45x45#", :grid_2 => "96x96#", :grid_3 => "147x144#", :grid_4 => "198x198#", :grid_6 => "320x480#"},
+   has_attached_file :img, :styles => {:grid_1 => "45x45#", :grid_2 => "96x96#", :grid_3 => "147x144#", :grid_4 => "198x198#", :grid_6 => "320x216>", :full_screen => "480x320>"},
 
      :url => "/uploads/:class/:imageable_type/:imageable_id/:id/:style.:extension",
      :path => ":rails_root/public/uploads/:class/:imageable_type/:imageable_id/:id/:style.:extension",

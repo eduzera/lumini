@@ -15,6 +15,10 @@
 		.form-content
 			.grid_3.alpha.title
 				=lang.input :nacionality, :label => false
+				
+		.form-content	
+			.grid_3.remove_language
+				=link_to_function "excluir indioma" , " $(this).parents('.form-sub-container').remove()"
 
 				
 				

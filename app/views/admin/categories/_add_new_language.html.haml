@@ -15,3 +15,7 @@
 		.form-content
 			.grid_3
 				=lang.input :description, :as => :text, :label => false
+				
+		.form-content	
+			.grid_3.remove_language
+				=link_to_function "excluir indioma" , " $(this).parents('.form-sub-container').remove()"

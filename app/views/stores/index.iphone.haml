@@ -13,8 +13,8 @@
 					%br
 						= store.postal_code + " " + store.city + " " + store.state
 				%p{:style=> "margin-top: 12px;"}
-					= link_to store.telephone , "tel:55-11-3211-1320"
+					= link_to store.telephone , "tel:" + store.telephone , :class => 'external'
 				%p
-					= store.email
+					= link_to store.email , "mailto:" + store.email , :class => 'external'
 				%p
 					= store.operation

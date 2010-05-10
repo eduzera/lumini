@@ -64,6 +64,8 @@ class Product < ActiveRecord::Base
    end
    
    def existing_product_prize_attributes=(prize_attributes)
+     puts '*' * 40
+     puts prize_attributes
      product_prize.reject(&:new_record?).each do |prize|
        attributes = prize_attributes[prize.id.to_s]
        if attributes

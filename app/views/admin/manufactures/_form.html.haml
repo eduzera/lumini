@@ -23,20 +23,21 @@
 				.form-sub-container.grid_3.alpha
 					.form-content
 						.grid_3.alpha.add_new_language_manufacture 
-							=link_to "+ novo idioma","javascript://", :onclick => "add_new_language_manufacture()"
+							&nbsp
 						
 							.form-content
 								.grid_3.alpha <strong>título</strong>
-
-							.form-content
-								.grid_3.alpha <strong>website</strong>
-								
+				
 								
 				#language_manufacture
 					= render :partial => 'add_new_language', :collection => @manufacture.lang_manufacture , :as => :lang_manufacture
-				
-				.form-sub-container.grid_12.alpha	
 					
+			.form-container
+				.form-sub-container.grid_3.alpha	
+					.form-content
+						.grid_3.alpha <strong>website</strong>
+				.form-sub-container.grid_3.alpha
 					.form-content
 						.grid_3
 							=form.input :website, :label => false
+

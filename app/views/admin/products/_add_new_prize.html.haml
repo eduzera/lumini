@@ -11,3 +11,5 @@
 			= prize.input :prize_id , :collection => Prize.find(:all)
 		.grid_3.omega
 			= prize.input :year, :as => :select, :collection => (10.years.ago.year..Time.now.year).map
+		.grid_3
+			=link_to_function "excluir" , " $(this).parents('.form-content').remove()"

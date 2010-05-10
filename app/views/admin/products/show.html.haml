@@ -45,11 +45,11 @@
 					
 					.form-content
 						.grid_3
-							= lang_product.description
+							= simple_format(lang_product.description)
 					
 					.form-content
 						.grid_3
-							= lang_product.tech_description
+							= simple_format(lang_product.tech_description)
 			
 		.form-container 							
 			.form-content
@@ -74,16 +74,23 @@
 				.grid_3.alpha <strong>família</strong>
 				.grid_3
 					=@product.family.lang_family.first.name
-
-		/.form-container 
-		/	/ Agrupamento de campos belongs_to (Não relacionados ao produto em si (Não depende para existir))
-		/	.form-content
-		/		.grid_3.alpha prêmios
-		/		.grid_3
-		/			= form.add_associated_link "+ prize", :prize, :partial => 'prizes'
-		/		.grid_3.omega
-		/			= form.render_associated_form :prize, :partial => 'prizes'
-
+		
+		.form-container
+			.form-content
+				.grid_3.alpha
+					%strong
+						premios
+				.grid_5
+					- if @product.product_prize.empty?
+						Nao exitem premios para este Produto
+		
+			-@product.product_prize.each do |product_prize|
+				.form-content 
+					.grid_3.alpha 
+						= product_prize.prize.lang_prize.first.name
+					.grid_3
+						= product_prize.year
+		
 		.form-container 
 			.form-content
 				.grid_3.alpha <strong>designer</strong>

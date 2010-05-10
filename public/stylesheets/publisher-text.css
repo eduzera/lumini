@@ -69,3 +69,5 @@ a.active:active { font-weight: bold; color: #FFF; text-decoration: none; }
 #sortable_images .item { overflow: hidden; }
 
 .login_message{ text-align: center;}
+
+.remove_language{text-align: center;}

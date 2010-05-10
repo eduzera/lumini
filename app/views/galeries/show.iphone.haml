@@ -2,7 +2,7 @@
 	%script{:type => "text/javascript", :charset => "utf-8"}
 		gallery_start();
 		
-	.container_6
+	.container_6{:style=>"width: 320px;"}
 		.top-bar
 			.grid_2
 				= link_to image_tag("ico-close-white.png"), galeries_path(@image.imageable_type.downcase, @image.image_type.name, @image.imageable_id), :class => "dissolve"
@@ -10,10 +10,11 @@
 			.grid_2
 				= image_tag "lumini_logo.png"
 	
-		.swipe_trigger
-			= image_tag @image.img.url(:grid_6), :class => "touch"
+	.swipe_trigger
+		= image_tag @image.img.url(:full_screen), :class => "touch"
 
-		.bottom-bar{:style=>"padding-top: 12px;"}
+	.container_6{:style=>"width: 320px;"}
+		.bottom-bar
 			.grid_1
 				= link_to image_tag ("ico-prev.png"), change_image_path(@image.imageable_id, @image.imageable_type.downcase, @image.image_type.name, @image, 'previous'), :class => 'prev'
 			.grid_4{:style=>"text-align: center"}
