@@ -6,6 +6,6 @@ class ProductPrize < ActiveRecord::Base
   validates_length_of       :year, :minimum => 2 
   validates_numericality_of :year
   
-  validates_uniqueness_of :year, :scope => :prize_id,  :message => "should happen once per year" 
+  validates_uniqueness_of :year, :scope => :product_id,  :message => "pode ser atribuido 1 vez ao Produto." 
   
 end

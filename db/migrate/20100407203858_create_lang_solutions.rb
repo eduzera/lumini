@@ -2,7 +2,7 @@ class CreateLangSolutions < ActiveRecord::Migration
   def self.up
     create_table :lang_solutions do |t|
       t.string :name
-      t.string :description
+      t.text :description
       t.references :solution
       t.references :language
       t.timestamps

@@ -34,6 +34,9 @@ class Admin::ProductsController < Admin::PublisherController
   end
   
   def update
+    
+    params[:product][:existing_product_prize_attributes] ||= {}
+    
       @product = Product.find(params[:id])
       if @product.update_attributes(params[:product])
         flash[:notice] = "Successfully updated contact."

@@ -2,8 +2,8 @@ class CreateLangProducts < ActiveRecord::Migration
   def self.up
     create_table :lang_products do |t|
       t.string :name
-      t.string :description
-      t.string :tech_description
+      t.text :description
+      t.text :tech_description
       t.references :product
       t.references :language
       t.timestamps

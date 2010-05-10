@@ -2,7 +2,7 @@ class CreateLangCategories < ActiveRecord::Migration
   def self.up
     create_table :lang_categories do |t|
       t.string :name
-      t.string :description
+      t.text :description
       t.references :category
       t.references :language
       t.timestamps

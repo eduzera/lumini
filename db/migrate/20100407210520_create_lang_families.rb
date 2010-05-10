@@ -2,7 +2,7 @@ class CreateLangFamilies < ActiveRecord::Migration
   def self.up
     create_table :lang_families do |t|
       t.string :name
-      t.string :description
+      t.text :description
       t.references :family
       t.references :language
       t.timestamps
