@@ -4,8 +4,8 @@
 			.grid_6.search 
 				%input{:type => "text", :value => "#{t "menu.busca"}"}
 			.grid_2
-				= link_to "#{t "menu.luminarias"}", categories_path
+				= link_to "#{t "menu.luminarias"}", categories_path, :class => ( request.request_uri != '/' && request.request_uri != '/stores' ? "active" :  "" )
 			.grid_2
-				= link_to "#{t "menu.lojas"}", stores_path,  :class => "slideup"
+				= link_to "#{t "menu.lojas"}", stores_path,  :class => ( request.request_uri == '/stores' ? "slideup active" :  "slideup" )
 			.grid_2
 				= link_to image_tag("lumini_logo.png",:border =>0), root_path, :class => "lumini_logo"
