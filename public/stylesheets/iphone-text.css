@@ -12,6 +12,8 @@ div { background-color: #414141 }
 .header a.lumini_logo { margin-top: 0px; margin-left: 0px; padding: 0px; }
 .header.without_link { margin-bottom: 12px; }
 
+.alignCenter { text-align: center; }
+
 .submenu { margin-top: 3px; margin-bottom: 14px; padding-top: 6px; padding-bottom: 6px; overflow: hidden; }
 	.submenu .active { color: #FFF; font-weight: bold; }
 
