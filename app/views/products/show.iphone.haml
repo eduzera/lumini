@@ -3,7 +3,7 @@
 	.container_6
 		.submenu
 			.grid_6
-				= link_to @product.category_name, category_path(@product.category), :class => "slide.in active"
+				= link_to @product.category_name, category_path(@product.category.id), :class => "slide.in active"
 				
 	.container_6
 		%p.grid_6.rule-two
