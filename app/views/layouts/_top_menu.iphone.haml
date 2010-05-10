@@ -2,7 +2,9 @@
 	.container_6
 		.header
 			.grid_6.search 
-				%input{:type => "text", :value => "#{t "menu.busca"}"}
+				-form_tag searches_path do
+					= text_field_tag "search"
+
 			.grid_2
 				= link_to "#{t "menu.luminarias"}", categories_path, :class => ( request.request_uri != '/' && request.request_uri != '/stores' ? "active" :  "" )
 			.grid_2

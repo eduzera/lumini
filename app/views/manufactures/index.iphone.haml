@@ -3,11 +3,11 @@
 	.container_6
 		.submenu
 			%p.grid_2
-				= link_to "#{t "categoria.por_tipo"}", manufactures_path, :class => "active"
+				= link_to "#{t "categoria.por_marca"}", manufactures_path, :class => "active dissolve"
 			%p.grid_2 &nbsp;
 			%p.grid_2 
-				= link_to "#{t "categoria.por_marca"}", categories_path, :class => "dissolve"
+				= link_to "#{t "categoria.por_tipo"}", categories_path, :class => "dissolve"
 	
 		%ul
 			- @manufactures.each do |manufacture|
-				%li= link_to manufacture.lang_manufacture.first.name, manufacture_path(manufacture)
+				%li= link_to manufacture.lang_manufacture.first.name, manufacture_path(manufacture) 

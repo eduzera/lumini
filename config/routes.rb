@@ -1,4 +1,8 @@
 ActionController::Routing::Routes.draw do |map|
+  map.resources :searches
+
+  map.resources :search
+
   map.root :controller => "home", :action => "index"
     
   map.admin "/admin", :controller => "admin/home", :action => "index"

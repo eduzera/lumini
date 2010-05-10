@@ -7,5 +7,6 @@ ActiveSupport::Inflector.inflections do |inflect|
 #   inflect.singular /^(ox)en/i, '\1'
    inflect.irregular 'home', 'home'
    inflect.irregular 'slideshow', 'slideshow'
+
 #   inflect.uncountable %w( fish sheep )
 end
