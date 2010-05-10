@@ -13,7 +13,7 @@
 					%br
 						= store.postal_code + " " + store.city + " " + store.state
 				%p{:style=> "margin-top: 12px;"}
-					= store.telephone
+					= link_to store.telephone , "tel:"+store.telephone
 				%p
 					= store.email
 				%p
