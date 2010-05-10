@@ -22,7 +22,7 @@
 			= image_tag (@prize.images.by_cover.first.nil? ? @prize.images.first.img.url(:grid_2) : @prize.images.by_cover.first.img.url(:grid_2))
 		%p.clear
 		
-		%ul.with_images
+		%ul.with_images{:style => "margin-top: 18px"}
 			-@product_prizes.each do |product|
 				%li
 					.grid_1.alpha
