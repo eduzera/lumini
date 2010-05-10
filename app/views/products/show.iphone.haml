@@ -4,34 +4,37 @@
 		.submenu
 			%p.grid_6
 				=@category.name
-				
+		
 	.container_6
 		%p.grid_6.rule-two
 			= @product.name
 		.grid_4{:style => "margin-bottom: 18px"}
 			= image_tag(@product.images.by_cover.first.nil? ? @product.images.first.img.url(:grid_4) : @product.images.by_cover.first.img.url(:grid_4))
-		%ul.grid_2
-			-unless @images.empty?
-				-@images.each do |img|		
+		.grid_2
+			%ul
+				-unless @images.empty?
+					-@images.each do |img|		
+						%li
+							= link_to "#{t ("product." + img.name)}", galery_path(img.imageable_id, @product.class.name.downcase, img.name), :class => "dissolve" 
+				-unless @designer.nil?
 					%li
-						= link_to "#{t ("product." + img.name)}", galery_path(img.imageable_id, @product.class.name.downcase, img.name), :class => "dissolve"
-			-unless @designer.nil?
-				%li
-					= link_to "#{t "product.designer"}", product_designers_path(@product), :class => "dissolve"
-			-unless @images.empty?
-				%li
-					= link_to "#{t "product.share"}", share_path(@product), :class => "slideup"
-				
+
+						= link_to "#{t "product.designer"}", product_designers_path(@product), :class => "dissolve"
+				-unless @images.empty?
+					%li
+						= link_to "#{t "product.share"}", share_path(@product), :class => "slideup"
+
 		%p.clear
 		.grid_4
 			%p{:style => "margin-bottom: 24px"}= @product.description
-			%p.rule-two 
+			%p.rule-two.title-two 
 				=t "product.dados_tec"
 			%p= @product.tech_description
 		
-	-@prizes.each do |prize|
-		.grid_2
-			.grid_1.alpha
-				= link_to image_tag(prize.images.by_cover.first.nil? ? prize.images.first.img.url(:grid_1) : prize.images.by_cover.first.img.url(:grid_1)), prize_path(prize), :class => "dissolve"
-			.grid_1.rule-two.arrow.omega{:style => "width: 45px;"}
-				= link_to prize.year, prize_path(prize), :class => "dissolve"
+		-@prizes.each do |prize|
+			.grid_2
+				.grid_1.alpha
+					= link_to image_tag(prize.images.by_cover.first.nil? ? prize.images.first.img.url(:grid_1) : prize.images.by_cover.first.img.url(:grid_1)), prize_path(prize), :class => "dissolve"
+				.grid_1.rule-two.arrow.omega{:style => "width: 45px;"}
+					= link_to prize.year, prize_path(prize), :class => "dissolve"
+		%p.clear

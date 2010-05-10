@@ -1,6 +1,6 @@
 pt-BR: 
   menu:
-    luminarias: "luminarias"
+    luminarias: "luminárias"
     lojas: "lojas"
     busca: "busca"      
       
@@ -11,11 +11,11 @@ pt-BR:
       fotografias: "fotografias"
       
   product:
-      fotografia: "fotografia"
+      fotografia: "fotografias"
       designer: "o designer"
       share: "share"
-      dados_tec: "dados tecnicos"
-      desenho: "desenho"
+      dados_tec: "dados técnicos"
+      desenho: "desenhos"
       
   categoria:
       por_tipo: "por tipo"
@@ -139,47 +139,47 @@ pt-BR:
   activerecord:
     attributes:
       _all:
-        created_at: "Data de criação"
-        updated_at: "Data de atualização"
-        name: "Titulo"
-        description: "Descricao"
+        created_at: "criação"
+        updated_at: "atualização"
+        name: "título"
+        description: "descrição"
       product:
-        family_id: "Familia"
-        category_id: "Categoria"
-        manufacture_id: "Marca"
+        family_id: "família"
+        category_id: "categoria"
+        manufacture_id: "marca"
       product_prize:
-        prize_id: "Premio"
-        year: "Ano do Premio"
+        prize_id: "prêmio"
+        year: "ano do prêmio"
       lang_product:
-        language_id: "Idioma"
-        product_id: "Produto"
+        language_id: "idioma"
+        product_id: "produto"
       lang_category:
-        category_id: "Categoria"
+        category_id: "categoria"
       lang_family:
-        family_id: "Familia"
+        family_id: "família"
       lang_manufacture:
-        manufacture_id: "Marca"
+        manufacture_id: "marca"
       designer:
-        birthdate: "Nascimento"
-        deathdate: "Obito"
+        birthdate: "nascimento"
+        deathdate: "óbito"
       lang_designer:
-        biography: "Biografia"
-        nacionality: "Nacionalidade"
+        biography: "biografia"
+        nacionality: "país de origem"
       lang_prize:
-        prize_id: "Premio"
+        prize_id: "prêmio"
       lang_store:
-        title: "Nome"
-        city: "Cidade"
-        state: "Estado"
-        street: "Endereco"
-        neighborhood: "Bairro"
+        title: "título"
+        city: "cidade"
+        state: "estado"
+        street: "endereço"
+        neighborhood: "complemento"
         postal_code: "CEP"
-        store_id: "Loja"
+        store_id: "loja"
       store:
-        telephone: "Telefone"
-        operation: "Funcionamento"
+        telephone: "telefone"
+        operation: "horários"
       language:
-        abbr: "Abreviacao"
+        abbr: "abreviação"
         
     errors: 
       template: 

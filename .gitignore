@@ -4,3 +4,5 @@ db/*.sqlite3
 schema.rb
 public/uploads/*
 #._*
+config/database.yml
+*._*
