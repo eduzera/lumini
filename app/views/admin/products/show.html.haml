@@ -4,7 +4,7 @@
 			= @product.lang_product.first.name
 		%p.messageBoard.grid_11 &nbsp;
 		%p.actionTriggers.grid_1.omega
-			=link_to "excluir", admin_product_path(@product), :confirm => 'Tem certeza que deseja Excluir o Produto?', :method => :delete
+			=link_to "excluir", admin_product_path(@product), :confirm => 'Capas com esse produto serão setadas para RASCUNHO e o mesmo removido delas. Tem certeza que deseja EXCLUIR o produto?', :method => :delete
 
 		
 	%ul.actionMenu

@@ -10,14 +10,14 @@ class Family < ActiveRecord::Base
   
   named_scope :by_category, lambda {| category, language |{
                             :select => "families.id 'id', lang_families.name 'name', manufactures.id 'product_manufacture_id', lang_manufactures.name 'product_manufacture'",
-                            :joins => [:lang_family, {:product => [:category, {:manufacture => [:lang_manufacture], :lang_product => [:language]}]}],
+                            :joins => {:product => [:category, {:manufacture => [:lang_manufacture], :lang_product => [:language]}], :lang_family => [:language]},
                             :conditions => ["products.family_id = families.id AND products.status = ? AND categories.id = ?
                                             AND languages.abbr = ?", true, category, language], 
                             :group => "families.id, lang_families.name"}}  
 
   named_scope :by_manufacture, lambda {| manufacture, language |{
                             :select => "families.id 'id', lang_families.name 'name', manufactures.id 'product_manufacture_id', lang_manufactures.name 'product_manufacture'",
-                            :joins => [:lang_family, {:product => [:category, {:manufacture => [:lang_manufacture], :lang_product => [:language]}]}],
+                            :joins => {:product => [:category, {:manufacture => [:lang_manufacture], :lang_product => [:language]}], :lang_family => [:language]},
                             :conditions => ["products.family_id = families.id AND products.status = ? AND manufactures.id = ?
                                             AND languages.abbr = ?", true, manufacture, language], 
                             :group => "families.id, lang_families.name"}}  

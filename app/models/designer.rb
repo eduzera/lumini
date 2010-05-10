@@ -22,7 +22,7 @@ class Designer < ActiveRecord::Base
                                 
                                 
   named_scope :by_language, lambda { |language| {
-                                :select => "designers.id 'id', designers.name 'name', lang_designers.biography 'bio',
+                                :select => "designers.id 'id', designers.name 'name', lang_designers.nacionality 'nation', lang_designers.biography 'bio',
                                             designers.birthdate 'birthdate', designers.deathdate 'deathdate'",
                                 :joins => {:lang_designer => [:language]},
                                 :conditions => ["languages.abbr = ?", language]}}

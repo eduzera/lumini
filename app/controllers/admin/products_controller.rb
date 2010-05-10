@@ -61,6 +61,14 @@ class Admin::ProductsController < Admin::PublisherController
   def destroy
     
     @product = Product.find(params[:id])
+    
+    @cover_elements = CoverElement.by_product(@product)
+    
+    @cover_elements.each do |el|
+      Cover.find(el.cover_id).update_attributes(:status => false)
+      CoverElement.find(el).destroy
+    end
+    
     @product.destroy
     
     redirect_to admin_products_path

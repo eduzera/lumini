@@ -3,7 +3,7 @@
 	.container_6
 		.submenu
 			%p.grid_2
-				=@families.first.product_manufacture
+				= (@families.empty? ? "#{t "categoria.por_marca"}" : @families.first.product_manufacture)
 			%p.grid_2 &nbsp;
 			%p.grid_2 
 				= t "familia.slideshow"

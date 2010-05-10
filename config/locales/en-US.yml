@@ -3,26 +3,44 @@
 
 en-US:
     menu:
-      luminarias: "luminarias[en]"
-      lojas: "lojas[en]"
-      busca: "busca[en]"        
+        luminarias: "lamps"
+        lojas: "stores"
+        busca: "search"        
 
     home:
-
-        destaque: "destaque[en]"
-        solucoes: "soluções[en]"
-        fotografias: "fotografias[en]"
+        destaque: "highlights"
+        solucoes: "solutions"
+        fotografias: "photos"
 
     product:
-        fotografia: "fotografia[en]"
-        designer: "o designer[en]"
-        share: "share[en]"
-        dados_tec: "dados tecnicos[en]"
-        desenho: "desenho[en]"
+        fotografia: "photos"
+        designer: "design"
+        share: "share"
+        dados_tec: "tech info"
+        desenho: "drawings"
 
     categoria:
-        por_tipo: "por tipo[en]"
-        por_marca: "por marca[en]"
+        por_tipo: "by type"
+        por_marca: "&nbsp;"
 
     familia:
         slideshow: "slideshow[en]"
+        
+    number:
+        human: 
+          format: 
+            precision: 0
+            delimiter: '.'
+          storage_units:
+              # Storage units output formatting.
+              # %u is the storage unit, %n is the number (default: 2 MB)
+            format: "%n %u"
+            units:
+              byte: 
+               one: "Byte"
+               other: "Bytes"
+              kb: "KB"
+              mb: "MB"
+              gb: "GB"
+              tb: "TB"
+
