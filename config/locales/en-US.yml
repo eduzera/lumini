@@ -3,26 +3,25 @@
 
 en-US:
     menu:
-      luminarias: "luminarias[en]"
-      lojas: "lojas[en]"
-      busca: "busca[en]"        
+        luminarias: "lamps"
+        lojas: "stores"
+        busca: "search"        
 
     home:
-
-        destaque: "destaque[en]"
-        solucoes: "soluções[en]"
-        fotografias: "fotografias[en]"
+        destaque: "highlights"
+        solucoes: "solutions"
+        fotografias: "photos"
 
     product:
-        fotografia: "fotografia[en]"
-        designer: "o designer[en]"
-        share: "share[en]"
-        dados_tec: "dados tecnicos[en]"
-        desenho: "desenho[en]"
+        fotografia: "photos"
+        designer: "design"
+        share: "share"
+        dados_tec: "tech info"
+        desenho: "drawings"
 
     categoria:
-        por_tipo: "por tipo[en]"
-        por_marca: "por marca[en]"
+        por_tipo: "by type"
+        por_marca: "by manufacturer"
 
     familia:
-        slideshow: "slideshow[en]"
+        slideshow: "slideshow"

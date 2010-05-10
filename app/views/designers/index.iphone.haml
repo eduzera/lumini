@@ -11,10 +11,8 @@
 
 	.container_6
 		.designer
-			.grid_6.title 
-				%strong
-					= @designer.name
-				= ", " + @designer.nation
+			.grid_6.title
+				= "<strong>" + @designer.name + "</strong>, " + @designer.nation
 			.grid_4 
 				%p
 					= @designer.bio
