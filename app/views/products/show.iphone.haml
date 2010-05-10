@@ -36,3 +36,4 @@
 				= link_to image_tag(prize.images.by_cover.first.nil? ? prize.images.first.img.url(:grid_1) : prize.images.by_cover.first.img.url(:grid_1)), prize_path(prize), :class => "dissolve"
 			.grid_1.rule-two.arrow.omega{:style => "width: 45px;"}
 				= link_to prize.year, prize_path(prize), :class => "dissolve"
+		%p.clear
