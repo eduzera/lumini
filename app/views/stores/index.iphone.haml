@@ -4,13 +4,17 @@
 	.container_6
 		-@stores.each do |store|
 			.submenu.alpha.omega		 
-				%strong 
-					=store.title
+				%p.title-three 
+					= store.title
 				%p
-					=store.street+ " - "+store.neighborhood
+					= store.street
+					%br
+						= store.neighborhood
+					%br
+						= store.postal_code + " " + store.city + " " + store.state
+				%p{:style=> "margin-top: 12px;"}
+					= link_to store.telephone , "tel:+55-11-3211-1320"
 				%p
-					=store.telephone
+					= store.email
 				%p
-					=store.email
-				%p
-					=store.operation
+					= store.operation

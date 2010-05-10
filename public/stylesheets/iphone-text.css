@@ -12,7 +12,7 @@ div { background-color: #414141 }
 .header a.lumini_logo { margin-top: 0px; margin-left: 0px; padding: 0px; }
 .header.without_link { margin-bottom: 12px; }
 
-.alignCenter { text-align: center !important; }
+.alignCenter { text-align: center; }
 
 .submenu { margin-top: 3px; margin-bottom: 14px; padding-top: 6px; padding-bottom: 6px; overflow: hidden; }
 	.submenu .active { color: #FFF; font-weight: bold; }
@@ -37,7 +37,7 @@ p , div { margin: 0; padding: 0; }
 
 .title-one { color: #FFF; padding-top: 10px; margin-bottom: 20px; }
 .title-two { font-weight: bold; padding-top: 10px; margin-bottom: 20px; }
-.title-three { }
+.title-three { color: #FFF; }
 .rule-one { border-top: 1px solid #FFF; color: #FFF; padding-top: 9px; margin-bottom: 20px; }
 .rule-two { border-top: 1px solid #969696; padding-top: 9px; margin-bottom: 8px; }
 .rule-three { color: #FFF; margin-top: 18px; margin-bottom: 6px; }
