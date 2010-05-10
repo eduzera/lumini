@@ -22,6 +22,7 @@
 				-unless @images.empty?
 					%li
 						= link_to "#{t "product.share"}", share_path(@product), :class => "slideup"
+		%p.clear
 		.grid_4
 			%p{:style => "margin-bottom: 24px"}= @product.description
 			%p.rule-two.title-two 
@@ -34,3 +35,4 @@
 					= link_to image_tag(prize.images.by_cover.first.nil? ? prize.images.first.img.url(:grid_1) : prize.images.by_cover.first.img.url(:grid_1)), prize_path(prize), :class => "dissolve"
 				.grid_1.rule-two.arrow.omega{:style => "width: 45px;"}
 					= link_to prize.year, prize_path(prize), :class => "dissolve"
+		%p.clear
