@@ -12,7 +12,9 @@
 	.container_6
 		.designer
 			.grid_6.title 
-				= @designer.name + ", " + @designer.nation
+				%strong
+					= @designer.name
+				= ", " + @designer.nation
 			.grid_4 
 				%p
 					= @designer.bio
