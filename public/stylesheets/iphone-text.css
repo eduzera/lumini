@@ -13,6 +13,7 @@ div { background-color: #414141 }
 .header.without_link { margin-bottom: 12px; }
 
 .submenu { margin-top: 3px; margin-bottom: 14px; padding-top: 6px; padding-bottom: 6px; overflow: hidden; }
+.submenu.active { color: #FFF; font-weight: bold; }
 
 .search input[type='text'] { -webkit-border-radius: 0px; width: 294px; padding: 4px 3px; color: #414141; background: url('../images/ico-close.png') top right no-repeat #969696; border: none; margin: 12px 0px 12px 0px; font-size: 14px; line-height: 16px; font-family: helvetica, arial, verdana, sans-serif; }
 

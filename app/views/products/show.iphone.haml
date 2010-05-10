@@ -1,9 +1,8 @@
 .wrapper
 	= render :partial => "layouts/top_menu"
 	.container_6
-		.submenu
-			.grid_6
-				= link_to @product.category_name, family_path(@product.category_name), :class => "slide.in"
+		.grid_6.submenu.active
+			= link_to @product.category_name, family_path(@product.category_name), :class => "slide.in"
 				
 	.container_6
 		%p.grid_6.rule-two
