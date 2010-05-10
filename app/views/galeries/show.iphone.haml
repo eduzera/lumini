@@ -1,9 +1,9 @@
-.wrapper{:style=>"width: 100%;"}
+.wrapper
 	%script{:type => "text/javascript", :charset => "utf-8"}
 		gallery_start();
 		
-	.container_6
-		.top-bar
+	.top-bar
+		.container_6
 			.grid_2
 				= link_to image_tag("ico-close-white.png"), galeries_path(@image.imageable_type.downcase, @image.image_type.name, @image.imageable_id), :class => "dissolve"
 			.grid_2 &nbsp
@@ -13,8 +13,8 @@
 	.swipe_trigger
 		= image_tag @image.img.url(:full_screen), :class => "touch"
 
-	.container_6
-		.bottom-bar
+	.bottom-bar
+		.container_6
 			.grid_1
 				= link_to image_tag ("ico-prev.png"), change_image_path(@image.imageable_id, @image.imageable_type.downcase, @image.image_type.name, @image, 'previous'), :class => 'prev'
 			.grid_4{:style=>"text-align: center"}
