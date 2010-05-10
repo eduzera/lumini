@@ -4,10 +4,12 @@
 	.container_6
 		-@stores.each do |store|
 			.submenu.alpha.omega		 
-				%strong 
-					=store.title
+				%p.title-one 
+					= store.title
 				%p
-					=store.street+ " - "+store.neighborhood
+					= store.street
+					%br
+						store.neighborhood
 				%p
 					=store.telephone
 				%p
