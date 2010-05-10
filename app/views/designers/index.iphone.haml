@@ -11,17 +11,14 @@
 	
 	.container_6
 		.designer
-			%p.grid_6.title 
-				= @designer.name
-			%p.clear
-			%p.grid_4.subtitle 
-				= @designer.bio
-			%p.grid_4.subtitle
-				nasc.:
-				= @designer.birthdate.strftime("%d/%m/%y")
-			-unless @designer.deathdate.nil?
-				%p.grid_4.subtitle
-					rip:
-					= @designer.deathdate.strftime("%d/%m/%y")
-			%p.grid_2.subtitle.photo 
+			.grid_6.title 
+				= @designer.name ", " @designer.nacionality
+			.grid_4 
+				%p
+					= @designer.bio
+				%p
+					= @designer.birthdate.strftime("%d/%m/%y")
+				-unless @designer.deathdate.nil?
+					= " - " @designer.deathdate.strftime("%d/%m/%y")
+			.grid_2.subtitle.photo 
 				= image_tag (@designer.images.by_cover.first.nil? ? @designer.images.first.img.url(:grid_2) : @designer.images.by_cover.first.img.url(:grid_2))
