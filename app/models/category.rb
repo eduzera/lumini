@@ -11,16 +11,22 @@ class Category < ActiveRecord::Base
                                 :group => "categories.id"
                     
                     
-  named_scope :active, lambda {|language| { :include => {:product => {:lang_product => [:language]} }, 
-                        :conditions => ["products.category_id = categories.id AND products.status = ? AND languages.abbr = ?", true, language], 
+  named_scope :active, lambda {|language| { 
+                        :select => "categories.id 'id', lang_categories.name 'name'",
+                        :joins => {:product => {:lang_product => [:language]}, :lang_category => [:language]}, 
+                        :conditions => ["products.category_id = categories.id 
+                          AND products.status = ? 
+                          AND languages.abbr = ? 
+                          AND languages_lang_products.abbr = ?", true, language, language], 
                         :group => "categories.id"}}
                         
                         
-  named_scope :info, lambda { |category| {
-                                  :select => "lang_categories.id 'id', lang_categories.name 'name'", 
-                                  :joins => [:lang_category], 
-                                  :conditions => ["categories.id = ?", category],
-                                  :group => "categories.id"}}
+#  named_scope :info, lambda { |category| {
+#                                  :select => "lang_categories.id 'id', lang_categories.name 'name'", 
+#                                  :joins => [:lang_category], 
+#                                  :conditions => ["categories.id = ?", category],
+#                                  :group => "categories.id"}}
+  
   
   def to_label
     "#{lang_category.first.name}"

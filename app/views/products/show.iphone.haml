@@ -2,9 +2,9 @@
 	= render :partial => "layouts/top_menu"
 	.container_6
 		.submenu
-			.grid_6
-				= link_to @product.category_name, family_path(@product), :class => "slide.in active"
-				
+			%p.grid_6
+				=@category.name
+
 	.container_6
 		%p.grid_6.rule-two
 			= @product.name
@@ -18,10 +18,12 @@
 							= link_to "#{t ("product." + img.name)}", galery_path(img.imageable_id, @product.class.name.downcase, img.name), :class => "dissolve" 
 				-unless @designer.nil?
 					%li
+
 						= link_to "#{t "product.designer"}", product_designers_path(@product), :class => "dissolve"
 				-unless @images.empty?
 					%li
 						= link_to "#{t "product.share"}", share_path(@product), :class => "slideup"
+
 		%p.clear
 		.grid_4
 			%p{:style => "margin-bottom: 24px"}= @product.description

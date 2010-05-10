@@ -10,5 +10,4 @@
 	
 		%ul
 			- @categories.each do |category|
-				- category.lang_category.each do |item|
-					%li= link_to item.name, family_path(item), :class => "slide.in"
+				%li= link_to category.name, family_path(category), :class => "slide.in"
