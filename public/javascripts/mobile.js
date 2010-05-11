@@ -5,14 +5,14 @@ $.jQTouch({
 	statusBar: 'black', 
 	icon: 'appicon.png',
 	formSelector: false, 
-	useFastTouch: false,
-	backSelector: '.back'
+	useFastTouch: false
+//	backSelector: '.back'
 	});
 
 $(document).ready(function(){
 	$(function(){ 
 		var jQT = $.jQTouch();
-		jQT.addAnimation({ name: 'slideback', selector: '.slideback' }); 
+	//	jQT.addAnimation({ name: 'slideback', selector: '.slideback' }); 
 	});
 });
 
