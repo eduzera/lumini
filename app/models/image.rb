@@ -10,7 +10,7 @@ class Image < ActiveRecord::Base
      :path => ":rails_root/public/uploads/:class/:imageable_type/:imageable_id/:id/:style.:extension",
      :default_url => "/images/noimg_grid1.png"
 
-  # validates_attachment_content_type :img, :content_type => ['image/jpeg', 'image/png', 'image/jpg', 'image/gif']
+  #validates_attachment_content_type :img, :content_type => ['image/jpeg', 'image/png', 'image/jpg', 'image/gif']
 
 
   # named_scope :by_product, lambda { |product, name| { 
