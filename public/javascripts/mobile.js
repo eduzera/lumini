@@ -4,9 +4,10 @@ $.jQTouch({
 	slideSelector: 'a', 
 	statusBar: 'black', 
 	icon: 'appicon.png',
-	formSelector: false, useFastTouch: false
+	formSelector: false, 
+	useFastTouch: false,
 	backSelector: '.back'
-});
+	});
 
 $(document).ready(function(){
 	$(function(){ 
