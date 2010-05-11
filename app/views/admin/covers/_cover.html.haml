@@ -11,7 +11,7 @@
 					.product{:class => "#{element.grid_size}",:id => "cover_product"}
 						%p{:class => "rule-two"}
 							=element.product.lang_product.first.name
-						= image_tag(element.product.images.by_cover.first.img.url(element.grid_size))
+						= image_tag(element.product.images.by_cover.first.img.url(element.grid_size)) unless element.product.images.by_cover.empty?
 						=hidden_field(:product_id, element.product_id, :name => "product_id", :value => element.product_id)
 						=hidden_field(:size,element.grid_size, :name => "size", :value => element.grid_size)
 

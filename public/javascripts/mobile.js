@@ -4,6 +4,7 @@ $.jQTouch({
 	slideSelector: 'a', 
 	statusBar: 'black', 
 	icon: 'appicon.png',
+	formSelector: false, useFastTouch: false
 	backSelector: '.back'
 });
 

@@ -2,9 +2,9 @@
 	.container_6
 		.header
 			.grid_6.search 
-				-form_tag searches_path do
-					= text_field_tag "search"
-
+				-form_tag searches_path, :method => :get, :class => "form" do
+					= text_field_tag "q"
+					
 			.grid_2
 				= link_to "#{t "menu.luminarias"}", categories_path, :class => ( request.request_uri != '/' && request.request_uri != '/stores' ? "active" :  "" )
 			.grid_2

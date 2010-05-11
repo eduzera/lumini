@@ -19,7 +19,7 @@ class Admin::CoversController < Admin::PublisherController
 
     @cover = Cover.find params[:id]
     
-    @products  = Product.all_with_filter.active
+    @products  = Product.all_with_filter.active.with_images
     @solutions = Solution.all_with_filter
     
   end

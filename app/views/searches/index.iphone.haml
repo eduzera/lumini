@@ -1,0 +1,12 @@
+.wrapper
+	= render :partial => "layouts/top_menu"
+	.container_6
+		-@search.images.each do |product|
+			%ul.with_images	
+				%li
+					.grid_1.alpha
+						= image_tag product.img.url(:grid_1)
+						-#= link_to image_tag (item.images.by_cover.first.nil? ? item.images.first.img.url(:grid_1) : item.images.by_cover.first.img.url(:grid_1)) , product_path(item)
+
+					.grid_5.rule-two.omega
+						-#= link_to item.name, product_path(item)

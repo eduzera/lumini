@@ -2,7 +2,7 @@
 	.product{:class => el.product_grid}
 		%p.rule-two 
 			=el.product_name
-		= link_to image_tag(image.by_imageable_id(el).first.img.url(el.product_grid)), product_path(el)
+		= link_to image_tag(image.by_imageable_id(el).first.img.url(el.product_grid)), product_path(el) #unless image.by_imageable_id(el).first.nil?
 
 	
 %p.clear
