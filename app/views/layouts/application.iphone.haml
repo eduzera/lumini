@@ -3,11 +3,9 @@
 	%head
 		%title lumini | 30 anos de soluções em iluminação
 		= stylesheet_link_tag 'reset', 'iphone-grid', 'iphone-text', 'jqtouch'
-		= javascript_include_tag :defaults, 'jqtouch.min', 'mobile'
+		= javascript_include_tag :defaults, 'jqtouch', 'mobile'
 
 		%script{:type => "text/javascript", :charset => "utf-8"}
 
-	%body
-		#page
-			-#= render :partial => "layouts/top_menu"
-			= yield
+	%body#jqt
+		= yield

@@ -3,7 +3,8 @@ $.jQTouch({
 	addGlossToIcon: false, 
 	slideSelector: 'a', 
 	statusBar: 'black', 
-	icon: 'appicon.png'
+	icon: 'appicon.png',
+	formSelector: false, useFastTouch: false
 });
 
 $(document).ready(function(){
