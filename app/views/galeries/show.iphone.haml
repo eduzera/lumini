@@ -16,7 +16,7 @@
 	.bottom-bar
 		.container_6
 			.grid_1
-				= link_to image_tag ("ico-prev.png"), change_image_path(@image.imageable_id, @image.imageable_type.downcase, @image.image_type.name, @image, 'previous'), :class => 'prev back'
+				= link_to image_tag ("ico-prev.png"), change_image_path(@image.imageable_id, @image.imageable_type.downcase, @image.image_type.name, @image, 'previous'), :class => 'prev'
 			.grid_4{:style=>"text-align: center"}
 				= link_to image_tag ("ico-thumbs.png"), galeries_path(@image.imageable_type.downcase, @image.image_type.name, @image.imageable_id), :class => "dissolve"
 			.grid_1{:style => "text-align: right;"}
