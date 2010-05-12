@@ -6,6 +6,9 @@ RAILS_GEM_VERSION = '2.3.5' unless defined? RAILS_GEM_VERSION
 # Bootstrap the Rails environment, frameworks, and default configuration
 require File.join(File.dirname(__FILE__), 'boot')
 
+# by Ezaghi - Lib de autenticacao de Protocolo de Camada de Sockets Segura.
+require 'smtp_tls'
+
 Rails::Initializer.run do |config|
   # Settings in config/environments/* take precedence over those specified here.
   # Application configuration should go into files in config/initializers
@@ -43,6 +46,20 @@ Rails::Initializer.run do |config|
   config.gem "searchlogic"
   config.gem "authlogic"
   config.gem "acl9", :source => "http://gemcutter.org", :lib => "acl9"
+  
+  
+  #Configuracao de Envio de Email - by EZaghi
+  config.action_mailer.raise_delivery_errors = true
+
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    :address => "smtp.gmail.com",
+    :port => 587,
+    :authentication => :plain,
+    :user_name => "eduardozaghi@gmail.com",
+    :password => "123456"
+  }
+  
   
   config.i18n.default_locale = "pt-BR"
 end
